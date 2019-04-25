@@ -1,5 +1,5 @@
 {
-  "name": "wordpack-docker-boilerplate",
+  "name": "robin-honey-site",
   "version": "0.0.5",
   "description": "Wordpress, Docker, Webpack, SASS, Autoprefixing, Image pipeline, Favicons",
   "scripts": {

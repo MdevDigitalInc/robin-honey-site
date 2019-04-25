@@ -8,20 +8,20 @@
     <meta property="fb:app_id" content="APP_ID_HERE" />
     <meta property="og:type" content="website" />
     <meta property="og:url"  content="http://SITE_URL_HERE" />
-    <meta property="og:title" content="SITE_TITLE_HERE" />
+    <meta property="og:title" content="ROBIN HONEY: Brand Consultant" />
     <meta property="og:image" content="http://moreiradevelopment.io/social/moreira-development-twitcard.png" />
     <!-- Twitter Card  -->
     <!-- TODO - Edit Twitter Card data and delete this comment -->
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:site" content="@SAMPLE"><meta name="twitter:creator" content="@SAMPLE"><meta name="twitter:title" content="[ MOREIRA DEVELOPMENT PROJECT ] CLIENT | PROJECT "/>
-    <meta name="twitter:description" content="Base Project Install"/>
+    <meta name="twitter:description" content="ROBIN HONEY: Brand Consultant"/>
     <meta name="twitter:image" content="http://moreiradevelopment.io/social/moreira-development-twitcard.png"/>
     <!-- Viewport Settings -->
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="mobile-web-app-capable" content="yes">
     <!-- Chrome Browser Bar Color -->
     <!-- TODO - Change theme color and delete this comment -->
-    <meta name="theme-color" content="#fff">
+    <meta name="theme-color" content="#8ccecf">
     <!-- Icons -->
     <link rel="apple-touch-icon" sizes="57x57"
       href="<?php bloginfo('template_url'); ?>/dist/icons/apple-touch-icon-57x57.png">

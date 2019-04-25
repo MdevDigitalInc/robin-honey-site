@@ -1,2 +1,27 @@
 // Import Main Stylesheet
 @import 'styles/global-main.scss';
+
+.row > * {
+  border: 1px solid #fff;
+  background-color: #ccc;
+  padding: 10px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+}
+
+@media only screen and (min-width: 1440px) {
+  .container {
+    width: 1440px;
+    margin: 0 auto;
+  }
+
+  .area-1,
+  .area-2,
+  .area-3 {
+    width: 33.333%;
+  }
+}

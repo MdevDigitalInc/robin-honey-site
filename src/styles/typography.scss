@@ -2,6 +2,29 @@
  *	TYPOGRAPHY
 /-------------------------------------*/
 
+
+// Load Fonts
+@font-face {
+	font-family: 'Gotham';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Gotham'), local('Gotham-Book'), url('../fonts/GothamBook.woff') format('woff'), url('../fonts/GothamBook.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Gotham';
+	font-style: normal;
+	font-weight: 600;
+	src: local('Gotham Medium'), local('Gotham-Medium'), url('../fonts/GothamMedium.woff') format('woff'), url('../fonts/GothamMedium.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Gotham';
+	font-style: normal;
+	font-weight: 700;
+	src: local('Gotham Bold'), local('Gotham-Bold'), url('../fonts/GothamBold.woff') format('woff'), url('../fonts/GothamBold.ttf') format('truetype');
+}
+
 /* Main */
 body {
   font-family: $main-font;
@@ -22,39 +45,72 @@ h4,.h4,
 h5,.h5,
 h6,.h6, {
   font-family: $main-font;
-  font-weight: 700;
+  font-weight: normal;
   color: inherit;
+  text-transform: uppercase;
+}
+
+h1{
+  font-family: $main-font;
+  font-weight: 700;
+  color: $dark-grey;
+  line-height: 1.5;
+  margin: 10px 0 20px 0;
+}
+
+h2{
+  font-family: $main-font;
+  font-weight: normal;
+  color: $dark-grey;
+  text-transform: lowercase;
+  line-height: 1.5;
+}
+
+h3{
+  font-family: $main-font;
+  font-weight: normal;
+  color: $white;
+  background-color: $blue;
+  text-transform: lowercase;
+  line-height: 1.5;
+}
+
+h4{
+  font-family: $main-font;
+  font-weight: 700;
+  color: $dark-grey;
+  line-height: 1.5;
 }
 
 // Responsive Font Size Maps
 $p-font-sizes: (
-  null  : 14px,
-  $tablet-up : 16px,
-  $desktop-up: 19px
+  null  : 12px,
+  $tablet-up : 20px,
+  $desktop-up: 20px
 );
 
 $h1-font-sizes: (
-  null  : 25px,
-  $tablet-up : 28px,
-  $desktop-up: 70px
+  null  : 30px,
+  $tablet-up : 40px,
+  $desktop-up: 40px
 );
 
 $h2-font-sizes: (
-  null  : 30px,
-  $tablet-up : 32px,
-  $desktop-up: 35px
+  null  : 25px,
+  $tablet-up : 38px,
+  $desktop-up: 38px
 );
 
 $h3-font-sizes: (
-  null  : 20px,
-  $tablet-up : 22px,
-  $desktop-up: 25px
+  null  : 30px,
+  $tablet-up : 46px,
+  $desktop-up: 46px
 );
 
 $h4-font-sizes: (
-  null  : 60%,
-  $tablet-up : 90%,
-  $desktop-up: 18px
+  null  : 20px,
+  $tablet-up : 30px,
+  $desktop-up: 30px
 );
 
 $h5-font-sizes: (
@@ -67,9 +123,9 @@ $h6-font-sizes: (
 
 // Links
 $link-font-sizes: (
-  null  : 16px,
-  $tablet-up : 17px,
-  $desktop-up: 18px
+  null  : 12px,
+  $tablet-up : 20px,
+  $desktop-up: 20px
 );
 
 // Responsive Font-Size Mixing (Function Only)
@@ -91,7 +147,7 @@ $link-font-sizes: (
 /* Generate Responsive Sizing */
 
 p {
-  line-height: 24px;
+  line-height: 1.5;
   @include font-size($p-font-sizes);
 }
 
@@ -142,4 +198,3 @@ a {
     color: inherit;
   }
 }
-

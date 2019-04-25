@@ -5,5 +5,11 @@ export default {
   },
   finalize() {
     // JavaScript to be fired on all pages, after page specific JS is fired
+    jQuery(document).ready(function( $ ) {
+      $( ".toggle-nav" ).click(function() {
+        $( ".toggle-nav" ).toggleClass('open');
+      });
+
+    });
   },
 };
