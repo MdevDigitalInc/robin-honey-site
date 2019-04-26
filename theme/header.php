@@ -72,3 +72,20 @@
 		<?php wp_head(); ?>
 	</head>
 	<body>
+	<div class="rhd-overlay"></div>
+	<header class="rhd-main-header">
+		<div class="rhd-container">
+			<div class="rhd-row flex flex-row flex-wrap flex-hor-center">
+				<div class="rhd-brand-area">logo here</div>
+				<div class="rhd-nav-area">
+					<nav>
+						<?php include 'main-nav.php'; ?>
+						<div class="rhd-social-nav">
+							social media icons
+						</div>
+					</nav>
+
+				</div>
+			</div>
+		</div>
+	</header>

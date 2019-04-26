@@ -5,16 +5,20 @@
 <div>
 
 
-<div class="container">
+
+
+<div class="rhd-container">
 
   <h1>Home Template</h1>
   <!-- <img src="<?php bloginfo('template_url'); ?>/img/favicon.png" /> -->
 
-  <div class="row flex flex-row flex-wrap flex-hor-center">
+  <div class="rhd-row flex flex-row flex-wrap flex-hor-center">
 
-    <div class="area-1">col</div>
-    <div class="area-2">col</div>
-    <div class="area-3">col</div>
+    <div class="rhd-area-1">col</div>
+    <div class="rhd-area-2">col</div>
+    <div class="rhd-area-3">col</div>
+    <div class="rhd-area-4">col</div>
+    <div class="rhd-area-5">col</div>
 
 
   </div>
@@ -35,9 +39,9 @@
 
   <p style="font-style: italic;">Robin has named more than a hundred, products, companies and services and designed thousands of logos. Her ability to review trademarks for knock-out searches and find workable domains as well as design and visualize the logo mean she provides fast and comprehensive advice to accelerate the process of brand naming.</p>
 
-  <a href="" class="main-btn">Meet Robin</a>
+  <a href="" class="rhd-main-btn">Meet Robin</a>
 
-  <a href="" class="secondary-btn">Send Message</a>
+  <a href="" class="rhd-secondary-btn">Send Message</a>
 
 
   <h1>h1 looks like this</h1>
@@ -53,7 +57,7 @@
   <p>Body copy light looks like this</p>
 
 
-  <div class="toggle-nav">
+  <div class="rhd-toggle-nav">
     <span></span>
     <span></span>
     <span></span>

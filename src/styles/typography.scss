@@ -5,24 +5,24 @@
 
 // Load Fonts
 @font-face {
-	font-family: 'Gotham';
-	font-style: normal;
-	font-weight: 400;
-	src: local('Gotham'), local('Gotham-Book'), url('../fonts/GothamBook.woff') format('woff'), url('../fonts/GothamBook.ttf') format('truetype');
+  font-family: 'Gotham';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Gotham'), local('Gotham-Book'), url('../fonts/GothamBook.woff') format('woff'), url('../fonts/GothamBook.ttf') format('truetype');
 }
 
 @font-face {
-	font-family: 'Gotham';
-	font-style: normal;
-	font-weight: 600;
-	src: local('Gotham Medium'), local('Gotham-Medium'), url('../fonts/GothamMedium.woff') format('woff'), url('../fonts/GothamMedium.ttf') format('truetype');
+  font-family: 'Gotham';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Gotham Medium'), local('Gotham-Medium'), url('../fonts/GothamMedium.woff') format('woff'), url('../fonts/GothamMedium.ttf') format('truetype');
 }
 
 @font-face {
-	font-family: 'Gotham';
-	font-style: normal;
-	font-weight: 700;
-	src: local('Gotham Bold'), local('Gotham-Bold'), url('../fonts/GothamBold.woff') format('woff'), url('../fonts/GothamBold.ttf') format('truetype');
+  font-family: 'Gotham';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Gotham Bold'), local('Gotham-Bold'), url('../fonts/GothamBold.woff') format('woff'), url('../fonts/GothamBold.ttf') format('truetype');
 }
 
 /* Main */
@@ -44,48 +44,16 @@ h3,.h3,
 h4,.h4,
 h5,.h5,
 h6,.h6, {
-  font-family: $main-font;
+	font-family: $main-font;
   font-weight: normal;
   color: inherit;
   text-transform: uppercase;
 }
 
-h1{
-  font-family: $main-font;
-  font-weight: 700;
-  color: $dark-grey;
-  line-height: 1.5;
-  margin: 10px 0 20px 0;
-}
-
-h2{
-  font-family: $main-font;
-  font-weight: normal;
-  color: $dark-grey;
-  text-transform: lowercase;
-  line-height: 1.5;
-}
-
-h3{
-  font-family: $main-font;
-  font-weight: normal;
-  color: $white;
-  background-color: $blue;
-  text-transform: lowercase;
-  line-height: 1.5;
-}
-
-h4{
-  font-family: $main-font;
-  font-weight: 700;
-  color: $dark-grey;
-  line-height: 1.5;
-}
-
 // Responsive Font Size Maps
 $p-font-sizes: (
   null  : 12px,
-  $tablet-up : 20px,
+	$tablet-up : 20px,
   $desktop-up: 20px
 );
 
@@ -153,21 +121,40 @@ p {
 
 h1,
 .h1 {
+  font-weight: 700;
+  color: $dark-grey;
+  line-height: 1.5;
+  margin: 10px 0 20px 0;
   @include font-size($h1-font-sizes);
 }
 
 h2,
 .h2 {
+  font-family: $main-font;
+  font-weight: 400;
+  color: $dark-grey;
+  text-transform: lowercase;
+  line-height: 1.5;
   @include font-size($h2-font-sizes);
 }
 
 h3,
 .h3 {
+  font-family: $main-font;
+  font-weight: 400;
+  color: $white;
+  background-color: $blue;
+  text-transform: lowercase;
+  line-height: 1.5;
   @include font-size($h3-font-sizes);
 }
 
 h4,
 .h4 {
+  font-family: $main-font;
+  font-weight: 700;
+  color: $dark-grey;
+  line-height: 1.5;
   @include font-size($h4-font-sizes);
 }
 
