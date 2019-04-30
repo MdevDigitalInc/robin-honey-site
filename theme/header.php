@@ -80,14 +80,18 @@
   </button>
 	<div class="rhd-overlay"></div>
   <header class="rhd-main-header">
-    <div class="rhd-container">
+    <div class="rhd-header-container">
       <div class="rhd-row flex flex-row flex-wrap flex-hor-center">
-        <div class="rhd-brand-area">logo here</div>
+        <div class="rhd-brand-area">
+          <a href="<?php echo home_url('/'); ?>" class="rhd-brand">
+              <img src="<?php echo bloginfo('template_url'); ?>/img/robin-honey-logo.svg" alt="<?php echo bloginfo('name'); ?>">
+          </a>
+        </div>
           <div class="rhd-nav-area">
             <nav>
 						<?php include 'main-nav.php'; ?>
 						<div class="rhd-social-nav">
-							<ul>
+							<ul class="rhd-social">
                 <li><i class="fab fa-linkedin"></i></li>
                 <li><i class="fab fa-twitter"></i></li>
                 <li><i class="fab fa-instagram"></i></li>

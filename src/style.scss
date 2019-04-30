@@ -21,9 +21,23 @@
   width: 100%;
 }
 
+.rhd-brand {
+  max-width: 350px;
+  display: block;
+}
+
 .rhd-container {
   width: 100%;
+  margin: 0 auto;
 }
+
+.rhd-header-container {
+  width: 100%;
+  @media #{$laptop-up} {  
+    width: 75%;
+  }
+}
+
 .rhd-main-menu > li {
   width: 100%;
   a {
@@ -64,10 +78,55 @@
   }
   background-color: $blue;
 }
+
+.rhd-social li{
+  display: inline-block;
+  font-size: 32px;
+  margin-right: 32px;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
 .rhd-social-nav {
   width: 100%;
   background-color: $gold;
+  padding: 20px;
+  .fab{
+    color: $white;
+  }
 }
+
+.rdh-social-media-footer {
+  width: auto;
+    .fab{
+      color: $gold;
+    }
+  }
+
+.rhd-meet-robin {
+  position: relative;
+}
+
+.rhd-meet-robin-inner { 
+  background: url('../img/robin-honey-portrait-bw.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  min-height: 600px;
+}
+
+.rhd-meet-robin-content {
+  background-color: $light-grey;
+  @media #{$tablet-up} {
+    width: 60%;
+    background-color: rgba(255,255,255,0.7);
+    position: absolute;
+    top: 30%;
+    left: 12.55%;
+  }
+}
+
 .rhd-overlay {
   position: fixed;
   display: none;
@@ -91,6 +150,9 @@
 
 .rhd-section-blue {
   background-color: $blue;
+  h1{
+    color: #FFF;
+  }
 }
 
 .rhd-section-light-grey {
@@ -102,9 +164,30 @@
   color: $white;
 }
 
-@media #{$laptop-up} {
+.rhd-work-box img { 
+  width: 100%;
+}
+
+
+
+@media #{$tablet-only} {
   .rhd-container {
-    width: 1440px;
+    width: 85%;
+  }
+  .rhd-brand-box {
+    width: 50%;
+  }
+  .rhd-work-box {
+    width: 50%;
+  }
+  
+
+}
+
+@media #{$laptop-up} {
+  .rhd-container, .rhd-header-container {
+    //width: 1440px;
+    width: 75%;
     margin: 0 auto;
   }
 
@@ -156,9 +239,7 @@
     width: 75%;
   }
 
-  .rdh-social-media-footer {
-    width: 50%;
-  }
+
   
   .rhd-area-1,
   .rhd-area-2,
@@ -169,4 +250,5 @@
   .rhd-brand-box {
     width: 33.333%;
   }
+
 }

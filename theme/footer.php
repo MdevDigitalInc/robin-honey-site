@@ -9,7 +9,7 @@
 
 						<div class="rdh-social-media-footer">
 
-							<ul>
+							<ul class="rhd-social">
 								<li><i class="fab fa-linkedin"></i></li>
 								<li><i class="fab fa-twitter"></i></li>
 								<li><i class="fab fa-instagram"></i></li>
