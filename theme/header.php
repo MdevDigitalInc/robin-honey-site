@@ -72,20 +72,30 @@
 		<?php wp_head(); ?>
 	</head>
 	<body>
+	<button class="rhd-toggle-nav">
+    <span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+  </button>
 	<div class="rhd-overlay"></div>
-	<header class="rhd-main-header">
-		<div class="rhd-container">
-			<div class="rhd-row flex flex-row flex-wrap flex-hor-center">
-				<div class="rhd-brand-area">logo here</div>
-				<div class="rhd-nav-area">
-					<nav>
+  <header class="rhd-main-header">
+    <div class="rhd-container">
+      <div class="rhd-row flex flex-row flex-wrap flex-hor-center">
+        <div class="rhd-brand-area">logo here</div>
+          <div class="rhd-nav-area">
+            <nav>
 						<?php include 'main-nav.php'; ?>
 						<div class="rhd-social-nav">
-							social media icons
+							<ul>
+                <li><i class="fab fa-linkedin"></i></li>
+                <li><i class="fab fa-twitter"></i></li>
+                <li><i class="fab fa-instagram"></i></li>
+                <li><i class="fab fa-pinterest"></i></li>
+              </ul>
 						</div>
-					</nav>
-
-				</div>
-			</div>
-		</div>
+            </nav>
+          </div>
+        </div>
+      </div>
 	</header>

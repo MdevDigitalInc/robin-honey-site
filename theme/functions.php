@@ -21,6 +21,7 @@ add_action('wp_enqueue_scripts', function () {
     $manifest = json_decode(file_get_contents('dist/assets.json', true));
     $main = $manifest->main;
     wp_enqueue_style('theme-css', get_template_directory_uri() . "/dist/" . $main->css,  false, null);
+    wp_enqueue_style('font-awsome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.css',  false, null);
     wp_enqueue_script('theme-js', get_template_directory_uri() . "/dist/" . $main->js, ['jquery'], null, true);
 }, 100);
 
@@ -48,7 +49,8 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
      */
     register_nav_menus([
-        'primary_navigation' => __('Primary Navigation', 'mini')
+        'primary_navigation' => __('Primary Navigation', 'mini'),
+        'footer_navigation' => __('Footer Navigation', 'mini')
     ]);
     /**
      * Enable post thumbnails

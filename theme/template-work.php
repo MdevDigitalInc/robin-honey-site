@@ -1,44 +1,61 @@
 <?php /* Template Name: Work */?>
 
+
 <?php get_header(); ?>
 
-<div>
+<main class="rhd-main">
 
+  <section>
 
-<div class="container">
+  <div class="rhd-container">
 
-  <h1><?php the_title(); ?></h1>
+    <div>Work example</div>
 
-  <?php if (have_posts()): while (have_posts()) : the_post(); ?>
+  </div>
 
-    <!-- article -->
-    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+  </section>
 
-      <?php the_content(); ?>
+  <section class="rhd-container">
+    
+    <div class="rhd-row flex flex-row flex-wrap flex-hor-center rhd-section-light-grey">
+    <aside class="rhd-aside">
+      
+      Description <br>
+      Client Website
 
+    </aside>
+    <div class="rhd-content-right">
+      
+      Example Text
 
-      <?php edit_post_link(); ?>
+    </div> 
 
-    </article>
-    <!-- /article -->
+   </div>
 
-  <?php endwhile; ?>
+  </section>
 
-  <?php else: ?>
+  <section class="rhd-section-light-grey">
+    
+    <div class="rhd-container">
 
-    <!-- article -->
-    <article>
+      <div>Grey Block</div>
 
-      <h2><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h2>
+    </div>
 
-    </article>
-    <!-- /article -->
+  </section>
 
-  <?php endif; ?>
+  <section class="rhd-section-blue">
 
-</div>
+    <div class="rhd-container">
 
+      <div>Get in touch</div>
 
-</div>
+    </div>
+
+  </section>
+
+  <?php include 'contact.php'; ?>
+
+</main>
 
 <?php get_footer(); ?>

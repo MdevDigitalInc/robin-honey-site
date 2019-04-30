@@ -145,6 +145,7 @@ h3,
   background-color: $blue;
   text-transform: lowercase;
   line-height: 1.5;
+  text-align: center;
   @include font-size($h3-font-sizes);
 }
 

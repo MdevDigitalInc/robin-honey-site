@@ -9,6 +9,10 @@
   z-index: 3;
 }
 
+.rhd-main {
+  margin-top: 100px;
+}
+
 .rhd-row > * {
   border: 1px solid #fff;
   background-color: #ccc;
@@ -32,6 +36,26 @@
     }
   }
 }
+
+.rhd-footer-menu > li {
+  width: auto;
+  font-weight: 600;
+  font-size: 18px;
+  text-transform: uppercase;
+  a {
+    padding: 10px 20px;
+    color: $dark-grey;
+    background-color: $white;
+    &:hover {
+      color: $gold;
+      background-color: $white;
+    }
+    @media #{$laptop-up} {
+      font-size: 21px;
+    }
+  }
+}
+
 .rhd-nav-area {
   display: none;
   padding: 1px;
@@ -59,6 +83,23 @@
   background-color: rgba(0,0,0,0.5);
   z-index: 2;
   cursor: pointer;
+}
+
+.u-italic {
+  font-style: italic;
+}
+
+.rhd-section-blue {
+  background-color: $blue;
+}
+
+.rhd-section-light-grey {
+  background-color: $light-grey;
+}
+
+.rhd-section-dark-grey {
+  background-color: $dark-grey;
+  color: $white;
 }
 
 @media #{$laptop-up} {
@@ -98,11 +139,34 @@
       }
     }
   }
+
+  .rhd-main-photo {
+    width: 27%;
+  }
+
+  .rhd-about-content {
+    width: 73%;
+  }
+
+  .rhd-aside {
+    width: 25%;
+  }
+
+  .rhd-content-right { 
+    width: 75%;
+  }
+
+  .rdh-social-media-footer {
+    width: 50%;
+  }
+  
   .rhd-area-1,
   .rhd-area-2,
   .rhd-area-3,
   .rhd-area-4,
-  .rhd-area-5 {
+  .rhd-area-5,
+  .rhd-work-box,
+  .rhd-brand-box {
     width: 33.333%;
   }
 }

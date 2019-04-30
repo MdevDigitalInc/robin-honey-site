@@ -1,13 +1,14 @@
 /*-------------------------------------
- *	BUTTONS MASTER STYLES
+ *  BUTTONS MASTER STYLES
  *-------------------------------------
  *
- *	Stylesheet dedicated to all button
- *	styles including colour and typography
+ *  Stylesheet dedicated to all button
+ *  styles including colour and typography
  *
 /-------------------------------------*/
 
 /* Base Button */
+
 .mdev-base-btn {
   width: auto;
   padding: 20px;
@@ -32,9 +33,8 @@
   }
 }
 
-.rhd-main-btn {
-  color: $white;
-  background-color: $baby-blue;
+
+.rhd-base-btn {
   padding: 30px 80px;
   display: block;
   font-size: 25px;
@@ -44,28 +44,26 @@
   text-transform: uppercase;
   transition: .3s;
   border-radius: 44px;
-
-  &:hover {
-    color: $white;
-    background-color: $gold;
-  }
+  cursor: pointer;
 
   @media only screen and (min-width: 768px) {
     font-size: 35px;
   }
 }
 
+.rhd-main-btn {
+  color: $white;
+  background-color: $baby-blue;
+
+  &:hover {
+    color: $white;
+    background-color: $gold;
+  }
+}
+
 .rhd-secondary-btn {
   color: $blue;
   background-color: $white;
-  padding: 30px 80px;
-  display: block;
-  font-size: 25px;
-  font-weight: 600;
-  max-width: 500px;
-  text-align: center;
-  text-transform: uppercase;
-  transition: .3s;
   border: solid 1px $white;
   border-radius: 44px;
 
@@ -73,24 +71,27 @@
     color: $white;
     background-color: $blue;
   }
-
-  @media only screen and (min-width: 768px) {
-    font-size: 35px;
-  }
 }
+
 //Mobile Nav Toggle
 .rhd-toggle-nav {
   @media #{$laptop-up} {
     display: none;
   }
   width: 24px;
-  height: 45px;
+  height: 24px;
   position: fixed;
+  background: transparent;
+  &:focus {outline: none;}
+  &::-moz-focus-inner {border: 0;}
   top: 10px;
   right: 20px;
   z-index: 9999;
   transform: rotate(0deg);
   transition: .5s ease-in-out;
+  //padding: 0;
+  border: none;
+
   cursor: pointer;
   display: block;
   span {
