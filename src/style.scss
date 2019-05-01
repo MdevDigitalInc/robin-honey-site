@@ -39,6 +39,10 @@
   }
 }
 
+strong{
+  font-weight: 600;
+}
+
 //Lists
 ul.rhd-list li {
   margin-bottom: 15px;
@@ -52,6 +56,7 @@ ul.rhd-list li {
   a {
     color: $white;
     padding: 15px;
+    transition: all, .3s;
     background-color: $blue;
     display: block;
     &:hover {
@@ -69,6 +74,7 @@ ul.rhd-list li {
     padding: 10px 20px;
     color: $dark-grey;
     background-color: $white;
+    transition: all, .3s;
     &:hover {
       color: $gold;
       background-color: $white;
@@ -100,8 +106,16 @@ ul.rhd-list li {
       &:first-child:before {
         content:''
       }
-  }
 
+  }
+  &.rhd-contact-link a {
+    border: none;
+      &:hover {
+        color: $white;
+        background-color: $gold;
+      }
+  }
+  
 }
 
 .rhd-nav-area {
@@ -113,7 +127,7 @@ ul.rhd-list li {
   background-color: $blue;
 }
 
-.rhd-social li{
+.rhd-social li {
   display: inline-block;
   font-size: 32px;
   margin-right: 32px;
@@ -217,10 +231,49 @@ ul.rhd-list li {
   position: relative;
   min-height: 300px;
   background-color: $white;
+
   img {
     @include center('both');
   }
+}
 
+.rhd-work-heading {
+  width: 100%;
+  text-align: center;
+  h1{
+    margin: 0;
+  }
+  @media #{$laptop-up} {
+    width: 50%;
+    text-align: left;
+    h1{
+      margin: 40px 0 20px 0;
+    }
+  }
+
+}
+
+.rhd-view-more-work {
+  width: 100%; 
+  text-align: center;
+  padding-top: 0;
+  .fas {
+    position: relative;
+    top: 6px;
+    font-size: 42px;
+    color: $gold;
+  }
+  span{
+    font-size: 25px;
+    text-transform: uppercase;
+    color: #b7b7b7;
+   
+  }
+  @media #{$laptop-up} {
+    width: 50%;
+    text-align: right;
+    padding-top: 50px;
+  }
 }
 
 @media #{$tablet-only} {
@@ -274,6 +327,15 @@ ul.rhd-list li {
         background-color: $white;
       }
     }
+    &.rhd-contact-link a {
+       border: solid 2px $gold;
+       border-radius: 44px;
+       &:hover {
+        color: $white;
+        background-color: $gold;
+       }
+    }
+
   }
 
   .rhd-main-photo {
@@ -292,8 +354,6 @@ ul.rhd-list li {
     width: 75%;
   }
 
-
-  
   .rhd-area-1,
   .rhd-area-2,
   .rhd-area-3,
