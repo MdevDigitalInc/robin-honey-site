@@ -13,7 +13,8 @@
     'link_before'     => '',
     'link_after'      => '',
     'depth'           => 0,
-    'walker'          => ''
+    'walker'          => '',
+    'reverse' => true
 );
 ?>
 

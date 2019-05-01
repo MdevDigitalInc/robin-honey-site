@@ -16,18 +16,24 @@ input {
   &[type="email"],
   &[type="password"],
   &[type="search"],
-  &[type="url"] {
+  &[type="url"],
+  &[type="tel"],
+   {
     width: 100%;
-    border-radius: $standard-radius;
-    padding: 10px;
+    //border-radius: $standard-radius;
+    padding: 10px 10px 10px 0;
     margin-top: 20px;
-    border: 1px solid rgba( 122, 193, 66, 0 );
-    background: $bkg-light-grey;
+    border: none;
+    border-bottom: 2px solid $white;
+    background-color: transparent;
     outline: 0;
     transition: border, .3s;
+    color: $white;
+    font-size: 25px;
+    line-height: 2;
 
     &:hover, &:focus, &:active {
-      border: 1px solid rgba( 122, 193, 66, 1 );
+      
     }
   }
 
@@ -35,6 +41,20 @@ input {
   &[type="submit"] {
     @extend .mdev-base-btn;
   }
+}
+
+textarea{
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  border: 0;
+  border-bottom: 2px solid $white;
+  background-color: transparent;
+  outline: 0;
+  transition: border, .3s;
+  color: $white;
+  font-size: 25px;
+  max-height: 100px;
 }
 
 /* stylelint-enable */

@@ -26,7 +26,7 @@
 						    'container'       => 'ul',
 						    'container_class' => '',
 						    'container_id'    => '',
-						    'menu_class'      => 'rhd-footer-menu flex flex-row-rev flex-wrap flex-hor-center',
+						    'menu_class'      => 'rhd-footer-menu flex flex-row flex-wrap flex-hor-center',
 						    'menu_id'         => '',
 						    'echo'            => true,
 						    'fallback_cb'     => 'wp_page_menu',
@@ -35,7 +35,8 @@
 						    'link_before'     => '',
 						    'link_after'      => '',
 						    'depth'           => 0,
-						    'walker'          => ''
+						    'walker'          => '',
+						    //'reverse' => true
 						);
 					    ?>
 					
@@ -53,9 +54,9 @@
 					    'theme_location'  => 'footer_navigation',
 					    'menu'            => '',
 					    'container'       => 'ul',
-					    'container_class' => 'rhd-footer-sub-links',
+					    'container_class' => '',
 					    'container_id'    => '',
-					    'menu_class'      => '',
+					    'menu_class'      => 'rhd-footer-sub-links flex flex-row flex-wrap flex-hor-center',
 					    'menu_id'         => '',
 					    'echo'            => true,
 					    'fallback_cb'     => 'wp_page_menu',
@@ -64,7 +65,8 @@
 					    'link_before'     => '',
 					    'link_after'      => '',
 					    'depth'           => 0,
-					    'walker'          => ''
+					    'walker'          => '',
+					    //'reverse' => true
 						);
 				    	?>
 

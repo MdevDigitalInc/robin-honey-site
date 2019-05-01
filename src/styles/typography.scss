@@ -116,6 +116,10 @@ $link-font-sizes: (
 
 p {
   line-height: 1.5;
+  margin: 0 0 20px 0;
+  span.text-light{
+    color: #686868;
+  }
   @include font-size($p-font-sizes);
 }
 
@@ -124,7 +128,7 @@ h1,
   font-weight: 700;
   color: $dark-grey;
   line-height: 1.5;
-  margin: 10px 0 20px 0;
+  margin: 40px 0 20px 0;
   @include font-size($h1-font-sizes);
 }
 
@@ -175,13 +179,13 @@ h6,
 /* Link Reset / Base Inherit */
 a {
   font-family: $main-font;
-  color: inherit;
+  color: $blue;
   font-size: inherit;
   font-weight: inherit;
   text-decoration: inherit;
 
   &:hover {
     text-decoration: none;
-    color: inherit;
+    color: $blue;
   }
 }

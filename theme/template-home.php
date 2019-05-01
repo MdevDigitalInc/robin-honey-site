@@ -73,15 +73,39 @@
        <div class="rhd-row flex flex-row flex-wrap flex-hor-center">
 
         <div class="rhd-brand-box">
-          logo
+          <img src="<?php echo bloginfo('template_url'); ?>/img/logo-cowbell.svg" alt="">
         </div>
         
         <div class="rhd-brand-box">
-          logo
+          <img src="<?php echo bloginfo('template_url'); ?>/img/logo-driversiti.svg" alt="">
         </div>
 
         <div class="rhd-brand-box">
-          logo
+         <img src="<?php echo bloginfo('template_url'); ?>/img/logo-gridiron.svg" alt="">
+        </div>
+
+        <div class="rhd-brand-box">
+          <img src="<?php echo bloginfo('template_url'); ?>/img/logo-renegade.svg" alt="">
+        </div>
+        
+        <div class="rhd-brand-box">
+          <img src="<?php echo bloginfo('template_url'); ?>/img/logo-anova.svg" alt="">
+        </div>
+
+        <div class="rhd-brand-box">
+         <img src="<?php echo bloginfo('template_url'); ?>/img/logo-ohvation.svg" alt="">
+        </div>
+
+        <div class="rhd-brand-box">
+          <img src="<?php echo bloginfo('template_url'); ?>/img/logo-shindig.svg" alt="">
+        </div>
+        
+        <div class="rhd-brand-box">
+          <img src="<?php echo bloginfo('template_url'); ?>/img/logo-greenius.svg" alt="">
+        </div>
+
+        <div class="rhd-brand-box">
+         <img src="<?php echo bloginfo('template_url'); ?>/img/logo-maplemoose.svg" alt="">
         </div>
          
 
