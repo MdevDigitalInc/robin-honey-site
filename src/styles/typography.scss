@@ -65,7 +65,7 @@ $h1-font-sizes: (
 
 $h2-font-sizes: (
   null  : 25px,
-  $tablet-up : 38px,
+  $tablet-up : 25px,
   $desktop-up: 38px
 );
 
@@ -116,8 +116,8 @@ $link-font-sizes: (
 
 p {
   line-height: 1.5;
-  margin: 0 0 20px 0;
-  span.text-light{
+  margin: 0 0 20px;
+  span.text-light {
     color: #686868;
   }
   @include font-size($p-font-sizes);
@@ -128,7 +128,7 @@ h1,
   font-weight: 700;
   color: $dark-grey;
   line-height: 1.5;
-  margin: 40px 0 20px 0;
+  margin: 40px 0 20px;
   @include font-size($h1-font-sizes);
 }
 
@@ -137,7 +137,7 @@ h2,
   font-family: $main-font;
   font-weight: 400;
   color: $dark-grey;
-  text-transform: lowercase;
+  text-transform: capitalize;
   line-height: 1.5;
   @include font-size($h2-font-sizes);
 }
@@ -146,9 +146,8 @@ h3,
 .h3 {
   font-weight: 400;
   color: $white;
-  background-color: $blue;
-  text-transform: lowercase;
   line-height: 1.5;
+  text-transform: none;
   @include font-size($h3-font-sizes);
 }
 

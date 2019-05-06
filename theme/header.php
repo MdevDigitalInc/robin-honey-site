@@ -92,10 +92,10 @@
 						<?php include 'main-nav.php'; ?>
 						<div class="rhd-social-nav">
 							<ul class="rhd-social">
-                <li><i class="fab fa-linkedin"></i></li>
-                <li><i class="fab fa-twitter"></i></li>
-                <li><i class="fab fa-instagram"></i></li>
-                <li><i class="fab fa-pinterest"></i></li>
+                <li><a href="" title="" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="" title="" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="" title="" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="" title="" target="_blank"><i class="fab fa-pinterest"></i></a></li>
               </ul>
 						</div>
             </nav>

@@ -33,7 +33,6 @@ input {
     line-height: 2;
 
     &:hover, &:focus, &:active {
-      
     }
   }
 
@@ -45,7 +44,7 @@ input {
 
 textarea{
   width: 100%;
-  padding: 10px;
+  padding: 10px 0;
   margin-top: 20px;
   border: 0;
   border-bottom: 2px solid $white;
@@ -70,6 +69,38 @@ textarea{
 .mdev-action-group {
   width: 100%;
   position: relative;
+}
+
+
+.rhd-form-group {
+  width: 100%;
+  position: relative;
+  text-align: left;
+}
+
+.rhd-form-group.name,
+.rhd-form-group.phone,
+.rhd-form-group.email {
+  @media #{$laptop-up} {
+    width: 30%;
+    padding: 0;
+    input {
+      &[ type = 'text' ],
+      &[ type = 'email' ],
+      &[ type = 'password' ],
+      &[ type = 'search' ],
+      &[ type = 'url' ] ,
+      &[ type = 'tel' ] {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.rhd-form-group.message {
+  @media #{$laptop-up} {
+    padding: 0;
+  }
 }
 
 

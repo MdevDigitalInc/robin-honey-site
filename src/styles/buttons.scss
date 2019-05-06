@@ -59,15 +59,30 @@
     color: $white;
     background-color: $gold;
   }
+  &:focus {
+    color: $white;
+    background-color: $gold;
+  }
+  &:active {
+    color: $white;
+    background-color: $gold;
+  }
 }
 
 .rhd-secondary-btn {
   color: $blue;
   background-color: $white;
   border: solid 1px $white;
-  border-radius: 44px;
 
   &:hover {
+    color: $white;
+    background-color: $blue;
+  }
+  &:focus {
+    color: $white;
+    background-color: $blue;
+  }
+  &:active {
     color: $white;
     background-color: $blue;
   }
@@ -84,7 +99,10 @@
   background: transparent;
   &:focus {outline: none;}
   &::-moz-focus-inner {border: 0;}
-  top: 10px;
+  top: 28px;
+  @media #{$tablet-only} {
+    top: 40px;
+  }
   right: 20px;
   z-index: 9999;
   transform: rotate(0deg);
@@ -114,11 +132,10 @@
   }
 }
 
-span:nth-child( 3 ) {
+.rhd-toggle-nav { 
+  span:nth-child( 3 ) {
   top: 8px;
-}
-
-.rhd-toggle-nav {
+  }
   span:nth-child( 4 ) {
     top: 16px;
   }

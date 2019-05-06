@@ -1,54 +1,77 @@
 // Import Main Stylesheet
 @import 'styles/global-main.scss';
 
+section {
+  padding: 40px 0;
+}
+
 .rhd-main-header {
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
   z-index: 3;
-  background-color: $white
+  background-color: $white;
+}
+
+.rhd-brand-area {
+  padding-top: 18px;
+  padding-left: 20px;
 }
 
 .rhd-main {
+  margin-top: 75px;
+  @media #{$tablet-only} {
   margin-top: 100px;
+  }
+  @media #{$laptop-up} {
+  margin-top: 150px;
+  }
+}
+
+.rhd-banner {
+  @media #{$tablet-only} {
+    padding: 50px 0;
+  }
+  @media #{$laptop-up} {
+    padding: 100px 0;
+  }
 }
 
 .rhd-row > * {
-  //border: 1px solid #fff;
-  //background-color: #ccc;
-  padding: 10px;
   box-sizing: border-box;
   width: 100%;
 }
 
 .rhd-brand {
-  max-width: 350px;
+  max-width: 210px;
   display: block;
 }
 
 .rhd-container {
-  width: 100%;
+  width: 90%;
   margin: 0 auto;
 }
 
 .rhd-header-container {
   width: 100%;
-  @media #{$laptop-up} {  
-    width: 75%;
-  }
+  min-height: 75px;
 }
 
-strong{
+strong {
   font-weight: 600;
 }
 
 //Lists
 ul.rhd-list li {
   margin-bottom: 15px;
+  list-style-position: outside;
+  line-height: 1.5;
+}
+
+.rhd-bullets{
+  margin-left: 12px;
   list-style-type: disc;
-  list-style-position: inside;
-  line-height: 1.5
 }
 
 .rhd-main-menu > li {
@@ -59,6 +82,7 @@ ul.rhd-list li {
     transition: all, .3s;
     background-color: $blue;
     display: block;
+
     &:hover {
       background-color: $baby-blue;
     }
@@ -70,11 +94,14 @@ ul.rhd-list li {
   font-weight: 600;
   font-size: 18px;
   text-transform: uppercase;
+  margin-bottom: 20px;
+
   a {
     padding: 10px 20px;
     color: $dark-grey;
     background-color: $white;
     transition: all, .3s;
+
     &:hover {
       color: $gold;
       background-color: $white;
@@ -85,42 +112,49 @@ ul.rhd-list li {
   }
 }
 
-.rhd-footer-sub-links { 
+.rhd-footer-sub-links {
+  width: 100%;
+  margin: 0  auto 40px auto;
+  @media #{$laptop-up} {
+    width: 50%;
+  }
 
-  width: 50%;
-  margin: 0 auto;
+  li {
+    margin-bottom: 5px;
 
-  li { 
-      margin-bottom: 5px;
-      
-      a ,a:visited,a:hover,a:after{
-        padding: 10px 10px;
-        text-transform: uppercase;
-        color: $dark-grey;
-      }
-      
-      &:before {
-        content:'|'
-      }
-      
-      &:first-child:before {
-        content:''
-      }
+    a,
+    a:visited,
+    a:hover,
+    a:after {
+      padding: 10px;
+      text-transform: uppercase;
+      color: $dark-grey;
+    }
 
+    &:before {
+      content: '|';
+    }
+
+    &:first-child:before {
+      content: '';
+    }
   }
   &.rhd-contact-link a {
     border: none;
-      &:hover {
-        color: $white;
-        background-color: $gold;
-      }
+    &:hover {
+      color: $white;
+      background-color: $gold;
+    }
   }
-  
+}
+
+.rhd-copy {
+  padding: 20px 0;
 }
 
 .rhd-nav-area {
   display: none;
-  padding: 1px;
+  margin-top: 20px;
   &.open {
     display: block;
   }
@@ -140,49 +174,87 @@ ul.rhd-list li {
   width: 100%;
   background-color: $gold;
   padding: 20px;
-  .fab{
+  .fab {
     color: $white;
   }
 }
 
 .rdh-social-media-footer {
+  margin-top: 50px;
   width: auto;
-    .fab{
-      color: $gold;
-    }
+  .fab {
+    color: $gold;
   }
+}
 
 .rhd-meet-robin {
   position: relative;
+  padding-bottom: 0px;
 }
 
-.rhd-meet-robin-inner { 
+.rhd-meet-robin-inner {
   background: url('../img/robin-honey-portrait-bw.png');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center center;
-  min-height: 600px;
+  background-position: 100% 0%;
+  min-height: 40vh;
+  @media #{$tablet-only} {
+    min-height: 50vh;
+    background-position: center center;
+  }
+  @media #{$laptop-up} {
+    min-height: 100vh;
+    background-position: center center;
+  }
 }
 
 .rhd-meet-robin-content {
   background-color: $light-grey;
+  width: 100%;
+  div {
+    margin: 0 auto;
+    width: 90%;
+    padding-bottom: 40px
+  }
   .rhd-main-btn {
     margin: 0 auto;
   }
-  
+  h2 {
+    padding: 40px 0;
+    text-align: center;
+  }
+
   @media #{$tablet-up} {
-    width: 60%;
-    background-color: rgba(255,255,255,0.7);
+    background-color: rgba(255,255,255,.7);
     position: absolute;
-    top: 30%;
-    left: 12.55%;
     .rhd-main-btn {
       margin: 0;
     }
+    h2 {
+      text-align: left;
+    }
+
+ }
+ @media #{$tablet-only} {
+    width: 65%;
+    left: 8%;
+    top: 45%;
   }
   @media #{$laptop-up} {
-    width: 50%;
+    width: 40%;
+    left: 12%;
+    top: 13%;
   }
+}
+
+.rhd-brand-naming-identity { 
+  padding-top: 1px;
+  padding-bottom: 80px;
+  @media #{$laptop-up} { 
+     padding-top: 30px;
+     padding-bottom: 80px;
+  }
+
 }
 
 .rhd-overlay {
@@ -197,7 +269,7 @@ ul.rhd-list li {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,.5);
   z-index: 2;
   cursor: pointer;
 }
@@ -206,15 +278,29 @@ ul.rhd-list li {
   font-style: italic;
 }
 
+.rhd-no-padding-top {
+  padding-top: 1px;
+}
+
+.rhd-no-padding-bottom {
+  padding-top: 1px;
+}
+
 .rhd-section-blue {
+  background-image: url('../img/robin-honey-pattern.svg');
+  background-repeat: repeat;
   background-color: $blue;
-  h1,p{
-    color: #FFF;
+  background-size: 350px;
+  h1,
+  p {
+    color: $white;
   }
 }
 
 .rhd-section-light-grey {
   background-color: $light-grey;
+  padding-top: 50px;
+  padding-bottom:  100px;
 }
 
 .rhd-section-dark-grey {
@@ -222,39 +308,93 @@ ul.rhd-list li {
   color: $white;
 }
 
-.rhd-work-box img { 
+.rhd-work-box {
   width: 100%;
+  img {
+    width: 100%;
+    filter: opacity(1);
+    transition: filter 1s, background 1s;
+    &:hover{
+    filter: opacity(0.5);
+    }
+  }
+  @media #{$tablet-only} {
+    width: 48%;
+    h4{
+     font-size: 16px;
+     margin: 10px 0;
+    }
+  }
+  @media #{$laptop-only} {
+    h4{
+     font-size: 16px;
+     margin: 10px 0;
+    }
+  }
+  @media #{$laptop-up} {
+    width: 30%;
+    h4 {
+      margin: 15px 0;
+    }
+  }
 }
 
+// .rhd-flex-justify-switch {
+//   @media #{$laptop-up} {
+//     justify-content: space-between;
+//   }
+
+//   @media #{$tablet-only} {
+//     justify-content: space-around;
+//   }
+// }
 
 .rhd-brand-box {
   position: relative;
+  min-height: 100px;
+  border-right: 1px solid $dark-grey;
+  border-bottom: 1px solid $dark-grey;
+  @media #{$tablet-only} { 
+  min-height: 200px;
+  }
+  @media #{$laptop-up} {
   min-height: 300px;
+  }
   background-color: $white;
-
+  width: 33.333%;
+  &:nth-child(3n+1){
+    border-left: none;
+  }
+  &:nth-child(3n+0){
+    border-right: none;
+  }
+  &:nth-last-child(-n+3){
+    border-bottom: none;
+  }
   img {
     @include center('both');
   }
 }
 
+
+
 .rhd-work-heading {
   width: 100%;
   text-align: center;
-  h1{
+  h1 {
     margin: 0;
   }
   @media #{$laptop-up} {
     width: 50%;
     text-align: left;
-    h1{
-      margin: 40px 0 20px 0;
+    h1 {
+      margin: 40px 0 20px;
     }
   }
-
 }
 
 .rhd-view-more-work {
-  width: 100%; 
+  width: 100%;
   text-align: center;
   padding-top: 0;
   .fas {
@@ -263,11 +403,10 @@ ul.rhd-list li {
     font-size: 42px;
     color: $gold;
   }
-  span{
+  span {
     font-size: 25px;
     text-transform: uppercase;
     color: #b7b7b7;
-   
   }
   @media #{$laptop-up} {
     width: 50%;
@@ -280,35 +419,52 @@ ul.rhd-list li {
   .rhd-container {
     width: 85%;
   }
-  .rhd-brand-box {
-    width: 50%;
-  }
-  .rhd-work-box {
-    width: 50%;
-  }
-  
 
+  .rhd-header-container {
+    min-height: 100px;
+  }
+
+  .rhd-brand {
+    max-width: 340px;
+  }
+}
+
+@media #{$tablet-up} {
+  .rhd-container,
+  .rhd-header-container {
+    margin: 0 auto;
+  }
 }
 
 @media #{$laptop-up} {
-  .rhd-container, .rhd-header-container {
-    //width: 1440px;
+  .rhd-container,
+  .rhd-header-container {
     width: 75%;
-    margin: 0 auto;
+    min-height: 150px;
+  }
+
+  .rhd-brand {
+    max-width: 400px
   }
 
   .rhd-brand-area {
     width: 40%;
+    padding-top: 38px;
+    padding-left: 0;
   }
 
   .rhd-nav-area {
     width: 60%;
+    margin-top: 0;
     display: block;
     background-color: transparent;
+    padding-top: 55px;
   }
+
   .rhd-social-nav {
     display: none;
   }
+
   .rhd-overlay.open {
     display: none;
   }
@@ -322,20 +478,22 @@ ul.rhd-list li {
       padding: 10px 20px;
       color: $dark-grey;
       background-color: $white;
+
       &:hover {
         color: $gold;
         background-color: $white;
       }
     }
+
     &.rhd-contact-link a {
-       border: solid 2px $gold;
-       border-radius: 44px;
-       &:hover {
+      border: solid 2px $gold;
+      border-radius: 44px;
+
+      &:hover {
         color: $white;
         background-color: $gold;
-       }
+      }
     }
-
   }
 
   .rhd-main-photo {
@@ -348,20 +506,24 @@ ul.rhd-list li {
 
   .rhd-aside {
     width: 25%;
+    border-right: 1px solid;
+    padding-top: 0;
+    margin-top: 42px;
+    h1{
+      margin-top: 0px;
+    }
   }
 
-  .rhd-content-right { 
+  .rhd-copy {
+    min-height: auto;
+  }
+
+  .rhd-content-right {
     width: 75%;
+    padding-left: 100px;
   }
 
-  .rhd-area-1,
-  .rhd-area-2,
-  .rhd-area-3,
-  .rhd-area-4,
-  .rhd-area-5,
-  .rhd-work-box,
   .rhd-brand-box {
     width: 33.333%;
   }
-
 }
