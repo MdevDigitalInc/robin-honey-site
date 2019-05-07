@@ -4,7 +4,7 @@
     'container'       => 'ul',
     'container_class' => '',
     'container_id'    => '',
-    'menu_class'      => 'rhd-main-menu flex flex-row-rev flex-wrap',
+    'menu_class'      => 'rhd-main-menu flex flex-row flex-wrap flex-hor-end',
     'menu_id'         => '',
     'echo'            => true,
     'fallback_cb'     => 'wp_page_menu',
@@ -14,7 +14,7 @@
     'link_after'      => '',
     'depth'           => 0,
     'walker'          => '',
-    'reverse' => true
+    'reverse' => false
 );
 ?>
 

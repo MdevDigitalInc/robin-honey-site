@@ -11,16 +11,19 @@
     <div class="rhd-container">
        <div class="rhd-row flex flex-row flex-wrap flex-hor-around">
         <div class="rhd-work-box">
-           <a href="" title=""><img src="<?php echo bloginfo('template_url'); ?>/img/work-cowbell-thumbnail.png" alt=""></a>
+          <a href="" title=""><img src="<?php echo bloginfo('template_url'); ?>/img/work-cowbell-thumbnail.png" alt="">
           <h4 class="u-text-center" >cowbell brewing co.<h4>
+          </a>
         </div>
         <div class="rhd-work-box">
-            <a href="" title=""><img src="<?php echo bloginfo('template_url'); ?>/img/work-maxliving-thumbnail.png" alt=""></a>
-          <h4 class="u-text-center">maxliving</h4>
+          <a href="" title=""><img src="<?php echo bloginfo('template_url'); ?>/img/work-maxliving-thumbnail.png" alt="">
+            <h4 class="u-text-center">maxliving</h4>
+          </a>
         </div>
         <div class="rhd-work-box">
-          <a href="" title=""><img src="<?php echo bloginfo('template_url'); ?>/img/work-navigreat-thumbnail.png" alt=""></a>
-        <h4 class="u-text-center">navigreat</h4>
+          <a href="" title=""><img src="<?php echo bloginfo('template_url'); ?>/img/work-navigreat-thumbnail.png" alt="">
+            <h4 class="u-text-center">navigreat</h4>
+          </a>
         </div>
        </div>
     </div>
@@ -41,7 +44,8 @@
       <p>Robin has named more than a hundred, products, companies and services and designed thousands of logos. Her ability to review trademarks for knock-out searches and find workable domains as well as design and visualize the logo mean she provides fast and comprehensive advice to accelerate the process of brand naming.</p>
        <div class="rhd-row flex flex-row flex-wrap flex-hor-center">
         <div class="rhd-brand-box">
-          <img src="<?php echo bloginfo('template_url'); ?>/img/logo-cowbell.svg" alt="">
+        <img src="<?php echo bloginfo('template_url'); ?>/img/logo-cowbell.svg" alt="">
+         <!--  <img src="<?php echo bloginfo('template_url'); ?>/img/logo-cowbell.png" alt=""> -->
         </div>
         <div class="rhd-brand-box">
           <img src="<?php echo bloginfo('template_url'); ?>/img/logo-driversiti.svg" alt="">

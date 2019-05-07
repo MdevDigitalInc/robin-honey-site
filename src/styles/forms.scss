@@ -4,6 +4,11 @@ form {
   position: relative;
 }
 
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    color: #fff;
+}
+
 
 /* stylelint-disable */
 /* Disabled because it is valid and I need this level of control*/

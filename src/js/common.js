@@ -8,7 +8,8 @@ export default {
     jQuery(document).ready(function( $ ) {
       $( ".rhd-toggle-nav, .rhd-overlay" ).click(function() {
         $( ".rhd-toggle-nav" ).toggleClass('open');
-        $( ".rhd-nav-area" ).toggleClass('open');
+        $( ".rhd-nav-area").toggleClass('open');
+        //$( ".rhd-main-menu").toggleClass('flex-column-rev');
         $( ".rhd-overlay" ).toggleClass('open');
       });
 
