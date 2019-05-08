@@ -29,7 +29,7 @@
 body {
   font-family: $main-font;
   font-size: 16px;
-  color: $black;
+  color: $dark-grey;
 }
 
 /* Headings & Body Copy */
@@ -58,7 +58,7 @@ $p-font-sizes: (
 );
 
 $h1-font-sizes: (
-  null  : 30px,
+  null  : 22px,
   $tablet-up : 35px,
   $desktop-up: 40px
 );

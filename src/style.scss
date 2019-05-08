@@ -103,17 +103,45 @@ strong {
   background-color: $blue;
 }
 
-.rhd-main-menu > li {
-  width: 100%;
-  a {
-    color: $white;
-    padding: 15px;
-    transition: all, .3s;
-    background-color: $blue;
-    display: block;
+.rhd-main-menu  {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: $blue;
+  @media #{$laptop-up} { 
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: transparent;
+  }
 
-    &:hover {
-      background-color: $baby-blue;
+  li {
+    width: 100%;
+
+    a {
+      color: $white;
+      padding: 15px;
+      transition: all, .3s;
+      background-color: $blue;
+      display: block;
+      font-weight: 600;
+      font-size: 30px;
+      text-transform:  uppercase;
+
+      &:hover {
+        background-color: $baby-blue;
+      }
+    }
+
+    ul.sub-menu {
+      @media #{$laptop-up} {
+        display: none;
+      }
+
+      li a {
+        font-weight: 400;
+        text-transform:  uppercase;
+        font-size:  20px;
+        text-indent: 20px;
+      }
     }
   }
 }
@@ -150,9 +178,13 @@ ul.rhd-list li {
       color: $gold;
       background-color: $white;
     }
+
     @media #{$laptop-up} {
       font-size: 21px;
     }
+  }
+  ul.sub-menu {
+    display: none;
   }
 }
 
@@ -219,6 +251,16 @@ ul.rhd-list li {
   width: auto;
   .fab {
     color: $gold;
+  }
+}
+
+.rhd-work-examples {
+  @media #{$laptop-up} {
+    padding-top: 60px;
+  }
+
+  @media #{$tablet-only} {
+    padding-top: 45px;
   }
 }
 
@@ -361,12 +403,14 @@ ul.rhd-list li {
       filter: opacity(0.2);
     }
   }
+  h4{
+    margin: 10px 0;
+  }
 
   @media #{$tablet-only} {
     width: 48%;
     h4{
      font-size: 16px;
-     margin: 10px 0;
     }
   }
 
@@ -381,14 +425,15 @@ ul.rhd-list li {
     width: 30%;
     h4 {
       position: absolute;
-      top: 290px;
+      top: 100%;
       margin: 15px 0;
       width: 100%;
       transition: top 500ms ease;
+      font-size: 25px;
     }
     &:hover {
       h4 {
-        top: 100px;
+        top: 40%;
       }
     }
   }
@@ -520,13 +565,13 @@ ul.rhd-list li {
 
   .rhd-main-menu > li {
     width: auto;
-    font-weight: 600;
     font-size: 21px;
     text-transform: uppercase;
     a {
       padding: 10px 20px;
       color: $dark-grey;
       background-color: $white;
+      font-size:  21px;
 
       &:hover {
         color: $gold;

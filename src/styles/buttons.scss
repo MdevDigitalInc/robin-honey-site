@@ -35,19 +35,18 @@
 
 
 .rhd-base-btn {
-  padding: 30px 80px;
+  padding: 20px 60px;
   display: block;
   font-size: 25px;
   font-weight: 600;
-  max-width: 500px;
+  margin: 20px 0;
   text-align: center;
   text-transform: uppercase;
   transition: .3s;
   border-radius: 44px;
   cursor: pointer;
-
-  @media only screen and (min-width: 768px) {
-    font-size: 35px;
+  @media #{$tablet-up} {
+    display: inline-block;
   }
 }
 
@@ -78,10 +77,12 @@
     color: $white;
     background-color: $blue;
   }
+
   &:focus {
     color: $white;
     background-color: $blue;
   }
+
   &:active {
     color: $white;
     background-color: $blue;
@@ -90,28 +91,36 @@
 
 //Mobile Nav Toggle
 .rhd-toggle-nav {
-  @media #{$laptop-up} {
-    display: none;
-  }
   width: 24px;
   height: 24px;
   position: fixed;
   background: transparent;
-  &:focus {outline: none;}
-  &::-moz-focus-inner {border: 0;}
   top: 28px;
+
+  @media #{$laptop-up} {
+    display: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
+
   @media #{$tablet-only} {
     top: 40px;
   }
+
   right: 20px;
   z-index: 9999;
   transform: rotate(0deg);
   transition: .5s ease-in-out;
-  //padding: 0;
   border: none;
-
   cursor: pointer;
   display: block;
+
   span {
     display: block;
     position: absolute;
@@ -126,31 +135,37 @@
     &:nth-child( 1 ) {
       top: 0;
     }
+
     &:nth-child( 2 ) {
       top: 8px;
     }
   }
 }
 
-.rhd-toggle-nav { 
+.rhd-toggle-nav {
   span:nth-child( 3 ) {
   top: 8px;
   }
+
   span:nth-child( 4 ) {
     top: 16px;
   }
+
   &.open span {
     &:nth-child( 1 ) {
       top: 15px;
       width: 0%;
       left: 50%;
     }
+
     &:nth-child( 2 ) {
       transform: rotate(45deg);
     }
+
     &:nth-child( 3 ) {
       transform: rotate(-45deg);
     }
+
     &:nth-child( 4 ) {
       top: 10px;
       width: 0%;

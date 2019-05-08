@@ -8,7 +8,7 @@
     </div>
   </section>
   <section>
-    <div class="rhd-container">
+    <div class="rhd-container rhd-work-examples">
        <div class="rhd-row flex flex-row flex-wrap flex-hor-around">
         <div class="rhd-work-box">
           <a href="" title=""><img src="<?php echo bloginfo('template_url'); ?>/img/work-cowbell-thumbnail.png" alt="">

@@ -4,9 +4,11 @@ form {
   position: relative;
 }
 
-input::-webkit-input-placeholder,
-textarea::-webkit-input-placeholder {
-    color: #fff;
+
+
+::placeholder {
+  color: #fff;
+  opacity: 1; /* Firefox */
 }
 
 
@@ -36,8 +38,9 @@ input {
     color: $white;
     font-size: 25px;
     line-height: 2;
-
     &:hover, &:focus, &:active {
+    background-color: transparent;
+    color: $white;
     }
   }
 
