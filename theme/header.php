@@ -92,10 +92,10 @@
 						<?php include 'main-nav.php'; ?>
 						<div class="rhd-social-nav">
 							<ul class="rhd-social">
-                <li><a href="" title="" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-                <li><a href="" title="" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="" title="" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                <li><a href="" title="" target="_blank"><i class="fab fa-pinterest"></i></a></li>
+                <li><a href="https://ca.linkedin.com/in/robinhoney/" title="" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="https://twitter.com/honeylondon?lang=en" title="" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="https://www.instagram.com/robin.honey/" title="" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="https://www.pinterest.ca/honeydesign/" title="" target="_blank"><i class="fab fa-pinterest"></i></a></li>
               </ul>
 						</div>
             </nav>

@@ -80,6 +80,7 @@ strong {
     visibility: visible;
     top: 0;
     z-index: 0;
+    min-height: 150px;
   }
   z-index: -2;
   top: -300px;
@@ -103,6 +104,8 @@ strong {
 }
 
 .rhd-main-menu {
+  overflow-y: auto;
+  max-height: 400px;
   padding-top: 20px;
   padding-bottom: 20px;
   background-color: $blue;
@@ -190,39 +193,37 @@ ul.rhd-list.contact li {
   }
 }
 
-.rhd-footer-sub-links {
-  width: 100%;
-  margin: 0  auto 40px;
+.rhd-flex-list {
+  position: relative;
+  margin-bottom: 20px;
+  overflow: hidden;
+  font-size: 14px;
+  width: 75%;
   @media #{$laptop-up} {
-    width: 50%;
+    width: 40%;
   }
+}
 
-  li {
-    margin-bottom: 5px;
+.rhd-flex-list ul {
+  margin-left: -1px;
+}
 
-    a,
-    a:visited,
-    a:hover,
-    a:after {
-      padding: 10px;
-      text-transform: uppercase;
-      color: $dark-grey;
-    }
-
-    &:before {
-      content: '|';
-    }
-
-    &:first-child:before {
-      content: '';
-    }
-  }
-  &.rhd-contact-link a {
-    border: none;
-    &:hover {
-      color: $white;
-      background-color: $gold;
-    }
+.rhd-flex-list li {
+  flex-grow: 1;
+  flex-basis: auto;
+  margin: 5px 0;
+  padding: 0 5px;
+  text-align: center;
+  border-left: 1px solid $alt-grey;
+  background-color: $white;
+  text-transform: uppercase;
+  a,
+  a:visited,
+  a:hover,
+  a:after {
+    padding: 10px;
+    text-transform: uppercase;
+    color: $dark-grey;
   }
 }
 
@@ -536,7 +537,7 @@ ul.rhd-list.contact li {
 .rhd-about-robin {
   @media #{$laptop-up} {
     padding-top: 1px;
-    padding-bottom: 1px;
+    padding-bottom: 50px;
   }
 }
 
