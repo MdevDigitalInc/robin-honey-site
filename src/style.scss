@@ -17,13 +17,12 @@ section {
     min-height: 75px;
 
     @media #{$tablet-only} {
-    min-height: 100px;
+      min-height: 100px;
     }
 
     @media #{$laptop-up} {
       min-height: 150px;
     }
-
   }
 }
 
@@ -36,11 +35,11 @@ section {
 .rhd-main {
   margin-top: 75px;
   @media #{$tablet-only} {
-  margin-top: 100px;
+    margin-top: 100px;
   }
 
   @media #{$laptop-up} {
-  margin-top: 150px;
+    margin-top: 150px;
   }
 }
 
@@ -84,7 +83,7 @@ strong {
   }
   z-index: -2;
   top: -300px;
-  transition: top 500ms ease;
+  transition: top .5s ease;
   height: 0;
   visibility: hidden;
   &.open {
@@ -103,11 +102,11 @@ strong {
   background-color: $blue;
 }
 
-.rhd-main-menu  {
+.rhd-main-menu {
   padding-top: 20px;
   padding-bottom: 20px;
   background-color: $blue;
-  @media #{$laptop-up} { 
+  @media #{$laptop-up} {
     padding-top: 0;
     padding-bottom: 0;
     background-color: transparent;
@@ -124,25 +123,25 @@ strong {
       display: block;
       font-weight: 600;
       font-size: 30px;
-      text-transform:  uppercase;
+      text-transform: uppercase;
 
       &:hover {
         background-color: $baby-blue;
       }
     }
+  }
+}
 
-    ul.sub-menu {
-      @media #{$laptop-up} {
-        display: none;
-      }
+ul.sub-menu {
+  @media #{$laptop-up} {
+    display: none;
+  }
 
-      li a {
-        font-weight: 400;
-        text-transform:  uppercase;
-        font-size:  20px;
-        text-indent: 20px;
-      }
-    }
+  li a {
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 20px;
+    text-indent: 20px;
   }
 }
 
@@ -153,12 +152,15 @@ ul.rhd-list li {
   line-height: 1.5;
 }
 
-.rhd-bullets{
+ul.rhd-list.contact li {
+  margin-bottom: 6px;
+  line-height: 1.1;
+}
+
+.rhd-bullets {
   margin-left: 12px;
   list-style-type: disc;
 }
-
-
 
 //Footer elements
 .rhd-footer-menu > li {
@@ -190,7 +192,7 @@ ul.rhd-list li {
 
 .rhd-footer-sub-links {
   width: 100%;
-  margin: 0  auto 40px auto;
+  margin: 0  auto 40px;
   @media #{$laptop-up} {
     width: 50%;
   }
@@ -266,7 +268,7 @@ ul.rhd-list li {
 
 .rhd-meet-robin {
   position: relative;
-  padding-bottom: 0px;
+  padding-bottom: 0;
 }
 
 .rhd-meet-robin-inner {
@@ -293,7 +295,7 @@ ul.rhd-list li {
   div {
     margin: 0 auto;
     width: 90%;
-    padding-bottom: 40px
+    padding-bottom: 40px;
   }
   .rhd-main-btn {
     margin: 0 auto;
@@ -333,10 +335,9 @@ ul.rhd-list li {
   padding-bottom: 80px;
 
   @media #{$laptop-up} {
-     padding-top: 30px;
-     padding-bottom: 80px;
+    padding-top: 30px;
+    padding-bottom: 80px;
   }
-
 }
 
 .rhd-overlay {
@@ -381,8 +382,6 @@ ul.rhd-list li {
 
 .rhd-section-light-grey {
   background-color: $light-grey;
-  padding-top: 50px;
-  padding-bottom:  100px;
 }
 
 .rhd-section-dark-grey {
@@ -400,24 +399,24 @@ ul.rhd-list li {
   }
   &:hover {
     img {
-      filter: opacity(0.2);
+      filter: opacity(.2);
     }
   }
-  h4{
+  h4 {
     margin: 10px 0;
   }
 
   @media #{$tablet-only} {
     width: 48%;
-    h4{
-     font-size: 16px;
+    h4 {
+      font-size: 16px;
     }
   }
 
   @media #{$laptop-only} {
-    h4{
-     font-size: 16px;
-     margin: 10px 0;
+    h4 {
+      font-size: 16px;
+      margin: 10px 0;
     }
   }
 
@@ -428,7 +427,7 @@ ul.rhd-list li {
       top: 100%;
       margin: 15px 0;
       width: 100%;
-      transition: top 500ms ease;
+      transition: top .5s ease;
       font-size: 25px;
     }
     &:hover {
@@ -447,23 +446,23 @@ ul.rhd-list li {
   filter: opacity(1);
   transition: filter 1s, background 1s;
   &:hover {
-    filter: opacity(0.5);
+    filter: opacity(.5);
   }
-  @media #{$tablet-only} { 
-  min-height: 200px;
+  @media #{$tablet-only} {
+    min-height: 200px;
   }
   @media #{$laptop-up} {
-  min-height: 300px;
+    min-height: 300px;
   }
   background-color: $white;
   width: 33.333%;
-  &:nth-child(3n+1){
+  &:nth-child( 3n+1 ) {
     border-left: none;
   }
-  &:nth-child(3n+0){
+  &:nth-child( 3n+0 ) {
     border-right: none;
   }
-  &:nth-last-child(-n+3){
+  &:nth-last-child( -n+3 ) {
     border-bottom: none;
   }
   img {
@@ -473,14 +472,13 @@ ul.rhd-list li {
   }
 }
 
-
-
 .rhd-work-heading {
   width: 100%;
   text-align: center;
   h1 {
     margin: 0;
   }
+
   @media #{$laptop-up} {
     width: 50%;
     text-align: left;
@@ -494,24 +492,117 @@ ul.rhd-list li {
   width: 100%;
   text-align: center;
   padding-top: 0;
+  margin-bottom: 15px;
   .fas {
     position: relative;
-    top: 6px;
-    font-size: 42px;
+    top: 3px;
+    font-size: 25px;
     color: $gold;
   }
   span {
-    font-size: 25px;
+    font-size: 16px;
     text-transform: uppercase;
     color: $alt-grey;
+    font-weight: 600;
+    position: inline-block;
+    margin: 0 10px;
+  }
+
+  @media #{$tablet-only} {
+    margin-bottom: 30px;
+    .fas {
+      top: 6px;
+      font-size: 35px;
+    }
+    span {
+      font-size: 20px;
+    }
   }
 
   @media #{$laptop-up} {
     width: 50%;
     text-align: right;
     padding-top: 50px;
+    .fas {
+      top: 3px;
+      font-size: 30px;
+    }
+    span {
+      font-size: 20px;
+    }
   }
 }
+
+.rhd-about-robin {
+  @media #{$laptop-up} {
+    padding-top: 1px;
+    padding-bottom: 1px;
+  }
+}
+
+.rhd-main-photo {
+  padding: 30px 30px 0;
+  overflow: hidden;
+  height: 200px;
+  img {
+    width: 100%;
+  }
+
+  @media #{$tablet-only} {
+    padding: 40px 40px 0;
+    height: 400px;
+  }
+  @media #{$laptop-up} {
+    width: 27%;
+    height: auto;
+    padding: 50px 0 50px 50px;
+  }
+}
+
+.rhd-about-content {
+  padding: 0 30px 30px;
+
+  @media #{$tablet-only} {
+    padding: 0 40px 40px;
+  }
+
+  @media #{$laptop-up} {
+    width: 73%;
+    padding: 0 50px;
+  }
+}
+
+.rhd-work-example-banner {
+  padding: 20px 0 10px;
+}
+
+
+.rhd-work-example-info {
+  padding: 10px 0;
+  @media #{$laptop-up} {
+    padding: 80px 0;
+  }
+}
+
+.rhd-aside.brand-description {
+  border-bottom: 1px solid;
+  h4,
+  p {
+    text-align: center;
+  }
+
+  @media #{$tablet-up} {
+    h4,
+    p {
+      text-align: left;
+    }
+  }
+}
+
+.rhd-work-example-logo {
+  padding: 10px 0;
+}
+
 
 @media #{$tablet-only} {
   .rhd-container {
@@ -521,6 +612,52 @@ ul.rhd-list li {
   .rhd-brand {
     max-width: 340px;
   }
+
+  .rhd-aside.brand-description ,
+  .rhd-work-example-logo {
+    width: 50%;
+  }
+  .rhd-aside.brand-description {
+    border-right: 1px solid;
+    border-bottom: 0;
+  }
+  .rhd-content-right.brand-description {
+    padding-top: 20px;
+  }
+}
+
+.wpcf7-response-output {
+  color: $white;
+  font-weight: 600;
+}
+
+div.wpcf7-validation-errors,
+div.wpcf7-acceptance-missing,
+div.wpcf7-response-output {
+  border: 0;
+  padding: 0; 
+  margin: 10px 0;
+}
+
+div.wpcf7-mail-sent-ok:before {
+  content: 'Thank You';
+  display: block;
+  font-weight: 600;
+  margin: 10px 0 20px;
+  font-size: 25px;
+}
+
+.wpcf7-response-output:after {
+  content: '\f0e0';
+  font-family: Font Awesome\ 5 Free;
+  display: block;
+  font-size: 80px;
+  color: $white;
+  margin-top: 20px;
+}
+
+.wpcf7-not-valid-tip {
+  margin-top: 10px;
 }
 
 @media #{$tablet-up} {
@@ -538,7 +675,7 @@ ul.rhd-list li {
   }
 
   .rhd-brand {
-    max-width: 400px
+    max-width: 400px;
   }
 
   .rhd-brand-area {
@@ -571,7 +708,7 @@ ul.rhd-list li {
       padding: 10px 20px;
       color: $dark-grey;
       background-color: $white;
-      font-size:  21px;
+      font-size: 21px;
 
       &:hover {
         color: $gold;
@@ -590,22 +727,24 @@ ul.rhd-list li {
     }
   }
 
-  .rhd-main-photo {
-    width: 27%;
-  }
-
-  .rhd-about-content {
-    width: 73%;
-  }
-
   .rhd-aside {
     width: 25%;
     border-right: 1px solid;
     padding-top: 0;
-    margin-top: 42px;
-    h1{
-      margin-top: 0px;
+    h1 {
+      margin-top: 0;
     }
+  }
+
+  .rhd-aside.brand-description {
+    border-bottom: none;
+  }
+
+  .rhd-work-example-logo {
+    width: 20%;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 20px;
   }
 
   .rhd-copy {
@@ -614,7 +753,15 @@ ul.rhd-list li {
 
   .rhd-content-right {
     width: 75%;
-    padding-left: 100px;
+    padding-left: 60px;
+    h1:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .rhd-content-right.brand-description {
+    width: 55%;
+    padding-left: 20px;
   }
 
   .rhd-brand-box {

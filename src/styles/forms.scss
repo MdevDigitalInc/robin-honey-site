@@ -62,6 +62,8 @@ textarea{
   color: $white;
   font-size: 25px;
   max-height: 100px;
+  font-family: $main-font;
+  font-weight: normal;
 }
 
 /* stylelint-enable */
@@ -87,10 +89,11 @@ textarea{
 }
 
 .rhd-form-group.name,
+.rhd-form-group.company-name,
 .rhd-form-group.phone,
 .rhd-form-group.email {
   @media #{$laptop-up} {
-    width: 30%;
+    width: 22%;
     padding: 0;
     input {
       &[ type = 'text' ],

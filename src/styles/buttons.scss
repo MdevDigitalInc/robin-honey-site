@@ -35,7 +35,7 @@
 
 
 .rhd-base-btn {
-  padding: 20px 60px;
+  padding: 20px 30px;
   display: block;
   font-size: 25px;
   font-weight: 600;
@@ -47,6 +47,7 @@
   cursor: pointer;
   @media #{$tablet-up} {
     display: inline-block;
+    padding: 20px 60px;
   }
 }
 
