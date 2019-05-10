@@ -121,7 +121,7 @@ strong {
     a {
       color: $white;
       padding: 15px;
-      transition: all, .3s;
+      transition: color .3s, background-color .3s;
       background-color: $blue;
       display: block;
       font-weight: 600;
@@ -202,28 +202,28 @@ ul.rhd-list.contact li {
   @media #{$laptop-up} {
     width: 40%;
   }
-}
 
-.rhd-flex-list ul {
-  margin-left: -1px;
-}
+  ul {
+    margin-left: -1px;
+  }
 
-.rhd-flex-list li {
-  flex-grow: 1;
-  flex-basis: auto;
-  margin: 5px 0;
-  padding: 0 5px;
-  text-align: center;
-  border-left: 1px solid $alt-grey;
-  background-color: $white;
-  text-transform: uppercase;
-  a,
-  a:visited,
-  a:hover,
-  a:after {
-    padding: 10px;
+  li {
+    flex-grow: 1;
+    flex-basis: auto;
+    margin: 5px 0;
+    padding: 0 5px;
+    text-align: center;
+    border-left: 1px solid $alt-grey;
+    background-color: $white;
     text-transform: uppercase;
-    color: $dark-grey;
+    a,
+    a:visited,
+    a:hover,
+    a:after {
+      padding: 10px;
+      text-transform: uppercase;
+      color: $dark-grey;
+    }
   }
 }
 
