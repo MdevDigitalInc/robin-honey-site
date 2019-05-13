@@ -70,8 +70,8 @@ $h2-font-sizes: (
 );
 
 $h3-font-sizes: (
-  null  : 30px,
-  $tablet-up : 46px,
+  null  : 25px,
+  $tablet-up : 38px,
   $desktop-up: 46px
 );
 
@@ -155,7 +155,7 @@ h4,
 .h4 {
   font-weight: 700;
   color: $dark-grey;
-  line-height: 1.5;
+  line-height: 1;
   @include font-size($h4-font-sizes);
 }
 
@@ -183,6 +183,6 @@ a {
 
   &:hover {
     text-decoration: none;
-    color: $blue;
+    color: $gold;
   }
 }

@@ -4,7 +4,7 @@
 
 <main class="rhd-main">
   <section class="rhd-about-robin">
-    <div class="rhd-container">
+    <div class="rhd-container rhd-about-container">
       <div class="rhd-row flex flex-row flex-wrap flex-hor-center rhd-section-light-grey">
       <div class="rhd-main-photo">
       <img src="<?php echo bloginfo('template_url'); ?>/img/robin-honey-portrait.png" alt="">
@@ -26,7 +26,7 @@
   <section class="rhd-section-light-grey">
     <div class="rhd-container">
       <div class="rhd-row flex flex-row flex-wrap flex-hor-center ">
-        <aside class="rhd-aside">
+        <aside class="rhd-aside about">
         <h1>Contact</h1>
          <ul class="rhd-list contact">
           <li><a href="mailto:info@robinhoney.com" title="">info@robinhoney.com</a></li>

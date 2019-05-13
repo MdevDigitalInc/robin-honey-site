@@ -1,4 +1,4 @@
-<section class="rhd-section-blue" id="contact">
+<section class="rhd-section-blue rhd-contact-form" id="contact">
 	<div class="rhd-container">
 	<h1>Get in touch</h1>
 	<p>Need some brand help? Lets talk.</p>

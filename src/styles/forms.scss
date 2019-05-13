@@ -29,14 +29,17 @@ input {
     width: 100%;
     //border-radius: $standard-radius;
     padding: 10px 10px 10px 0;
-    margin-top: 20px;
+    margin-bottom: 20px;
     border: none;
     border-bottom: 3px solid $white;
     background-color: transparent;
     outline: 0;
     transition: border, .3s;
     color: $white;
-    font-size: 25px;
+    font-size: 17px;
+    @media #{$laptop-up} {
+    font-size: 20px;
+    }
     line-height: 2;
     &:hover, &:focus, &:active {
     background-color: transparent;
@@ -53,25 +56,28 @@ input {
 textarea {
   width: 100%;
   padding: 10px 0;
-  margin-top: 20px;
   border: 0;
   border-bottom: 3px solid $white;
   background-color: transparent;
   outline: 0;
   transition: border, .3s;
   color: $white;
-  font-size: 25px;
+  font-size: 17px;
+  @media #{$laptop-up} {
+    font-size: 20px;
+  }
   max-height: 100px;
   font-family: $main-font;
   font-weight: normal;
   overflow: hidden;
 }
 
+//not sure if needed
 textarea::placeholder {
-  line-height: 1.5;
-  @media #{$tablet-up} {
-    line-height: 4.5;
-  }
+  line-height: 1.3;
+  // @media #{$tablet-up} {
+  //   line-height: 4.5;
+  // }
 }
 
 /* stylelint-enable */
@@ -88,7 +94,6 @@ textarea::placeholder {
   width: 100%;
   position: relative;
 }
-
 
 .rhd-form-group {
   width: 100%;

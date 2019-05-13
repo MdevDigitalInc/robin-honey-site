@@ -27,7 +27,7 @@
     </div>
    </div>
   </section>
-  <section class="rhd-section-light-grey">
+  <section class="rhd-section-light-grey rhd-testimonial">
     <div class="rhd-container">
       <p class="u-italic u-text-center">“There are so many consumer food businesses in the U.S. and we wanted to avoid any trademark problems as well as distinguish ourselves as unique. The other important element was that we have several different audiences - the foodpreneurs we help - and the manufacturers and retailers we distribute to. The brand Robin created for us has worked equally well for all our customers and has the humour that breaks through the clutter.”</p>
       <p class="u-text-center"><strong >Greg Bruni</strong><br>President of Navigreat Fine Food Co.</p>

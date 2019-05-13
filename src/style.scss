@@ -11,6 +11,7 @@ section {
   top: 0;
   left: 0;
   z-index: 3;
+  border-bottom: 1px solid $blue;
   background-color: $white;
   .rhd-header-container {
     background-color: $white;
@@ -117,10 +118,9 @@ strong {
 
   li {
     width: 100%;
-
     a {
       color: $white;
-      padding: 15px;
+      padding: 15px 0 15px 30px;
       transition: color .3s, background-color .3s;
       background-color: $blue;
       display: block;
@@ -131,6 +131,15 @@ strong {
       &:hover {
         background-color: $baby-blue;
       }
+    }
+  }
+  .current-menu-item > a {
+    background-color: $baby-blue;
+  }
+  @media #{$laptop-up} { 
+    .current-menu-item > a {
+      background-color: transparent;
+      color: $gold;
     }
   }
 }
@@ -145,6 +154,7 @@ ul.sub-menu {
     text-transform: uppercase;
     font-size: 20px;
     text-indent: 20px;
+    padding: 6px 30px;
   }
 }
 
@@ -153,6 +163,10 @@ ul.rhd-list li {
   margin-bottom: 15px;
   list-style-position: outside;
   line-height: 1.5;
+  font-size: 14px;
+  @media #{$tablet-up} {
+    font-size: 20px;
+  }
 }
 
 ul.rhd-list.contact li {
@@ -165,11 +179,25 @@ ul.rhd-list.contact li {
   list-style-type: disc;
 }
 
+.rhd-contact-form {
+  h1 {
+    margin: 15px 0 20px;
+  }
+
+  p {
+    font-size: 17px;
+    margin-bottom: 0;
+    @media #{$tablet-up} {
+      margin-bottom: 10px;
+    }
+  }
+}
+
 //Footer elements
 .rhd-footer-menu > li {
   width: auto;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 17px;
   text-transform: uppercase;
   margin-bottom: 20px;
 
@@ -195,7 +223,7 @@ ul.rhd-list.contact li {
 
 .rhd-flex-list {
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
   overflow: hidden;
   font-size: 14px;
   width: 75%;
@@ -218,11 +246,14 @@ ul.rhd-list.contact li {
     text-transform: uppercase;
     a,
     a:visited,
-    a:hover,
     a:after {
       padding: 10px;
       text-transform: uppercase;
       color: $dark-grey;
+      transition: color .3s;
+    }
+    a:hover {
+      color: $gold;
     }
   }
 }
@@ -254,12 +285,16 @@ ul.rhd-list.contact li {
   width: auto;
   .fab {
     color: $gold;
+    transition: color .3s;
+    &:hover {
+      color: $blue;
+    }
   }
 }
 
 .rhd-work-examples {
   @media #{$laptop-up} {
-    padding-top: 60px;
+    padding: 60px 0 25px;
   }
 
   @media #{$tablet-only} {
@@ -296,14 +331,15 @@ ul.rhd-list.contact li {
   div {
     margin: 0 auto;
     width: 90%;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
   }
   .rhd-main-btn {
     margin: 0 auto;
   }
   h2 {
-    padding: 40px 0;
+    padding: 20px 0 15px;
     text-align: center;
+    line-height: 1.2;
   }
 
   @media #{$tablet-up} {
@@ -315,6 +351,7 @@ ul.rhd-list.contact li {
 
     h2 {
       text-align: left;
+      line-height: 1.5;
     }
   }
 
@@ -383,6 +420,9 @@ ul.rhd-list.contact li {
 
 .rhd-section-light-grey {
   background-color: $light-grey;
+  @media #{$laptop-up} {
+    padding: 50px 0;
+  }
 }
 
 .rhd-section-dark-grey {
@@ -404,13 +444,14 @@ ul.rhd-list.contact li {
     }
   }
   h4 {
-    margin: 10px 0;
+    margin: 10px 0 20px;
   }
 
   @media #{$tablet-only} {
     width: 48%;
     h4 {
       font-size: 16px;
+      margin-bottom: 20px;
     }
   }
 
@@ -444,16 +485,16 @@ ul.rhd-list.contact li {
   min-height: 100px;
   border-right: 1px solid $dark-grey;
   border-bottom: 1px solid $dark-grey;
-  filter: opacity(1);
-  transition: filter 1s, background 1s;
-  &:hover {
-    filter: opacity(.5);
-  }
+  // filter: opacity(1);
+  // transition: filter 1s, background 1s;
+  // &:hover {
+  //   filter: opacity(.5);
+  // }
   @media #{$tablet-only} {
-    min-height: 200px;
+    min-height: 125px;
   }
   @media #{$laptop-up} {
-    min-height: 300px;
+    min-height: 200px;
   }
   background-color: $white;
   width: 33.333%;
@@ -470,6 +511,9 @@ ul.rhd-list.contact li {
     @include center('both');
     position: relative;
     width: 50%;
+    @media #{$laptop-up} {
+      width: 30%;
+    }
   }
 }
 
@@ -499,6 +543,10 @@ ul.rhd-list.contact li {
     top: 3px;
     font-size: 25px;
     color: $gold;
+    &:hover {
+      color: $blue;
+      transition: color .3s;
+    }
   }
   span {
     font-size: 16px;
@@ -538,6 +586,12 @@ ul.rhd-list.contact li {
   @media #{$laptop-up} {
     padding-top: 1px;
     padding-bottom: 50px;
+    .rhd-about-container {
+      margin-top: 80px;
+    }
+    .rhd-bio {
+      padding-top: 10px;
+    }
   }
 }
 
@@ -553,6 +607,7 @@ ul.rhd-list.contact li {
     padding: 40px 40px 0;
     height: 400px;
   }
+
   @media #{$laptop-up} {
     width: 27%;
     height: auto;
@@ -565,6 +620,9 @@ ul.rhd-list.contact li {
 
   @media #{$tablet-only} {
     padding: 0 40px 40px;
+    .rhd-base-btn {
+      margin-bottom: 0;
+    }
   }
 
   @media #{$laptop-up} {
@@ -600,10 +658,31 @@ ul.rhd-list.contact li {
   }
 }
 
-.rhd-work-example-logo {
-  padding: 10px 0;
+.rhd-aside.about {
+  @media #{$tablet-only} {
+    h1{
+      margin-top: 15px;
+    }
+  }
 }
 
+
+.rhd-content-right.brand-description {
+  padding-bottom: 30px;
+}
+
+.rhd-work-example-logo {
+  padding: 10px 0;
+  @media #{$phone-only} {
+    img {
+      @include center('both');
+      width: 45%;
+      display: block;
+      position: relative;
+      padding-bottom: 10px;
+    }
+  }
+}
 
 @media #{$tablet-only} {
   .rhd-container {
@@ -617,6 +696,11 @@ ul.rhd-list.contact li {
   .rhd-aside.brand-description ,
   .rhd-work-example-logo {
     width: 50%;
+    position: relative;
+    img {
+      @include center('both');
+      width: 75%;
+    }
   }
   .rhd-aside.brand-description {
     border-right: 1px solid;
@@ -624,7 +708,12 @@ ul.rhd-list.contact li {
   }
   .rhd-content-right.brand-description {
     padding-top: 20px;
+    padding-bottom: 30px;
   }
+}
+
+.rhd-testimonial {
+  padding-top: 60px;
 }
 
 .wpcf7-response-output {
@@ -636,7 +725,7 @@ div.wpcf7-validation-errors,
 div.wpcf7-acceptance-missing,
 div.wpcf7-response-output {
   border: 0;
-  padding: 0; 
+  padding: 0;
   margin: 10px 0;
 }
 
@@ -720,6 +809,7 @@ div.wpcf7-mail-sent-ok:before {
     &.rhd-contact-link a {
       border: solid 2px $gold;
       border-radius: 44px;
+      margin-left: 15px;
 
       &:hover {
         color: $white;
@@ -739,11 +829,12 @@ div.wpcf7-mail-sent-ok:before {
 
   .rhd-aside.brand-description {
     border-bottom: none;
+    padding-right: 5px;
   }
 
   .rhd-work-example-logo {
     width: 20%;
-    padding-top: 0;
+    padding-top: 10px;
     padding-bottom: 0;
     padding-left: 20px;
   }
@@ -768,4 +859,8 @@ div.wpcf7-mail-sent-ok:before {
   .rhd-brand-box {
     width: 33.333%;
   }
+}
+
+#scroll-to-top {
+    display: none;
 }
