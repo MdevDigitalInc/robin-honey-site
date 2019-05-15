@@ -5,7 +5,7 @@
 <main class="rhd-main">
   <section class="rhd-about-robin">
     <div class="rhd-container rhd-about-container">
-      <div class="rhd-row flex flex-row flex-wrap flex-hor-center rhd-section-light-grey">
+      <div class="rhd-row flex flex-row flex-wrap flex-hor-center rhd-section-light-grey about">
       <div class="rhd-main-photo">
       <img src="<?php echo bloginfo('template_url'); ?>/img/robin-honey-portrait.png" alt="">
       </div>
@@ -23,7 +23,7 @@
       </div>
     </div>
   </section>
-  <section class="rhd-section-light-grey">
+  <section class="rhd-section-light-grey about-info">
     <div class="rhd-container">
       <div class="rhd-row flex flex-row flex-wrap flex-hor-center ">
         <aside class="rhd-aside about">
@@ -39,7 +39,7 @@
           <li><strong>Pinterest – </strong><a href="https://www.pinterest.ca/honeydesign/" title="">Robin Honey</a></li>
         </ul>
         </aside>
-        <div class="rhd-content-right">
+        <div class="rhd-content-right about">
         <h1>writing</h1>
         <p><span class="text-light">Check out Robin’s articles about branding on Linked In.</span></p>
         <ul class="rhd-list rhd-bullets">

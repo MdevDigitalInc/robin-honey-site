@@ -27,7 +27,6 @@ input {
   &[type="tel"],
    {
     width: 100%;
-    //border-radius: $standard-radius;
     padding: 10px 10px 10px 0;
     margin-bottom: 20px;
     border: none;
@@ -37,7 +36,7 @@ input {
     transition: border, .3s;
     color: $white;
     font-size: 17px;
-    @media #{$laptop-up} {
+    @media #{$tablet-up} {
     font-size: 20px;
     }
     line-height: 2;
@@ -63,7 +62,7 @@ textarea {
   transition: border, .3s;
   color: $white;
   font-size: 17px;
-  @media #{$laptop-up} {
+  @media #{$tablet-up} {
     font-size: 20px;
   }
   max-height: 100px;
