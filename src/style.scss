@@ -185,7 +185,7 @@ ul.rhd-list.contact li {
     padding-bottom: 20px;
   }
   h1 {
-    margin: 15px 0 20px;
+    margin: 15px 0 10px;
   }
 
   p {
@@ -234,6 +234,10 @@ ul.rhd-list.contact li {
   width: 75%;
   @media #{$laptop-up} {
     width: 40%;
+  }
+
+  @media #{$laptop-only} {
+    width: 50%;
   }
 
   ul {
@@ -303,7 +307,7 @@ ul.rhd-list.contact li {
 
 .rhd-work-examples {
   @media #{$laptop-up} {
-    padding: 60px 0 25px;
+    padding: 60px 0 30px;
   }
 
   @media #{$tablet-only} {
@@ -313,7 +317,11 @@ ul.rhd-list.contact li {
 
 .rhd-meet-robin {
   position: relative;
+  padding-top: 0;
   padding-bottom: 0;
+  @media #{$laptop-up} { 
+    padding-top: 40px;
+  }
 }
 
 .rhd-meet-robin-inner {
@@ -352,7 +360,7 @@ ul.rhd-list.contact li {
   }
 
   @media #{$tablet-up} {
-    background-color: rgba(255,255,255,.8);
+    background-color: rgba(255,255,255,.9);
     position: absolute;
     .rhd-main-btn {
       margin: 0;
@@ -478,7 +486,7 @@ ul.rhd-list.contact li {
     width: 48%;
     h4 {
       font-size: 16px;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
   }
 
@@ -537,9 +545,12 @@ ul.rhd-list.contact li {
   img {
     @include center('both');
     position: relative;
-    width: 50%;
+    width: 75%;
+    @media #{$tablet-only} {
+      width: 50%;
+    }
     @media #{$laptop-up} {
-      width: 30%;
+      width: 38%;
     }
   }
 }
@@ -576,7 +587,7 @@ ul.rhd-list.contact li {
     }
   }
   span {
-    font-size: 16px;
+    font-size: 14px;
     text-transform: uppercase;
     color: $alt-grey;
     font-weight: 600;
@@ -693,7 +704,6 @@ ul.rhd-list.contact li {
   }
 }
 
-
 .rhd-content-right.brand-description {
   padding-bottom: 30px;
 }
@@ -706,7 +716,7 @@ ul.rhd-list.contact li {
       width: 45%;
       display: block;
       position: relative;
-      padding-bottom: 10px;
+      padding: 10px 0;
     }
   }
 }
@@ -726,13 +736,14 @@ ul.rhd-list.contact li {
     position: relative;
     img {
       @include center('both');
-      width: 75%;
+      width: 60%;
     }
   }
   .rhd-aside.brand-description {
     border-right: 1px solid;
     border-bottom: 0;
   }
+
   .rhd-content-right.brand-description {
     padding-top: 20px;
     padding-bottom: 30px;
@@ -848,7 +859,7 @@ div.wpcf7-mail-sent-ok:before {
   }
 
   .rhd-aside {
-    width: 25%;
+    width: 23%;
     border-right: 1px solid;
     padding-right: 5px;
     padding-top: 0;
@@ -881,8 +892,9 @@ div.wpcf7-mail-sent-ok:before {
   }
 
   .rhd-content-right.brand-description {
-    width: 55%;
+    width: 57%;
     padding-left: 20px;
+    padding-bottom: 0;
   }
 
   .rhd-brand-box {
@@ -897,5 +909,22 @@ div.wpcf7-mail-sent-ok:before {
   }
   .rhd-content-right.about {
     width: 65%;
+  }
+
+  .rhd-aside.brand-description {
+    width: 25%;
+    padding-right: 10px;
+    h4 {
+      font-size: 26px;
+    }
+  }
+  .rhd-work-example-logo {
+    width: 25%;
+  }
+  .rhd-content-right.brand-description {
+    width: 50%;
+    p {
+      margin-bottom: 0;
+    }
   }
 }

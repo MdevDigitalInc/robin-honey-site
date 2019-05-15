@@ -35,6 +35,7 @@ input {
     outline: 0;
     transition: border, .3s;
     color: $white;
+    font-family: $main-font;
     font-size: 17px;
     @media #{$tablet-up} {
     font-size: 20px;
