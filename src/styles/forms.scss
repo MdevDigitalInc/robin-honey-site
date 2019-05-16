@@ -41,9 +41,12 @@ input {
     font-size: 20px;
     }
     line-height: 2;
-    &:hover, &:focus, &:active {
-    background-color: transparent;
-    color: $white;
+    &:hover,&:active {
+      background-color: transparent;
+      color: $white;
+    }
+    &:focus {
+      border-bottom: 3px solid rgba(255, 255, 255, .5);
     }
   }
 
@@ -63,6 +66,7 @@ textarea {
   transition: border, .3s;
   color: $white;
   font-size: 17px;
+  margin-bottom: 20px;
   @media #{$tablet-up} {
     font-size: 20px;
   }
@@ -70,6 +74,13 @@ textarea {
   font-family: $main-font;
   font-weight: normal;
   overflow: hidden;
+  &:hover ,&:active {
+    background-color: transparent;
+    color: $white;
+  }
+  &:focus {
+    border-bottom: 3px solid rgba(255, 255, 255, .5);
+  }
 }
 
 //not sure if needed

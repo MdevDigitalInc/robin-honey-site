@@ -26,6 +26,10 @@ export default {
         } // End if
       });
       //end smooth scroll
+
+      //hide content in contact form after submission 
+
+
     });
   },
 };

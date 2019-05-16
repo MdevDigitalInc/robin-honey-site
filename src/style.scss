@@ -180,7 +180,7 @@ ul.rhd-list.contact li {
 }
 
 .rhd-contact-form {
-  padding-bottom: 0;
+  padding-bottom: 1px;
   @media #{$tablet-up} {
     padding-bottom: 20px;
   }
@@ -549,6 +549,7 @@ ul.rhd-list.contact li {
     @media #{$tablet-only} {
       width: 50%;
     }
+
     @media #{$laptop-up} {
       width: 38%;
     }
@@ -586,6 +587,7 @@ ul.rhd-list.contact li {
       transition: color .3s;
     }
   }
+
   span {
     font-size: 14px;
     text-transform: uppercase;
@@ -601,6 +603,7 @@ ul.rhd-list.contact li {
       top: 6px;
       font-size: 35px;
     }
+
     span {
       font-size: 20px;
     }
@@ -614,6 +617,7 @@ ul.rhd-list.contact li {
       top: 3px;
       font-size: 30px;
     }
+
     span {
       font-size: 20px;
     }
@@ -754,9 +758,22 @@ ul.rhd-list.contact li {
   padding-top: 60px;
 }
 
+//contact form styles
 .wpcf7-response-output {
+  font-family: $main-font;
   color: $white;
-  font-weight: 600;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  @media #{$tablet-up} {
+    font-size: 20px; 
+  }
+}
+
+.wpcf7 form.sent .rhd-form-group,
+.wpcf7 form.sent .wpcf7-submit,
+.wpcf7 form.sent .rhd-form-container {
+  display: none;
 }
 
 div.wpcf7-validation-errors,
@@ -765,27 +782,49 @@ div.wpcf7-response-output {
   border: 0;
   padding: 0;
   margin: 10px 0;
+  color: #f00;
 }
 
 div.wpcf7-mail-sent-ok:before {
   content: 'Thank You';
   display: block;
-  font-weight: 600;
-  margin: 10px 0 20px;
-  font-size: 25px;
+  font-weight: 700;
+  margin: 15px 0 10px;
+  font-size: 22px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  @media #{$tablet-up} {
+    font-size: 35px;
+  }
+  @media #{$laptop-up} {
+    font-size: 40px;
+  }
 }
 
-.wpcf7-response-output:after {
-  content: '\f0e0';
-  font-family: Font Awesome\ 5 Free;
-  display: block;
-  font-size: 80px;
+.wpcf7-response-output.wpcf7-mail-sent-ok {
   color: $white;
+}
+
+.wpcf7-response-output.wpcf7-mail-sent-ok:after {
+  // content: '\f0e0';
+  // font-family: Font Awesome\ 5 Free;
+  display: block;
+  // font-size: 80px;
+  // color: $white;
+  content: ' ';
+  background: url('../img/envelope-icon.svg') no-repeat;
   margin-top: 20px;
+  margin-bottom: 30px;
+  width: 90px;
+  height: 90px;
+  @media #{$tablet-up} {
+    width: 100px;
+    height: 100px;
+  }
 }
 
 .wpcf7-not-valid-tip {
-  margin-top: 10px;
+  margin-top: 1px;
 }
 
 @media #{$tablet-up} {
@@ -907,6 +946,7 @@ div.wpcf7-mail-sent-ok:before {
     width: 35%;
     padding-right: 60px;
   }
+
   .rhd-content-right.about {
     width: 65%;
   }
@@ -918,13 +958,27 @@ div.wpcf7-mail-sent-ok:before {
       font-size: 26px;
     }
   }
+
   .rhd-work-example-logo {
     width: 25%;
   }
+
   .rhd-content-right.brand-description {
     width: 50%;
     p {
       margin-bottom: 0;
     }
+  }
+
+  .rhd-main-menu > li a {
+    font-size: 18px;
+  }
+
+  .rhd-nav-area {
+    padding-top: 40px;
+  }
+
+  .rhd-work-box h4 {
+    font-size: 22px;
   }
 }
