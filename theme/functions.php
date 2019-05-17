@@ -127,3 +127,30 @@ return array_reverse($menu);
 return $menu;
 }
 add_filter('wp_nav_menu_objects', 'my_reverse_nav_menu', 10, 2);
+
+add_filter('wpcf7_form_elements', function($content) {
+    $content = preg_replace('/<(span).*?class="\s*(?:.*\s)?wpcf7-form-control-wrap(?:\s[^"]+)?\s*"[^\>]*>(.*)<\/\1>/i', '\2', $content);
+
+    return $content;
+});
+
+
+
+add_filter( 'wpcf7_autop_or_not', '__return_false');
+
+
+
+include 'contact-form-stuff.php';
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -12,6 +12,7 @@ form {
 }
 
 
+
 /* stylelint-disable */
 /* Disabled because it is valid and I need this level of control*/
 .mdev-error {
@@ -48,6 +49,10 @@ input {
     &:focus {
       border-bottom: 3px solid rgba(255, 255, 255, .5);
     }
+    &:focus + label {
+      font-size: 15px;
+      transform: translateY(-60%);
+    }
   }
 
   &[type="button"],
@@ -79,7 +84,12 @@ textarea {
     color: $white;
   }
   &:focus {
-    border-bottom: 3px solid rgba(255, 255, 255, .5);
+    border-bottom: 3px solid rgba(255, 255, 255, .5); 
+    //max-height: 150px;
+  }
+  &:focus + label {
+      font-size: 15px;
+      transform: translateY(-60%);
   }
 }
 
@@ -110,6 +120,28 @@ textarea::placeholder {
   width: 100%;
   position: relative;
   text-align: left;
+  label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: all .3s;
+    font-size: 17px;
+    padding: 10px 10px 10px 0;
+    line-height: 2;
+    margin-bottom: 20px;
+    color: $white;
+    @media #{$tablet-up} {
+    font-size: 20px;
+    }
+  }
+  span{
+    display: block;
+  }
+  .is-active > label {
+    font-size: 15px;
+    transform: translateY(-60%);
+  }
 }
 
 .rhd-form-group.name,
