@@ -1,6 +1,12 @@
 <?php /* Template Name: About */?>
 
-<?php get_header(); ?>
+<?php 
+get_header(); 
+
+$result = $wpdb->get_results ("SELECT * FROM wp_posts where post_type = \"about\";");
+
+
+?>
 
 <main class="rhd-main">
   <section class="rhd-about-robin">
@@ -10,16 +16,25 @@
       <img src="<?php echo bloginfo('template_url'); ?>/img/robin-honey-portrait.png" alt="">
       </div>
       <div class="rhd-about-content">
-      <h1>About Robin </h1>
-      <p>Robin is skilled at finding the client’s core purpose through her investigative process and interpreting that into new visual and verbal expressions. Called the ‘Brand Queen’ she has worked with and invented hundreds of brands over her 30-year career,  including for national corporations like Labatt Brewing and Chrysler, international consumer brands like Jolly Jumper and 3M, and entrepreneurial start-ups. She has amassed a specialist expertise in craft beer having branded Forked River, Cowbell Brewing, Equals Brewing and rebranded Big Rock Brewery.</p>
+      <?php 
+      echo "<h1>".stripslashes($result[0]->post_title)."</h1>";
+      echo stripslashes($result[0]->post_content);
+      ?>
+      <!-- <h1>About Robin </h1>
+      <p>Robin is skilled at finding the client’s core purpose through her investigative process and interpreting that into new visual and verbal expressions. Called the ‘Brand Queen’ she has worked with and invented hundreds of brands over her 30-year career,  including for national corporations like Labatt Brewing and Chrysler, international consumer brands like Jolly Jumper and 3M, and entrepreneurial start-ups. She has amassed a specialist expertise in craft beer having branded Forked River, Cowbell Brewing, Equals Brewing and rebranded Big Rock Brewery.</p> -->
       <a href="" class="rhd-base-btn rhd-main-btn" title="">View Work</a>
       </div>
       </div>
       <div class="rhd-bio">
-      <h1>Bio</h1>
-      <p>A former entrepreneur, Robin founded the brand boutique Honey Design in 1989. In 2014, she merged with Arcane Digital and helped to build a creative team that integrated brand with digital practices. Robin has evolved to the next stage of her career,  as an independent brand and creative consultant.</p>
+      
+      
+      <?php 
+      echo "<h1>".stripslashes($result[1]->post_title)."</h1>";
+      echo stripslashes($result[1]->post_content);
+      ?>
+      <!-- <p>A former entrepreneur, Robin founded the brand boutique Honey Design in 1989. In 2014, she merged with Arcane Digital and helped to build a creative team that integrated brand with digital practices. Robin has evolved to the next stage of her career,  as an independent brand and creative consultant.</p>
       <p>Robin&apos;s work has been featured in international publications and has been awarded local, national and international recognition for excellence in design and strategy. Robin is an author of a primer on branding for business –The Beebrand Manifesto, A Quest for Authenticity and many articles on branding.</p>
-      <p>A graduate of the Richard Ivey School of Business’s Strategic Marketing Program, and Sheridan College’s advertising program, Robin is a frequent speaker on branding and has appeared at Design Thinkers and various RGD events for students and practitioners alike, as well as client- focused events throughout Canada and the U.S.</p>
+      <p>A graduate of the Richard Ivey School of Business’s Strategic Marketing Program, and Sheridan College’s advertising program, Robin is a frequent speaker on branding and has appeared at Design Thinkers and various RGD events for students and practitioners alike, as well as client- focused events throughout Canada and the U.S.</p> -->
       </div>
     </div>
   </section>

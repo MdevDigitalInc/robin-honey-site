@@ -1,12 +1,61 @@
 <?php /* Template Name: Work */?>
 
-<?php get_header(); ?>
+<?php 
+get_header(); 
+
+$condition = "";
+$ordberBy = ";";
+
+if($_POST["dir"] == -1)
+{
+  $condition = $wpdb->prepare(" where ID < %d", $_POST["id"]);
+  $ordberBy = " Order By ID Desc;";
+}
+else if($_POST["dir"] == 1)
+{
+  $condition = $wpdb->prepare(" where ID > %d", $_POST["id"]);
+}
+
+
+
+$result = $wpdb->get_row("select * from tblCaseStudy".$condition.$ordberBy);
+
+$result = $result ?? $wpdb->get_row("select * from tblCaseStudy".$ordberBy);
+
+
+
+?>
+<script>
+  function Navigate(dir) {
+
+    const form = document.createElement('form');
+    form.method = 'post';
+    form.action = "/work/";
+
+    dirField = document.createElement('input');
+    dirField.type = 'hidden';
+    dirField.name = "dir";
+    dirField.value = dir;
+    form.appendChild(dirField);
+
+    idField = document.createElement('input');
+    idField.type = 'hidden';
+    idField.name = "id";
+    idField.value = <?php echo $result->ID; ?>;
+    form.appendChild(idField);
+
+    
+
+    document.body.appendChild(form);
+    form.submit();
+  }
+</script>
 <main class="rhd-main">
   <section class="rhd-work-example-banner">
   <div class="rhd-container">
      <div class="rhd-row flex flex-row flex-wrap flex-hor-center">
-      <div class="rhd-work-heading"><h1>navigreat fine foods</h1></div>
-      <div class="rhd-view-more-work"><a href="" title=""><i class="fas fa-chevron-left"></i></a> <span>view more work</span>  <a href="" title=""><i class="fas fa-chevron-right"></i></a></div>
+      <div class="rhd-work-heading"><h1><?php echo $result->title;?></h1></div>
+      <div class="rhd-view-more-work"><a onclick="return Navigate(-1);" title=""><i class="fas fa-chevron-left"></i></a> <span>view more work</span>  <a onclick="return Navigate(1);"  title=""><i class="fas fa-chevron-right"></i></a></div>
      </div>
      <img src="<?php echo bloginfo('template_url'); ?>/img/navigreat-hero.png" alt="">
   </div>
