@@ -11,7 +11,7 @@ section {
   top: 0;
   left: 0;
   z-index: 3;
-  border-bottom: 1px solid $blue;
+  border-bottom: 2px solid $blue;
   background-color: $white;
   .rhd-header-container {
     background-color: $white;
@@ -22,7 +22,7 @@ section {
     }
 
     @media #{$laptop-up} {
-      min-height: 150px;
+      min-height: 120px;
     }
   }
 }
@@ -40,7 +40,7 @@ section {
   }
 
   @media #{$laptop-up} {
-    margin-top: 150px;
+    margin-top: 120px;
   }
 }
 
@@ -81,7 +81,7 @@ strong {
     visibility: visible;
     top: 0;
     z-index: 0;
-    min-height: 150px;
+    //min-height: 150px;
   }
   z-index: -2;
   top: -300px;
@@ -125,7 +125,7 @@ strong {
       background-color: $blue;
       display: block;
       font-weight: 600;
-      font-size: 30px;
+      font-size: 20px;
       text-transform: uppercase;
 
       &:hover {
@@ -152,7 +152,7 @@ ul.sub-menu {
   li a {
     font-weight: 400;
     text-transform: uppercase;
-    font-size: 20px;
+    font-size: 17px;
     text-indent: 20px;
     padding: 6px 30px;
   }
@@ -180,15 +180,20 @@ ul.rhd-list.contact li {
 }
 
 .rhd-contact-form {
+  padding-bottom: 1px;
+  @media #{$tablet-up} {
+    padding-bottom: 20px;
+  }
   h1 {
-    margin: 15px 0 20px;
+    margin: 15px 0 10px;
   }
 
   p {
-    font-size: 17px;
+    font-size: 14px;
     margin-bottom: 0;
     @media #{$tablet-up} {
-      margin-bottom: 10px;
+      margin-bottom: 30px;
+      font-size: 20px;
     }
   }
 }
@@ -231,6 +236,10 @@ ul.rhd-list.contact li {
     width: 40%;
   }
 
+  @media #{$laptop-only} {
+    width: 50%;
+  }
+
   ul {
     margin-left: -1px;
   }
@@ -260,6 +269,10 @@ ul.rhd-list.contact li {
 
 .rhd-copy {
   padding: 20px 0;
+}
+
+.rhd-social {
+  margin-left: 10px;
 }
 
 .rhd-social li {
@@ -294,7 +307,7 @@ ul.rhd-list.contact li {
 
 .rhd-work-examples {
   @media #{$laptop-up} {
-    padding: 60px 0 25px;
+    padding: 60px 0 30px;
   }
 
   @media #{$tablet-only} {
@@ -304,7 +317,11 @@ ul.rhd-list.contact li {
 
 .rhd-meet-robin {
   position: relative;
+  padding-top: 0;
   padding-bottom: 0;
+  @media #{$laptop-up} { 
+    padding-top: 40px;
+  }
 }
 
 .rhd-meet-robin-inner {
@@ -343,7 +360,7 @@ ul.rhd-list.contact li {
   }
 
   @media #{$tablet-up} {
-    background-color: rgba(255,255,255,.8);
+    background-color: rgba(255,255,255,.9);
     position: absolute;
     .rhd-main-btn {
       margin: 0;
@@ -420,8 +437,26 @@ ul.rhd-list.contact li {
 
 .rhd-section-light-grey {
   background-color: $light-grey;
+}
+
+.rhd-section-light-grey.about {
+
   @media #{$laptop-up} {
-    padding: 50px 0;
+    margin-bottom: 10px;
+  }
+  .rhd-about-content {
+    padding-bottom: 0;
+  }
+}
+
+.rhd-section-light-grey.about-info {
+  padding-top: 0;
+  @media #{$tablet-only} {
+    padding-top: 40px;
+  }
+  @media #{$laptop-up} {
+    padding-top: 70px;
+    padding-bottom: 80px;
   }
 }
 
@@ -451,7 +486,7 @@ ul.rhd-list.contact li {
     width: 48%;
     h4 {
       font-size: 16px;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
   }
 
@@ -510,9 +545,13 @@ ul.rhd-list.contact li {
   img {
     @include center('both');
     position: relative;
-    width: 50%;
+    width: 75%;
+    @media #{$tablet-only} {
+      width: 50%;
+    }
+
     @media #{$laptop-up} {
-      width: 30%;
+      width: 38%;
     }
   }
 }
@@ -548,8 +587,9 @@ ul.rhd-list.contact li {
       transition: color .3s;
     }
   }
+
   span {
-    font-size: 16px;
+    font-size: 14px;
     text-transform: uppercase;
     color: $alt-grey;
     font-weight: 600;
@@ -563,6 +603,7 @@ ul.rhd-list.contact li {
       top: 6px;
       font-size: 35px;
     }
+
     span {
       font-size: 20px;
     }
@@ -576,6 +617,7 @@ ul.rhd-list.contact li {
       top: 3px;
       font-size: 30px;
     }
+
     span {
       font-size: 20px;
     }
@@ -621,7 +663,7 @@ ul.rhd-list.contact li {
   @media #{$tablet-only} {
     padding: 0 40px 40px;
     .rhd-base-btn {
-      margin-bottom: 0;
+      margin: 10px 0 40px;
     }
   }
 
@@ -660,12 +702,11 @@ ul.rhd-list.contact li {
 
 .rhd-aside.about {
   @media #{$tablet-only} {
-    h1{
+    h1 {
       margin-top: 15px;
     }
   }
 }
-
 
 .rhd-content-right.brand-description {
   padding-bottom: 30px;
@@ -679,7 +720,7 @@ ul.rhd-list.contact li {
       width: 45%;
       display: block;
       position: relative;
-      padding-bottom: 10px;
+      padding: 10px 0;
     }
   }
 }
@@ -699,13 +740,14 @@ ul.rhd-list.contact li {
     position: relative;
     img {
       @include center('both');
-      width: 75%;
+      width: 60%;
     }
   }
   .rhd-aside.brand-description {
     border-right: 1px solid;
     border-bottom: 0;
   }
+
   .rhd-content-right.brand-description {
     padding-top: 20px;
     padding-bottom: 30px;
@@ -716,9 +758,22 @@ ul.rhd-list.contact li {
   padding-top: 60px;
 }
 
+//contact form styles
 .wpcf7-response-output {
+  font-family: $main-font;
   color: $white;
-  font-weight: 600;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  @media #{$tablet-up} {
+    font-size: 20px; 
+  }
+}
+
+.wpcf7 form.sent .rhd-form-group,
+.wpcf7 form.sent .wpcf7-submit,
+.wpcf7 form.sent .rhd-form-container {
+  display: none;
 }
 
 div.wpcf7-validation-errors,
@@ -727,27 +782,49 @@ div.wpcf7-response-output {
   border: 0;
   padding: 0;
   margin: 10px 0;
+  color: #f00;
 }
 
 div.wpcf7-mail-sent-ok:before {
   content: 'Thank You';
   display: block;
-  font-weight: 600;
-  margin: 10px 0 20px;
-  font-size: 25px;
+  font-weight: 700;
+  margin: 15px 0 10px;
+  font-size: 22px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  @media #{$tablet-up} {
+    font-size: 35px;
+  }
+  @media #{$laptop-up} {
+    font-size: 40px;
+  }
 }
 
-.wpcf7-response-output:after {
-  content: '\f0e0';
-  font-family: Font Awesome\ 5 Free;
-  display: block;
-  font-size: 80px;
+.wpcf7-response-output.wpcf7-mail-sent-ok {
   color: $white;
+}
+
+.wpcf7-response-output.wpcf7-mail-sent-ok:after {
+  // content: '\f0e0';
+  // font-family: Font Awesome\ 5 Free;
+  display: block;
+  // font-size: 80px;
+  // color: $white;
+  content: ' ';
+  background: url('../img/envelope-icon.svg') no-repeat;
   margin-top: 20px;
+  margin-bottom: 30px;
+  width: 90px;
+  height: 90px;
+  @media #{$tablet-up} {
+    width: 100px;
+    height: 100px;
+  }
 }
 
 .wpcf7-not-valid-tip {
-  margin-top: 10px;
+  margin-top: 1px;
 }
 
 @media #{$tablet-up} {
@@ -761,16 +838,17 @@ div.wpcf7-mail-sent-ok:before {
   .rhd-container,
   .rhd-header-container {
     width: 75%;
-    min-height: 150px;
+    //min-height: 120px;
   }
 
   .rhd-brand {
-    max-width: 400px;
+    max-width: 300px;
   }
 
   .rhd-brand-area {
     width: 40%;
-    padding-top: 38px;
+    //padding-top: 38px;
+    padding-top: 30px;
     padding-left: 0;
   }
 
@@ -779,7 +857,8 @@ div.wpcf7-mail-sent-ok:before {
     margin-top: 0;
     display: block;
     background-color: transparent;
-    padding-top: 55px;
+    //padding-top: 55px;
+    padding-top: 35px;
   }
 
   .rhd-social-nav {
@@ -819,8 +898,9 @@ div.wpcf7-mail-sent-ok:before {
   }
 
   .rhd-aside {
-    width: 25%;
+    width: 23%;
     border-right: 1px solid;
+    padding-right: 5px;
     padding-top: 0;
     h1 {
       margin-top: 0;
@@ -829,7 +909,6 @@ div.wpcf7-mail-sent-ok:before {
 
   .rhd-aside.brand-description {
     border-bottom: none;
-    padding-right: 5px;
   }
 
   .rhd-work-example-logo {
@@ -852,8 +931,9 @@ div.wpcf7-mail-sent-ok:before {
   }
 
   .rhd-content-right.brand-description {
-    width: 55%;
+    width: 57%;
     padding-left: 20px;
+    padding-bottom: 0;
   }
 
   .rhd-brand-box {
@@ -861,6 +941,44 @@ div.wpcf7-mail-sent-ok:before {
   }
 }
 
-#scroll-to-top {
-    display: none;
+@media #{$laptop-only} {
+  .rhd-aside.about {
+    width: 35%;
+    padding-right: 60px;
+  }
+
+  .rhd-content-right.about {
+    width: 65%;
+  }
+
+  .rhd-aside.brand-description {
+    width: 25%;
+    padding-right: 10px;
+    h4 {
+      font-size: 26px;
+    }
+  }
+
+  .rhd-work-example-logo {
+    width: 25%;
+  }
+
+  .rhd-content-right.brand-description {
+    width: 50%;
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  .rhd-main-menu > li a {
+    font-size: 18px;
+  }
+
+  .rhd-nav-area {
+    padding-top: 40px;
+  }
+
+  .rhd-work-box h4 {
+    font-size: 22px;
+  }
 }

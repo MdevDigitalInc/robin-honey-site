@@ -11,3 +11,13 @@ docker exec 4ea /usr/bin/mysqldump -u root --password=Mdevdb101! wordpress > dat
 sudo chown -R dorianhall:dorianhall theme
 
 docker exec -it robin-honey-site_wordpress_1 bash -l
+
+
+
+.wpcf7-response-output.wpcf7-mail-sent-ok:after {
+  content: '\f0e0';
+  font-family: Font Awesome\ 5 Free;
+  display: block;
+  font-size: 80px;
+  color: $white;
+}

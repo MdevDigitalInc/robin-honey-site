@@ -26,6 +26,26 @@ export default {
         } // End if
       });
       //end smooth scroll
+
+      //keep label above text box if input is filled out
+
+      $(".rhd-form-container input,.rhd-form-container textarea").each(function() {
+        if( $(this).val() ) {
+                $(this).parent().addClass('is-active');
+        }else{
+                $(this).parent().removeClass('is-active');
+        }
+      });
+
+
+      $('.rhd-form-container input, .rhd-form-container textarea').blur(function(){
+        if( $(this).val() ) {
+              $(this).parent().addClass('is-active');
+        }else{
+              $(this).parent().removeClass('is-active');
+        }
+      });
+
     });
   },
 };

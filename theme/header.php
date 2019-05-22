@@ -69,7 +69,20 @@
     <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)"
       href="<?php bloginfo('template_url'); ?>/dist/icons/apple-touch-startup-image-1536x2008.png">
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-		<?php wp_head(); ?>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140210722-1"></script>
+    <script>
+    // window.dataLayer = window.dataLayer || [];
+    // function gtag()
+
+    // {dataLayer.push(arguments);}
+    // gtag('js', new Date());
+
+    // gtag('config', 'UA-140210722-1');
+    </script>
+
+   <?php wp_head(); ?>
 	</head>
 	<body>
 	<button class="rhd-toggle-nav">

@@ -13,7 +13,7 @@ $other = $wpdb->get_results ("SELECT * FROM wp_posts where post_type = \"about\"
 <main class="rhd-main">
   <section class="rhd-about-robin">
     <div class="rhd-container rhd-about-container">
-      <div class="rhd-row flex flex-row flex-wrap flex-hor-center rhd-section-light-grey">
+      <div class="rhd-row flex flex-row flex-wrap flex-hor-center rhd-section-light-grey about">
       <div class="rhd-main-photo">
       <img src="<?php echo bloginfo('template_url'); ?>/img/robin-honey-portrait.png" alt="">
       </div>
@@ -40,7 +40,7 @@ $other = $wpdb->get_results ("SELECT * FROM wp_posts where post_type = \"about\"
       </div>
     </div>
   </section>
-  <section class="rhd-section-light-grey">
+  <section class="rhd-section-light-grey about-info">
     <div class="rhd-container">
       <div class="rhd-row flex flex-row flex-wrap flex-hor-center ">
         <aside class="rhd-aside about">
@@ -56,6 +56,7 @@ $other = $wpdb->get_results ("SELECT * FROM wp_posts where post_type = \"about\"
           <li><strong>Pinterest – </strong><a href="https://www.pinterest.ca/honeydesign/" title="">Robin Honey</a></li>
         </ul>
         </aside>
+<<<<<<< HEAD
         <div class="rhd-content-right">
         <?php
         foreach($other as $row)
@@ -101,6 +102,34 @@ $other = $wpdb->get_results ("SELECT * FROM wp_posts where post_type = \"about\"
           <ul class="rhd-list rhd-bullets">
             <li>Brand workshops ‘Find Your Brand Position’ for a variety of industries from insurance, B2B professional services, consumer products, etc.</li>
           </ul>
+=======
+        <div class="rhd-content-right about">
+        <h1>writing</h1>
+        <p><span class="text-light">Check out Robin’s articles about branding on Linked In.</span></p>
+        <ul class="rhd-list rhd-bullets">
+          <li>Brand Naming – Why you need a one-two punch.</li>
+          <li>Brand Naming – Coin something new. </li>
+          <li>What’s Your Logo Saying?</li>
+          <li>A House of Brands or a Branded House?</li>
+          <li>The BeeBrand Manifesto, available on Amazon.</li>
+        </ul>
+        <h1>speaking</h1>
+        <p><span class="text-light">Robin is a speaker on the topic of branding at creative conferences, client events and B2B seminars.</span></p>
+        <ul class="rhd-list rhd-bullets">
+          <li>MLX Conference, Atlanta, 2018 – The Value of Brand of Brand Consistency</li>
+          <li>Creative Direction 2017, Toronto – What Creative Directors Know</li>
+          <li>RGD Moderator 2017, Webinar, Feminism in Design</li>
+          <li>RGD Design Thinkers 2017, Toronto – The Art & Science of Brand Naming</li>
+          <li>MacKay CEO Forums 2017 – The Authenticity   Gap; How to manage your brand in a digital world.</li>
+          <li>MaxLiving Conference 2017 Florida, U.S. – Brand Launch</li>
+          <li>Master Pools Conference North Carolina, U.S. – Brand Launch</li>
+        </ul>
+        <h1>workshops</h1>
+        <p><span class="text-light">Robin has conducted interactive workshops to guide organizations to uncover their hidden potential and help power their growth.</span></p>
+        <ul class="rhd-list rhd-bullets">
+          <li>Brand workshops ‘Find Your Brand Position’ for a variety of industries from insurance, B2B professional services, consumer products, etc.</li>
+        </ul>
+>>>>>>> feature/setup-testing
         </div>
       </div>
     </div>
