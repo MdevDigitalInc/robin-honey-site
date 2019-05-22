@@ -127,6 +127,26 @@ function clearErrors(){
       
       var myForm = document.getElementById("empForm");
       myForm.action = "options-general.php?page=about-page-data";
+
+      var testing = new Array();
+
+      var regex = RegExp(/(<div>)/);
+
+      if(regex.test(richTextField.document.getElementsByTagName('body')[0].innerHTML)) {
+        testing = richTextField.document.getElementsByTagName('body')[0].innerHTML.split("<div>");
+        testing[0] = "<p><span class=\"text-light\">" + testing[0] +"</span></p>"
+      }
+
+      
+      
+      var text = testing.length > 1 ? testing.join("") : richTextField.document.getElementsByTagName('body')[0].innerHTML;
+
+      text = text.replace("<br></div>", "<br>");
+
+      text = text.replace("<ul", "<ul");
+
+      text = text.replace("</ul></div>", "</ul>");
+      //text = text.replace("</ul></div>", "<p>\n<span class=\"text-light\">");
       
 
       $('<input />').attr('type', 'hidden')
@@ -136,7 +156,7 @@ function clearErrors(){
 
       $('<input />').attr('type', 'hidden')
       .attr('name', "post_content")
-      .attr('value', richTextField.document.getElementsByTagName('body')[0].innerHTML) //textContent
+      .attr('value', text) //textContent
       .appendTo('#empForm');
 
     <?php
@@ -198,7 +218,7 @@ function clearErrors(){
     <div>
       <button onclick="execCmd('bold');">Bold</button>
       <button onclick="execCmd('italic');">Italics</button>
-      <button onclick="execCmd('formatBlock', 'p');">Paragraph</button>
+      <!-- <button onclick="execCmd('formatBlock', 'p');">Paragraph</button> -->
       <select onchange="execCmd('formatBlock', this.value)">
         <option value=""></option>
         <option value="H2">H2</option>
@@ -207,6 +227,8 @@ function clearErrors(){
       <button onclick="execCmd('insertUnorderedList');">unordered</button>
       <button onclick="execCmd('insertOrderedList');">ordered</button>
       <button onclick="execCmd('insertHorizontalRule');">line</button>
+      <button onclick="execCmd('createLink', prompt('Enter a URL', 'http\:\/\/'));">Hyperlink</button>
+      <button onclick="execCmd('unlink');">Hyperlink</button>
       <button onclick="showSource();">source</button>
     </div>
     <?php
@@ -217,6 +239,7 @@ function clearErrors(){
     var showSourceCode = false;
   
       richTextField.document.designMode = "On";
+      execCmd ("formatBlock", "p");
       <?php
 
       if(count($result) > 0) {
@@ -237,11 +260,6 @@ function clearErrors(){
           newList.classList.add("rhd-bullets");
         
         }
-        else if(args == "p")
-        {
-          richTextField.document.execCommand("formatBlock", false, "div");
-        }
-
       }
       function showSource() {
         if(showSourceCode) {

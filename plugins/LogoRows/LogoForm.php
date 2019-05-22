@@ -73,7 +73,7 @@ function logoUpload($uploader) {
       if (move_uploaded_file($_FILES[$uploader]["tmp_name"], $target_file)) {
         
           //echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-          $target_file = "/img/uploads/".basename($_FILES[$uploader]["name"]);
+          $target_file = "/img/uploads/logos/".basename($_FILES[$uploader]["name"]);
 
       } else {
           $_SESSION["error"] =  "Sorry, there was an error uploading your file.";
@@ -99,52 +99,19 @@ function logo_wall_options() {
 
   if($_POST["subType"] == "Create" || $_POST["subType"] == "Update")
   {
-    $hero_image = "";
-    $client_image = "";
-    $imagesSection = "";
-
-    if($_FILES["heroUpload"]["name"]) {
-      $hero_image = logoUpload("heroUpload");
-      $imagesSection = $wpdb->prepare(", heroImage = %s", $hero_image);
-    }
-    echo $imagesSection . strlen($imagesSection) ."<br/>";
+        $client_image = "";
+    
    
     if($_FILES["clientUpload"]["name"]) {
       $client_image = imageUpload("clientUpload");
-      $imagesSection = strlen($imagesSection) > 0 ? $wpdb->prepare( $imagesSection. ", clientLogo = %s", $client_image) : $wpdb->prepare(", clientLogo = %s", $client_image);
     }
     echo $imagesSection . strlen($imagesSection) ."<br/>";
 
-
-    if($_POST["subType"] == "Create") { 
-      $wpdb->get_results( 
-        $wpdb->prepare("insert into tblCaseStudy (title,heroImage,caseDescription,clientUrl,clientLogo,projSummary,testimonial,tAuthor,tTitle,seoTitle,seoDescription) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);",
-          $_POST["txt_title"],
-          $hero_image,
-          $_POST["txt_desc"],
-          $_POST["txt_url"],
-          $client_image,
-          $_POST["ta_summary"],
-          $_POST["ta_testimonial"],
-          $_POST["txt_tTitle"],
-          $_POST["txt_tName"],
-          $_POST["seo_title"],
-          $_POST["seo_desc"]
-        )
-      );
-    } else if ($_POST["subType"] == "Update") {
+  if ($_POST["subType"] == "Update") {
       
       $query = $wpdb->prepare(
-        "update tblCaseStudy set title = %s, caseDescription = %s, clientUrl = %s, projSummary = %s, testimonial = %s, tAuthor = %s, tTitle = %s, seoTitle = %s, seoDescription = %s". $imagesSection ." where ID = %d;",
-        $_POST["txt_title"],
-        $_POST["txt_desc"],
-        $_POST["txt_url"],
-        $_POST["ta_summary"],
-        $_POST["ta_testimonial"],
-        $_POST["txt_tTitle"],
-        $_POST["txt_tName"],
-        $_POST["seo_title"],
-        $_POST["seo_desc"],
+        "update tblLogowall set url = %s where ID = %d;",
+        $client_image,
         $_POST["id"]
       );
       
@@ -207,23 +174,23 @@ function clearErrors(){
       this.loading = true;
       
       var myForm = document.getElementById("logoForm");
-      myForm.action = "options-general.php?page=logo-wall-data&id="+<?php echo $_GET['id']; ?>;
+      myForm.action = "options-general.php?page=logo-wall-data";
       
+
+
+      var dropDown = document.getElementById("ddLogos");
 
       $('<input />').attr('type', 'hidden')
       .attr('name', "subType")
       .attr('value', subType)
       .appendTo('#logoForm');
 
-    <?php
-    if($_GET['id'] != null && $_GET['id'] != "new-post"){
-      
-      echo "$('<input />').attr('type', 'hidden')";
-      echo ".attr('name', \"id\")";
-      echo ".attr('value',".$_GET['id'].")";
-      echo ".appendTo('#logoForm');";
-    }
-      ?>
+
+      $('<input />').attr('type', 'hidden')
+      .attr('name', "id")
+      .attr('value',dropDown.options[dropDown.selectedIndex].innerHTML)
+      .appendTo('#logoForm');
+    
     
 
 
@@ -242,9 +209,8 @@ function clearErrors(){
   // Team Member Admin Forms
 
   
-    $result = $wpdb->get_row("SELECT * FROM tblCaseStudy where ID = ". $_GET['id']);
-    $hero_image = $result->heroImage;
-    $client_image = $result->clientLogo;
+    $results = $wpdb->get_results("SELECT * FROM tblLogowall");
+    
   ?>
    <form id="logoForm" method="post" enctype="multipart/form-data">
 
@@ -256,9 +222,10 @@ function clearErrors(){
     <div>
     <select id="ddLogos">
     <?php
-      //echo "<option value=\"$row->url\">$row->ID</option>";
-      echo "<option value=\"//localhost:4000/wp-content/themes/robin-honey/img/logo-cowbell.svg\">1</option>";
-      echo "<option value=\"//localhost:4000/wp-content/themes/robin-honey/img/logo-driversiti.svg\">2</option>";
+      foreach($results as $row)
+      {
+        echo "<option value=\"" . get_bloginfo( 'template_url', 'display' ) . $row->url . "\">$row->ID</option>";
+      }
     ?>
     </select>
     </div>
@@ -270,7 +237,7 @@ function clearErrors(){
       <input type="file" id="clientUpload" name="clientUpload" >
     </div>
     <div>
-      <img id="clientCurrent" height="20%" width="20%" src="/wp-content/themes/robin-honey/img/logo-cowbell.svg" />
+      <img id="clientCurrent" height="20%" width="20%" src="<?php echo bloginfo('template_url') .  $results[0]->url; ?>" />
       <img id="clientPreview" height="20%" width="20%"  />
     </div>
     
@@ -293,17 +260,14 @@ function clearErrors(){
     }
 
     $("#clientUpload").change(function() {
-    readURL(this, "clientPreview");
+      readURL(this, "clientPreview");
     });
 
 
 
     jQuery( document ).on( "change", "#ddLogos", function() {
-    
-    var url = document.getElementById("ddLogos").value;
-    $('#clientPreview').attr('src', url);
-
-
+      var url = document.getElementById("ddLogos").value;
+      $('#clientCurrent').attr('src', url);
     });
 
 
@@ -311,9 +275,7 @@ function clearErrors(){
   </form> 
   <?php
 
-   echo "<button type=\"button\" onclick='submitForm(\"Update\")' Name='btnFUpdate'>Update</button>";
-   echo "<button type=\"button\" onclick='submitForm(\"Create\")' name='btnFCreate'>Create</button>";
-   echo "<input type='button' id='btnDelete' value='Delete' />";
+  echo "<button type=\"button\" onclick='submitForm(\"Update\")' Name='btnFUpdate'>Update</button>";
   echo "</div>";
   echo "</div>";
   

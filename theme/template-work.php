@@ -57,29 +57,30 @@ $result = $result ?? $wpdb->get_row("select * from tblCaseStudy".$ordberBy);
       <div class="rhd-work-heading"><h1><?php echo $result->title;?></h1></div>
       <div class="rhd-view-more-work"><a onclick="return Navigate(-1);" title=""><i class="fas fa-chevron-left"></i></a> <span>view more work</span>  <a onclick="return Navigate(1);"  title=""><i class="fas fa-chevron-right"></i></a></div>
      </div>
-     <img src="<?php echo bloginfo('template_url'); ?>/img/navigreat-hero.png" alt="">
+     <img src="<?php echo bloginfo('template_url'); ?><?php echo $result->heroImage; ?>" alt="">
   </div>
   </section>
   <section class="rhd-container rhd-work-example-info">
     <div class="rhd-row flex flex-row flex-wrap flex-hor-center">
     <aside class="rhd-aside brand-description">
       <h4>Description</h4>
-      <p>Brand Naming, Brand Identity, Brand Strategy</p>
+      <p><?php echo $result->caseDescription;?></p>
       <h4>Client Website</h4>
-      <p><a href="" title="">navigreatfood.com</a></p>
+      <p><a href="<?php echo $result->clientUrl;?>" title=""><?php echo $result->clientUrl;?></a></p>
     </aside>
     <div class="rhd-work-example-logo">
-      <img src="<?php echo bloginfo('template_url'); ?>/img/navigreat.svg" alt="">
+      <img src="<?php echo bloginfo('template_url'); ?><?php echo $result->clientLogo;?>" alt="">
     </div>
     <div class="rhd-content-right brand-description">
-      <p>This Arizona-based client needed to find a new brand name and identity that identified the evolution of their business that had significantly changed since their inception. Navigreat was a name Robin developed along with the tagline ‘Finding new taste territories’ that worked for the dual audience of both foodpreneurs and food retailers. The logo and ‘food map’ helped bring whimsy and direction, clearly delineating the brand position.</p>
+      <!-- <p>This Arizona-based client needed to find a new brand name and identity that identified the evolution of their business that had significantly changed since their inception. Navigreat was a name Robin developed along with the tagline ‘Finding new taste territories’ that worked for the dual audience of both foodpreneurs and food retailers. The logo and ‘food map’ helped bring whimsy and direction, clearly delineating the brand position.</p> -->
+      <p><?php echo $result->projSummary;?></p>
     </div>
    </div>
   </section>
   <section class="rhd-section-light-grey rhd-testimonial">
     <div class="rhd-container">
-      <p class="u-italic u-text-center">“There are so many consumer food businesses in the U.S. and we wanted to avoid any trademark problems as well as distinguish ourselves as unique. The other important element was that we have several different audiences - the foodpreneurs we help - and the manufacturers and retailers we distribute to. The brand Robin created for us has worked equally well for all our customers and has the humour that breaks through the clutter.”</p>
-      <p class="u-text-center"><strong >Greg Bruni</strong><br>President of Navigreat Fine Food Co.</p>
+      <p class="u-italic u-text-center"><?php echo $result->testimonial;?></p><!--“”-->
+      <p class="u-text-center"><strong ><?php echo $result->tAuthor;?></strong><br><?php echo $result->tTitle;?></p>
     </div>
   </section>
   <?php include 'contact.php'; ?>

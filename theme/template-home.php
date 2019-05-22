@@ -43,35 +43,15 @@
       <h1>Brand Naming &amp; Identity</h1>
       <p>Robin has named more than a hundred, products, companies and services and designed thousands of logos. Her ability to review trademarks for knock-out searches and find workable domains as well as design and visualize the logo mean she provides fast and comprehensive advice to accelerate the process of brand naming.</p>
        <div class="rhd-row flex flex-row flex-wrap flex-hor-center">
-        <div class="rhd-brand-box">
-        <img src="<?php echo bloginfo('template_url'); ?>/img/logo-cowbell.svg" alt="">
-         <!--  <img src="<?php echo bloginfo('template_url'); ?>/img/logo-cowbell.png" alt=""> -->
-        </div>
-        <div class="rhd-brand-box">
-          <img src="<?php echo bloginfo('template_url'); ?>/img/logo-driversiti.svg" alt="">
-        </div>
-        <div class="rhd-brand-box">
-         <img src="<?php echo bloginfo('template_url'); ?>/img/logo-gridiron.svg" alt="">
-        </div>
-        <div class="rhd-brand-box">
-          <img src="<?php echo bloginfo('template_url'); ?>/img/logo-renegade.svg" alt="">
-        </div>
-        <div class="rhd-brand-box">
-          <img src="<?php echo bloginfo('template_url'); ?>/img/logo-anova.svg" alt="">
-        </div>
-
-        <div class="rhd-brand-box">
-         <img src="<?php echo bloginfo('template_url'); ?>/img/logo-ohvation.svg" alt="">
-        </div>
-        <div class="rhd-brand-box">
-          <img src="<?php echo bloginfo('template_url'); ?>/img/logo-shindig.svg" alt="">
-        </div>
-        <div class="rhd-brand-box">
-          <img src="<?php echo bloginfo('template_url'); ?>/img/logo-greenius.svg" alt="">
-        </div>
-        <div class="rhd-brand-box">
-         <img src="<?php echo bloginfo('template_url'); ?>/img/logo-maplemoose.svg" alt="">
-        </div>
+       <?php 
+       $results = $wpdb->get_results("SELECT * FROM tblLogowall");
+       foreach($results as $row)
+       {
+        echo"<div class=\"rhd-brand-box\">";
+        echo"  <img src=\"" . get_bloginfo( 'template_url', 'display' ) . $row->url . "\" alt=\"\">";
+        echo"</div>";
+       }
+       ?>
        </div>
     </div>
   </section>
