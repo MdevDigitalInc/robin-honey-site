@@ -20,22 +20,6 @@ function about_action() {
 	wp_die();
 }
 
-function about_page_action()
-{
-  global $wpdb;
-  define ('SITE_ROOT', realpath(dirname(__FILE__)."/../../"));
-
-  
-  $query = "select FlagStringValue from tblSiteConfig where ID = ". $_POST["fileNum"];
-  $results = $wpdb->get_results($query);
-
-
-  
-  $query = "update tblSiteConfig set FlagStringValue = '" . $target_file . "' where ID = " . $_POST["fileNum"];
-  $results = $wpdb->get_results($query);
-
-  wp_die($target_file);
-}
 
 /** Step 1. basics for plugin */
 function about_page_menus() {
@@ -76,7 +60,7 @@ function about_page_options() {
       
       //$wpdb->prepare( "SELECT id FROM wp_posts WHERE id > %d AND `post_status` = %s", $min_id, $status );
       $wpdb->get_results( $wpdb->prepare( "insert into wp_posts (post_author, post_date, post_title, post_name, post_content, post_status, comment_status, ping_status, post_modified, post_parent, menu_order, post_type, comment_count) 
-      values(%d,%s,%s,%s,%s,%s,%s,%s,%s,0,0,'about',0);",$author_id,$curDate,$post_title, $post_name, $post_content,$post_status,$comment_status,$ping_status,$post_modified) );
+      values(%d,%s,%s,%s,%s,%s,%s,%s,%s,0,%d,'about',0);",$author_id,$curDate,$post_title, $post_name, $post_content,$post_status,$comment_status,$ping_status,$post_modified, $_POST["section"]) );
 
       $post_id = $wpdb->insert_id;
       $post_url = "http://localhost:9009/?page_id=". $post_id;
@@ -84,7 +68,7 @@ function about_page_options() {
       $wpdb->get_results( $wpdb->prepare( "update wp_posts set guid = %s where ID = %d);", $post_url, $post_id) );
 
     } else if ($_POST["subType"] == "Update") {
-      $wpdb->get_results( $wpdb->prepare( "update wp_posts set post_title = %s, post_content = %s where ID = %d;",  $_POST["post_title"], $_POST["post_content"], $_POST["id"]) );
+      $wpdb->get_results( $wpdb->prepare( "update wp_posts set post_title = %s, post_content = %s, menu_order = %d where ID = %d;",  $_POST["post_title"], $_POST["post_content"], $_POST["section"],$_POST["id"]) );
     }
 
   }
@@ -142,7 +126,7 @@ function clearErrors(){
       this.loading = true;
       
       var myForm = document.getElementById("empForm");
-      myForm.action = "options-general.php?page=glen-employee-data";
+      myForm.action = "options-general.php?page=about-page-data";
       
 
       $('<input />').attr('type', 'hidden')
@@ -184,34 +168,39 @@ function clearErrors(){
   if($_GET['id'] == null)
   {
     ?>
-      <a href='?page=glen-employee-data&id=new-post'>Add New</a>
+      <a href='?page=about-page-data&id=new-post'>Add New</a>
       <button onclick="">Delete</button>
       <br />
     <?php
     
     $result = $wpdb->get_results ("SELECT * FROM wp_posts where post_type = \"about\";");//where post_type = \"about\"
     foreach ( $result as $page ) { 
-      echo "<input type=\"checkbox\" value=\"".$page->ID."\"><a href='?page=glen-employee-data&id=".$page->ID."'>".$page->post_title."</a> <br />"; 
+      echo "<input type=\"checkbox\" value=\"".$page->ID."\"><a href='?page=about-page-data&id=".$page->ID."'>".$page->post_title."</a> <br />"; 
     }
     
   }
   else
   {
-    $result = $wpdb->get_results ("SELECT * FROM wp_posts where ID = ". $_GET['id']);
+    $result = $wpdb->get_row ("SELECT * FROM wp_posts where ID = ". $_GET['id']);
   ?>
   <form id="empForm" method="post" enctype="multipart/form-data">
     <div>
-      <input type="text" name="post_title" value="<?php echo $result[0]->post_title;?>"/>
+      <input type="text" name="post_title" value="<?php echo $result->post_title;?>"/>
+    </div>
+    <div>
+    <select name="section">
+    <option value="0" <?php echo $result->menu_order == 0 ? "selected" : "";?> >About</option>
+    <option value="1" <?php echo $result->menu_order == 1 ? "selected" : "";?> >Bio</option>
+    <option value="2" <?php echo $result->menu_order == 2 ? "selected" : "";?> >Bottom</option>
+    </select>
     </div>
   </form>
-
     <div>
       <button onclick="execCmd('bold');">Bold</button>
       <button onclick="execCmd('italic');">Italics</button>
-      <button onclick="execCmd('insertParagraph');">Paragraph</button>
+      <button onclick="execCmd('formatBlock', 'p');">Paragraph</button>
       <select onchange="execCmd('formatBlock', this.value)">
         <option value=""></option>
-        <option value="H1">H1</option>
         <option value="H2">H2</option>
         <option value="H3">H3</option>
       </select>
@@ -230,16 +219,29 @@ function clearErrors(){
       richTextField.document.designMode = "On";
       <?php
 
-      if(count($result) > 0)
-      {
-
-        echo "richTextField.document.getElementsByTagName('body')[0].innerHTML = \"". $result[0]->post_content ."\";";
+      if(count($result) > 0) {
+        echo "richTextField.document.getElementsByTagName('body')[0].innerHTML = \"". $result->post_content ."\";";
       }
-      
       
       ?>
       function execCmd (command, args = null) {
+
+        
+
         richTextField.document.execCommand(command, false, args);
+
+        if(command == "insertUnorderedList") {
+
+          var newList = Array.prototype.reverse.call(richTextField.document.getElementsByTagName("UL"))[0];
+          newList.classList.add("rhd-list");
+          newList.classList.add("rhd-bullets");
+        
+        }
+        else if(args == "p")
+        {
+          richTextField.document.execCommand("formatBlock", false, "div");
+        }
+
       }
       function showSource() {
         if(showSourceCode) {
@@ -272,10 +274,6 @@ function clearErrors(){
   }
 
 }
-
-
-
-
 // create table tblPages(Id int not null primary key auto_increment, mainTitle varchar(500), subTitle varchar(500), body varchar(500), list varchar(200), isBullet int,  divLine int, finePrint varchar(150), image varchar(200));
 // insert into tblPages(mainTitle, list, divLine, image, finePrint) values();
 

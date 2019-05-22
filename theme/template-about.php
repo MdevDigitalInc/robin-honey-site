@@ -3,7 +3,9 @@
 <?php 
 get_header(); 
 
-$result = $wpdb->get_results ("SELECT * FROM wp_posts where post_type = \"about\";");
+$about = $wpdb->get_results ("SELECT * FROM wp_posts where post_type = \"about\" and post_status =\"publish\" and menu_order = 0;");
+$bio = $wpdb->get_results ("SELECT * FROM wp_posts where post_type = \"about\" and post_status =\"publish\" and menu_order = 1;");
+$other = $wpdb->get_results ("SELECT * FROM wp_posts where post_type = \"about\" and post_status =\"publish\" and menu_order = 2;");
 
 
 ?>
@@ -17,8 +19,8 @@ $result = $wpdb->get_results ("SELECT * FROM wp_posts where post_type = \"about\
       </div>
       <div class="rhd-about-content">
       <?php 
-      echo "<h1>".stripslashes($result[0]->post_title)."</h1>";
-      echo stripslashes($result[0]->post_content);
+      echo "<h1>".stripslashes($about[0]->post_title)."</h1>";
+      echo stripslashes($about[0]->post_content);
       ?>
       <!-- <h1>About Robin </h1>
       <p>Robin is skilled at finding the client’s core purpose through her investigative process and interpreting that into new visual and verbal expressions. Called the ‘Brand Queen’ she has worked with and invented hundreds of brands over her 30-year career,  including for national corporations like Labatt Brewing and Chrysler, international consumer brands like Jolly Jumper and 3M, and entrepreneurial start-ups. She has amassed a specialist expertise in craft beer having branded Forked River, Cowbell Brewing, Equals Brewing and rebranded Big Rock Brewery.</p> -->
@@ -29,8 +31,8 @@ $result = $wpdb->get_results ("SELECT * FROM wp_posts where post_type = \"about\
       
       
       <?php 
-      echo "<h1>".stripslashes($result[1]->post_title)."</h1>";
-      echo stripslashes($result[1]->post_content);
+      echo "<h1>".stripslashes($bio[0]->post_title)."</h1>";
+      echo stripslashes($bio[0]->post_content);
       ?>
       <!-- <p>A former entrepreneur, Robin founded the brand boutique Honey Design in 1989. In 2014, she merged with Arcane Digital and helped to build a creative team that integrated brand with digital practices. Robin has evolved to the next stage of her career,  as an independent brand and creative consultant.</p>
       <p>Robin&apos;s work has been featured in international publications and has been awarded local, national and international recognition for excellence in design and strategy. Robin is an author of a primer on branding for business –The Beebrand Manifesto, A Quest for Authenticity and many articles on branding.</p>
@@ -55,31 +57,50 @@ $result = $wpdb->get_results ("SELECT * FROM wp_posts where post_type = \"about\
         </ul>
         </aside>
         <div class="rhd-content-right">
-        <h1>writing</h1>
-        <p><span class="text-light">Check out Robin’s articles about branding on Linked In.</span></p>
-        <ul class="rhd-list rhd-bullets">
-          <li>Brand Naming – Why you need a one-two punch.</li>
-          <li>Brand Naming – Coin something new. </li>
-          <li>What’s Your Logo Saying?</li>
-          <li>A House of Brands or a Branded House?</li>
-          <li>The BeeBrand Manifesto, available on Amazon.</li>
-        </ul>
-        <h1>speaking</h1>
-        <p><span class="text-light">Robin is a speaker on the topic of branding at creative conferences, client events and B2B seminars.</span></p>
-        <ul class="rhd-list rhd-bullets">
-          <li>MLX Conference, Atlanta, 2018 – The Value of Brand of Brand Consistency</li>
-          <li>Creative Direction 2017, Toronto – What Creative Directors Know</li>
-          <li>RGD Moderator 2017, Webinar, Feminism in Design</li>
-          <li>RGD Design Thinkers 2017, Toronto – The Art & Science of Brand Naming</li>
-          <li>MacKay CEO Forums 2017 – The Authenticity   Gap; How to manage your brand in a digital world.</li>
-          <li>MaxLiving Conference 2017 Florida, U.S. – Brand Launch</li>
-          <li>Master Pools Conference North Carolina, U.S. – Brand Launch</li>
-        </ul>
-        <h1>workshops</h1>
-        <p><span class="text-light">Robin has conducted interactive workshops to guide organizations to uncover their hidden potential and help power their growth.</span></p>
-        <ul class="rhd-list rhd-bullets">
-          <li>Brand workshops ‘Find Your Brand Position’ for a variety of industries from insurance, B2B professional services, consumer products, etc.</li>
-        </ul>
+        <?php
+        foreach($other as $row)
+        {
+          echo "<h1>".stripslashes($row->post_title)."</h1>";
+          echo stripslashes($row->post_content);
+          
+          // echo "<h1>writing</h1>";
+          // echo "<p><span class=\"text-light\">Check out Robin’s articles about branding on Linked In.</span></p>";
+          // echo "<ul class=\"rhd-list rhd-bullets\">";
+          // echo "  <li>Brand Naming – Why you need a one-two punch.</li>";
+          // echo "  <li>Brand Naming – Coin something new. </li>";
+          // echo "  <li>What’s Your Logo Saying?</li>";
+          // echo "  <li>A House of Brands or a Branded House?</li>";
+          // echo "  <li>The BeeBrand Manifesto, available on Amazon.</li>";
+          // echo "</ul>";
+          
+        }
+
+        ?>
+          <h1>writing</h1>
+          <p><span class="text-light">Check out Robin’s articles about branding on Linked In.</span></p>
+          <ul class="rhd-list rhd-bullets">
+            <li>Brand Naming – Why you need a one-two punch.</li>
+            <li>Brand Naming – Coin something new. </li>
+            <li>What’s Your Logo Saying?</li>
+            <li>A House of Brands or a Branded House?</li>
+            <li>The BeeBrand Manifesto, available on Amazon.</li>
+          </ul>
+          <h1>speaking</h1>
+          <p><span class="text-light">Robin is a speaker on the topic of branding at creative conferences, client events and B2B seminars.</span></p>
+          <ul class="rhd-list rhd-bullets">
+            <li>MLX Conference, Atlanta, 2018 – The Value of Brand of Brand Consistency</li>
+            <li>Creative Direction 2017, Toronto – What Creative Directors Know</li>
+            <li>RGD Moderator 2017, Webinar, Feminism in Design</li>
+            <li>RGD Design Thinkers 2017, Toronto – The Art & Science of Brand Naming</li>
+            <li>MacKay CEO Forums 2017 – The Authenticity   Gap; How to manage your brand in a digital world.</li>
+            <li>MaxLiving Conference 2017 Florida, U.S. – Brand Launch</li>
+            <li>Master Pools Conference North Carolina, U.S. – Brand Launch</li>
+          </ul>
+          <h1>workshops</h1>
+          <p><span class="text-light">Robin has conducted interactive workshops to guide organizations to uncover their hidden potential and help power their growth.</span></p>
+          <ul class="rhd-list rhd-bullets">
+            <li>Brand workshops ‘Find Your Brand Position’ for a variety of industries from insurance, B2B professional services, consumer products, etc.</li>
+          </ul>
         </div>
       </div>
     </div>

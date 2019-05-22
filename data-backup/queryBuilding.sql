@@ -8,3 +8,12 @@ insert into tblCaseStudy (ID,title,heroImage,caseDescription,clientUrl,clientLog
 update tblCaseStudy set title = %s, heroImage = %s, caseDescription = %s, clientUrl = %s, clientLogo = %s, projSummary = %s, testimonial = %s, tAuthor = %s, tTitle = %s, seoTitle = %s, seoDescription = %s where ID = %d;
 
 
+
+
+
+
+create table tblLogowall (ID int not null primary key auto_increment, url varchar(200));
+
+insert into tblLogowall (url) values (%s);
+
+update tblLogowall set url = %s; where ID = %d;
