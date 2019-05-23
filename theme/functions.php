@@ -143,6 +143,44 @@ add_filter( 'wpcf7_autop_or_not', '__return_false');
 include 'contact-form-stuff.php';
 
 
+function custom_rewrite_rule() {
+  add_rewrite_rule('^work/?([^/]*)','index.php?page_id=15','top');
+}
+add_action('init', 'custom_rewrite_rule', 10, 0);
+
+
+// add_action('init', 'anew_rewrite_rule');
+// function anew_rewrite_rule(){
+//     add_rewrite_rule('^work/[a-zA-Z]*','index.php?pagename=work','top');  
+// }
+
+    // add_action('query_vars','controller_set_query_var');
+    // function controller_set_query_var($vars) {
+    //     array_push($vars, 'is_customusers_page'); // ref url redirected to in add rewrite rule
+
+    //     return $vars;
+    // }
+
+
+    //we'll call it a template but point to your controller
+    // add_filter('template_include', 'include_controller');
+    // function include_controller($template){
+
+
+    //     // see above 2 functions..
+    //     if(get_query_var('is_customusers_page')){
+    //         //path to your template file
+    //         $new_template = get_stylesheet_directory().'/controllerpath.php';
+    //         if(file_exists($new_template)){
+    //             $template = $new_template;
+    //         } 
+    //     }    
+
+    //     return $template;    
+
+    // }
+
+
 
 
 

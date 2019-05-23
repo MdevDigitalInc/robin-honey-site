@@ -135,7 +135,7 @@ function case_study_options() {
     } else if ($_POST["subType"] == "Update") {
       
       $query = $wpdb->prepare(
-        "update tblCaseStudy set title = %s, caseDescription = %s, clientUrl = %s, projSummary = %s, testimonial = %s, tAuthor = %s, tTitle = %s, seoTitle = %s, seoDescription = %s". $imagesSection ." where ID = %d;",
+        "update tblCaseStudy set title = %s, caseDescription = %s, clientUrl = %s, projSummary = %s, testimonial = %s, tAuthor = %s, tTitle = %s, seoTitle = %s, seoDescription = %s, slug = %s". $imagesSection ." where ID = %d;",
         $_POST["txt_title"],
         $_POST["txt_desc"],
         $_POST["txt_url"],
@@ -145,6 +145,7 @@ function case_study_options() {
         $_POST["txt_tName"],
         $_POST["seo_title"],
         $_POST["seo_desc"],
+        $_POST['slug'],
         $_POST["id"]
       );
       
@@ -207,7 +208,7 @@ function clearErrors(){
       this.loading = true;
       
       var myForm = document.getElementById("caseForm");
-      myForm.action = "options-general.php?page=case-study-data&id="+<?php echo $_GET['id']; ?>;
+      myForm.action = "options-general.php?page=case-study-data";
       
 
       $('<input />').attr('type', 'hidden')
@@ -324,16 +325,21 @@ function clearErrors(){
       <input type="text" id="txt_tName" name="txt_tName" value="<?php echo $result->tAuthor;?>"/>
     </div>
 
+    <div>
+      <br/>
+      <label for="seo_desc">Page Slug</label><br/>
+      <input id="txt_slug" name="slug" value="<?php echo $result->slug;?>"/>
+    </div>
 
     <div>
       <label for="seo_title">Seo Title: </label><br/>
-      <input type="text" id="seo_title" name="seo_title" <?php echo $result->seoTitle;?>/>
+      <input type="text" id="seo_title" name="seo_title" ><?php echo $result->seoTitle;?></textarea>
     </div>
 
     <div>
       <br/>
       <label for="seo_desc">Seo Description</label><br/>
-      <textarea id="seo_desc" name="seo_desc" <?php echo $result->seoDescription;?>></textarea>
+      <textarea id="seo_desc" name="seo_desc" ><?php echo $result->seoDescription;?></textarea>
     </div>
     
   </form> 
