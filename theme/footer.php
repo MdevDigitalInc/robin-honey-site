@@ -8,7 +8,6 @@
                 <li><a href="https://www.instagram.com/robin.honey/" title="" target="_blank"><i class="fab fa-instagram"></i></a></li>
                 <li><a href="https://www.pinterest.ca/honeydesign/" title="" target="_blank"><i class="fab fa-pinterest"></i></a></li>
 			</ul>
-			<br>
 			</div>
 			<div>
 			<?php $defaults = array(

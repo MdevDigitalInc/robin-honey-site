@@ -72,7 +72,6 @@ $result = $result ?? $wpdb->get_row("select * from tblCaseStudy".$ordberBy);
       <img src="<?php echo bloginfo('template_url'); ?><?php echo $result->clientLogo;?>" alt="">
     </div>
     <div class="rhd-content-right brand-description">
-      <!-- <p>This Arizona-based client needed to find a new brand name and identity that identified the evolution of their business that had significantly changed since their inception. Navigreat was a name Robin developed along with the tagline ‘Finding new taste territories’ that worked for the dual audience of both foodpreneurs and food retailers. The logo and ‘food map’ helped bring whimsy and direction, clearly delineating the brand position.</p> -->
       <p><?php echo $result->projSummary;?></p>
     </div>
    </div>

@@ -54,7 +54,8 @@ h6,.h6, {
 $p-font-sizes: (
   null  : 14px,
 	$tablet-up : 20px,
-  $desktop-up: 20px
+  $desktop-up: 20px,
+  $laptop-only: 18px
 );
 
 $h1-font-sizes: (
@@ -118,7 +119,26 @@ p {
   line-height: 1.5;
   margin: 0 0 20px;
   span.text-light {
-    color: #686868;
+    color: #333231;
+  }
+  &.small-margin {
+    margin-bottom: 15px;
+  }
+  &.small-width {
+    @media #{$laptop-up} {
+    max-width: 200px;
+    }
+  }
+  &.small-note {
+    @media #{$tablet-up} {
+    max-width: 180px;
+    }
+  }
+  &.small-line-height{
+    line-height: 1.3
+  }
+  &.small {
+    font-size: 14px;
   }
   @include font-size($p-font-sizes);
 }
@@ -134,17 +154,21 @@ h1,
 
 h2,
 .h2 {
-  font-family: $main-font;
-  font-weight: 400;
+  // font-family: $main-font;
+  // font-weight: 400;
+  // color: $dark-grey;
+  // text-transform: capitalize;
+  // line-height: 1.5;
+  font-weight: 700;
   color: $dark-grey;
-  text-transform: capitalize;
   line-height: 1.5;
+  margin: 40px 0 5px;
   @include font-size($h2-font-sizes);
 }
 
 h3,
 .h3 {
-  font-weight: 400;
+  font-weight: 700;
   color: $white;
   line-height: 1.5;
   text-transform: none;
@@ -156,6 +180,7 @@ h4,
   font-weight: 700;
   color: $dark-grey;
   line-height: 1;
+  margin-bottom: 20px;
   @include font-size($h4-font-sizes);
 }
 

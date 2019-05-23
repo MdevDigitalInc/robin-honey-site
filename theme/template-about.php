@@ -34,21 +34,18 @@ $other = $wpdb->get_results ("SELECT * FROM wp_posts where post_type = \"about\"
       echo "<h1>".stripslashes($bio[0]->post_title)."</h1>";
       echo stripslashes($bio[0]->post_content);
       ?>
-      <!-- <p>A former entrepreneur, Robin founded the brand boutique Honey Design in 1989. In 2014, she merged with Arcane Digital and helped to build a creative team that integrated brand with digital practices. Robin has evolved to the next stage of her career,  as an independent brand and creative consultant.</p>
-      <p>Robin&apos;s work has been featured in international publications and has been awarded local, national and international recognition for excellence in design and strategy. Robin is an author of a primer on branding for business –The Beebrand Manifesto, A Quest for Authenticity and many articles on branding.</p>
-      <p>A graduate of the Richard Ivey School of Business’s Strategic Marketing Program, and Sheridan College’s advertising program, Robin is a frequent speaker on branding and has appeared at Design Thinkers and various RGD events for students and practitioners alike, as well as client- focused events throughout Canada and the U.S.</p> -->
       </div>
     </div>
   </section>
   <section class="rhd-section-light-grey about-info">
     <div class="rhd-container">
-      <div class="rhd-row flex flex-row flex-wrap flex-hor-center ">
+      <div class="rhd-row flex flex-row flex-wrap">
         <aside class="rhd-aside about">
-        <h1>Contact</h1>
+        <h2>Contact</h2>
          <ul class="rhd-list contact">
-          <li><a href="mailto:info@robinhoney.com" title="">info@robinhoney.com</a></li>
+          <li class="email"><a href="mailto:info@robinhoney.com" title="">info@robinhoney.com</a></li>
         </ul>
-        <p><span class="text-light">Check out my social media channels: </span></p>
+        <p class="small-margin small-width"><span class="text-light">Check out my social media channels: </span></p>
         <ul class="rhd-list contact">
           <li><strong>LinkedIn – </strong><a href="https://ca.linkedin.com/in/robinhoney/" title="">Robin Honey</a></li>
           <li><strong>Twitter –  </strong><a href="https://twitter.com/honeylondon?lang=en" title="">@honeylondon </a></li>
@@ -60,45 +57,10 @@ $other = $wpdb->get_results ("SELECT * FROM wp_posts where post_type = \"about\"
         <?php
           foreach($other as $row)
           {
-            echo "<h1>".stripslashes($row->post_title)."</h1>";
+            echo "<h2>".stripslashes($row->post_title)."</h2>";
             echo stripslashes($row->post_content);
-            
-            // echo "<h1>writing</h1>";
-            // echo "<p><span class=\"text-light\">Check out Robin’s articles about branding on Linked In.</span></p>";
-            // echo "<ul class=\"rhd-list rhd-bullets\">";
-            // echo "  <li>Brand Naming – Why you need a one-two punch.</li>";
-            // echo "  <li>Brand Naming – Coin something new. </li>";
-            // echo "  <li>What’s Your Logo Saying?</li>";
-            // echo "  <li>A House of Brands or a Branded House?</li>";
-            // echo "  <li>The BeeBrand Manifesto, available on Amazon.</li>";
-            // echo "</ul>";
           }
         ?>
-          <!-- <h1>writing</h1>
-          <p><span class="text-light">Check out Robin’s articles about branding on Linked In.</span></p>
-          <ul class="rhd-list rhd-bullets">
-            <li>Brand Naming – Why you need a one-two punch.</li>
-            <li>Brand Naming – Coin something new. </li>
-            <li>What’s Your Logo Saying?</li>
-            <li>A House of Brands or a Branded House?</li>
-            <li>The BeeBrand Manifesto, available on Amazon.</li>
-          </ul>
-          <h1>speaking</h1>
-          <p><span class="text-light">Robin is a speaker on the topic of branding at creative conferences, client events and B2B seminars.</span></p>
-          <ul class="rhd-list rhd-bullets">
-            <li>MLX Conference, Atlanta, 2018 – The Value of Brand of Brand Consistency</li>
-            <li>Creative Direction 2017, Toronto – What Creative Directors Know</li>
-            <li>RGD Moderator 2017, Webinar, Feminism in Design</li>
-            <li>RGD Design Thinkers 2017, Toronto – The Art & Science of Brand Naming</li>
-            <li>MacKay CEO Forums 2017 – The Authenticity   Gap; How to manage your brand in a digital world.</li>
-            <li>MaxLiving Conference 2017 Florida, U.S. – Brand Launch</li>
-            <li>Master Pools Conference North Carolina, U.S. – Brand Launch</li>
-          </ul>
-          <h1>workshops</h1>
-          <p><span class="text-light">Robin has conducted interactive workshops to guide organizations to uncover their hidden potential and help power their growth.</span></p>
-          <ul class="rhd-list rhd-bullets">
-            <li>Brand workshops ‘Find Your Brand Position’ for a variety of industries from insurance, B2B professional services, consumer products, etc.</li>
-          </ul> -->
         </div>
       </div>
     </div>

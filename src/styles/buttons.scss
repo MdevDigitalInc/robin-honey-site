@@ -37,7 +37,7 @@
 .rhd-base-btn {
   padding: 20px 30px;
   display: block;
-  font-size: 25px;
+  font-size: 18px;
   font-weight: 600;
   margin: 40px 0;
   text-align: center;
@@ -45,10 +45,12 @@
   transition: .3s;
   border-radius: 44px;
   cursor: pointer;
+
   @media #{$tablet-up} {
     display: inline-block;
     padding: 20px 60px;
   }
+
   @media #{$phone-only} {
     padding: 20px 40px;
     width: 85%;
@@ -57,16 +59,18 @@
 
 .rhd-main-btn {
   color: $white;
-  background-color: $baby-blue;
+  background-color: $blue;
 
   &:hover {
     color: $white;
     background-color: $gold;
   }
+
   &:focus {
     color: $white;
     background-color: $gold;
   }
+
   &:active {
     color: $white;
     background-color: $gold;
@@ -74,7 +78,7 @@
 }
 
 .rhd-secondary-btn {
-  color: $blue;
+  color: $gold;
   background-color: $white;
   border: solid 2px $white;
 
