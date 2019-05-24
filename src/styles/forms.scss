@@ -143,6 +143,10 @@ textarea::placeholder {
     font-size: 15px;
     transform: translateY(-60%);
   }
+  &.is-active > label {
+    font-size: 15px;
+    transform: translateY(-60%);
+  }
 }
 
 .rhd-form-group.name,
