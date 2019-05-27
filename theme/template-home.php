@@ -11,17 +11,20 @@
     <div class="rhd-container rhd-work-examples">
        <div class="rhd-row flex flex-row flex-wrap">
         <div class="rhd-work-box">
-          <a href="<?php echo home_url('/'); ?>cowbell-brewing-co" title="View Cowbell Brewing"><img src="<?php echo bloginfo('template_url'); ?>/img/work-cowbell-thumbnail.png" alt="Cowbell Brewing Logo">
-          <h4 class="u-text-center" >cowbell brewing co.<h4>
+          <a href="<?php echo home_url('/'); ?>cowbell-brewing-co" title="View Cowbell Brewing">
+            <img src="<?php echo bloginfo('template_url'); ?>/img/work-cowbell-thumbnail.png" alt="Cowbell Brewing Logo">
+            <h4 class="u-text-center" >cowbell brewing co.<h4>
           </a>
         </div>
         <div class="rhd-work-box">
-          <a href="<?php echo home_url('/'); ?>maxliving/" title="View Maxliving"><img src="<?php echo bloginfo('template_url'); ?>/img/work-maxliving-thumbnail.png" alt="Maxliving Logo">
+          <a href="<?php echo home_url('/'); ?>maxliving/" title="View Maxliving">
+            <img src="<?php echo bloginfo('template_url'); ?>/img/work-maxliving-thumbnail.png" alt="Maxliving Logo">
             <h4 class="u-text-center">maxliving</h4>
           </a>
         </div>
         <div class="rhd-work-box">
-          <a href="<?php echo home_url('/'); ?>navigreat-fine-foods/" title="View Navigreat Fine Foods"><img src="<?php echo bloginfo('template_url'); ?>/img/work-navigreat-thumbnail.png" alt="Navigreat Logo">
+          <a href="<?php echo home_url('/'); ?>navigreat-fine-foods/" title="View Navigreat Fine Foods">
+            <img src="<?php echo bloginfo('template_url'); ?>/img/work-navigreat-thumbnail.png" alt="Navigreat Logo">
             <h4 class="u-text-center">navigreat</h4>
           </a>
         </div>

@@ -20,7 +20,7 @@ input {
   &[type="tel"],
    {
     width: 100%;
-    padding: 10px 10px 10px 0;
+    padding: 10px 10px 10px;
     margin-bottom: 20px;
     border: none;
     border-bottom: 3px solid $white;
@@ -30,22 +30,28 @@ input {
     color: $white;
     font-family: $main-font;
     font-size: 17px;
-    @media #{$tablet-up} {
-    font-size: 20px;
-    }
     line-height: 2;
-    &:hover,&:active {
+
+    @media #{$tablet-up} {
+      font-size: 20px;
+    }
+
+    &:hover,
+    &:active {
       background-color: transparent;
       color: $white;
     }
+
     &:focus {
       border-bottom: 3px solid rgba(255, 255, 255, .5);
     }
+
     &:focus + label {
       font-size: 15px;
-      transform: translateY(-53%);
+      transform: translateY( -53% );
+
       @media #{$phone-only} {
-        transform: translateY(-35%);
+        transform: translateY( -35% );
       }
     }
   }
@@ -68,27 +74,31 @@ textarea {
   color: $white;
   font-size: 17px;
   margin-bottom: 20px;
-  @media #{$tablet-up} {
-    font-size: 20px;
-  }
   min-height: 100px;
   font-family: $main-font;
   font-weight: normal;
   overflow: hidden;
+
+  @media #{$tablet-up} {
+    font-size: 20px;
+  }
+
   &:hover,
   &:active {
     background-color: transparent;
     color: $white;
   }
+
   &:focus {
     border-bottom: 3px solid rgba(255, 255, 255, .5); 
   }
+
   &:focus + label {
       font-size: 15px;
-      transform: translateY(-55%);
+      transform: translateY( -55% );
       @media #{$phone-only} {
         font-size: 14px;
-        transform: translateY(-35%);
+        transform: translateY( -35% );
       }
   }
 }
@@ -112,6 +122,7 @@ textarea {
   width: 100%;
   position: relative;
   text-align: left;
+
   label {
     position: absolute;
     top: 0;
@@ -119,10 +130,11 @@ textarea {
     width: 100%;
     transition: all .3s;
     font-size: 17px;
-    padding: 10px 10px 10px 0;
+    padding: 10px 10px 10px;
     line-height: 2;
     margin-bottom: 20px;
     color: $white;
+
     @media #{$tablet-up} {
       font-size: 20px;
     }
@@ -134,17 +146,20 @@ textarea {
 
   &.is-active > label {
     font-size: 15px;
-    transform: translateY(-60%);
+    transform: translateY( -60% );
+
     @media #{$phone-only} {
-      transform: translateY(-35%);
+      transform: translateY( -35% );
     }
   }
+
   &.message.is-active > label {
     font-size: 15px;
-    transform: translateY(-55%);
+    transform: translateY( -55% );
+
     @media #{$phone-only} {
       font-size: 14px;
-      transform: translateY(-35%);
+      transform: translateY( -35% );
     }
   }
 }
@@ -156,6 +171,7 @@ textarea {
   @media #{$laptop-up} {
     width: 22%;
     padding: 0;
+
     input {
       &[ type = 'text' ],
       &[ type = 'email' ],
