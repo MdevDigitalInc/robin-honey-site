@@ -35,22 +35,20 @@ if( $message ===""){
 
 }
 
-
-
-$message_body = "From: ".$name."<".$email."> \r\n".
-"Company Name: ".$company_name."\r\n".
-"Phone Number: ".$phone."\r\n \r\n".
-"Message Body: \r\n".$message;
-
-
 //php mailer variables
 $to = get_option('admin_email');
 $subject = "Someone sent a message from ".get_bloginfo('name');
 $headers = 'From: '. $email . "\r\n" .
 'Reply-To: ' . $email . "\r\n";
 
+$message_body = "From: ".$name."<".$email."> \r\n".
+"Company Name: ".$company_name."\r\n".
+"Phone Number: ".$phone."\r\n \r\n".
+"Subject: ".$subject."\r\n \r\n".
+"Message Body: \r\n \r\n".$message;
+
 if (empty($errors)) {
-	$sent = wp_mail($to, $subject, strip_tags($message_body), $headers);
+	$sent = wp_mail($to, $subject, stripslashes(strip_tags($message_body)), $headers);
 
 	echo'{"response":"Your message has been successfully sent.","status": 1}';
 

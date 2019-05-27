@@ -8,7 +8,7 @@ export default {
     jQuery(document).ready(function( $ ) {
 
       //Mobile navigation
-      $( ".rhd-toggle-nav, .rhd-overlay" ).click(function() {
+      $( "[data-toggle='nav']" ).click(function() {
         $( ".rhd-toggle-nav" ).toggleClass('open');
         $( ".rhd-nav-area").toggleClass('open');
         $( ".rhd-overlay" ).toggleClass('open');
@@ -48,6 +48,73 @@ export default {
         labelState(input);
       });
 
+      //
+
+      //Custom Contact Form
+      $( "#contactForm" ).submit(function( event ) {
+
+        $("#result").empty();
+        $( "#errors" ).remove();
+        $("#result").css("color","#fff");
+        $( "#result" ).append('<div class="rhd-ring"><div></div><div></div><div></div><div></div></div>');
+
+
+        event.preventDefault();
+
+        //get values
+        var $form = $( this ),
+        name = $form.find( "input[name='name']" ).val(),
+        companyName = $form.find( "input[name='company-name']" ).val(),
+        phone = $form.find( "input[name='phone']" ).val(),
+        email = $form.find( "input[name='email']" ).val(),
+        message = $form.find( "textarea[name='message']" ).val(),
+        url = $form.attr( "action");
+
+        var  postData = {
+          name: name,
+          company_name: companyName,
+          phone: phone,
+          email: email,
+          message: message
+        };
+
+      //setTimeout(function(){
+
+        $.post(url, postData, function(data, status, xhr) {
+
+          var result = data.response;
+          $( "#result" ).empty().append("<p>"+result+"</p>");
+
+          var errors ="";
+
+          if (data.errors != null){
+
+            $.each( data.errors, function( key, value ) {
+
+                $( "."+key).addClass( "invalid" );
+
+                errors +="<li>" + value + "</li>";
+            });
+
+            var errorList = '<ul class="errors" id="#errors">'+errors+'</ul>';
+
+            $("#result p").css("color","red").append(errorList);
+
+          }
+
+          if(data.status === 1) {
+            $('#contactForm').hide();
+            $("#result").prepend('<h2>Thank you</h2>');
+            $('#result').append('<div class="rhd-mail-icon"></div>');
+
+          }
+
+        },'json'); // response data format
+
+      //}, 3000);
+
+      });
+      //End Custom Cantact Form
     });
   },
 };

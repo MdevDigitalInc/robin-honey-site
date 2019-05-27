@@ -5,7 +5,8 @@ section {
   padding: 40px 0;
 }
 
-html, body {
+html,
+body {
   &.no-scroll {
     overflow: hidden;
   }
@@ -19,6 +20,7 @@ html, body {
   z-index: 3;
   border-bottom: 2px solid $blue;
   background-color: $white;
+
   .rhd-header-container {
     background-color: $white;
     min-height: 75px;
@@ -41,6 +43,7 @@ html, body {
 
 .rhd-main {
   margin-top: 75px;
+
   @media #{$tablet-only} {
     margin-top: 100px;
   }
@@ -53,6 +56,7 @@ html, body {
 .rhd-banner {
   @media #{$tablet-only} {
     padding: 80px 0;
+
     h3 {
       line-height: 1.3;
     }
@@ -60,14 +64,15 @@ html, body {
 
   @media #{$laptop-up} {
     padding: 100px 0;
+
     h3 {
-      width: 80%;
+      width: 85%;
       margin: 0 auto;
       font-size: 44px;
       line-height: 1.4;
     }
   }
-  @media #{$laptop-only} { 
+  @media #{$laptop-only} {
     h3 {
       width: 85%;
     }
@@ -96,24 +101,28 @@ strong {
 //main menu
 .rhd-nav-area {
   position: absolute;
+
   @media #{$laptop-up} {
     position: relative;
     visibility: visible;
     top: 0;
     z-index: 0;
-    //min-height: 150px;
   }
+
   z-index: -2;
   top: -300px;
   transition: top .5s ease;
   height: 0;
   visibility: hidden;
+
   &.open {
     visibility: visible;
     top: 75px;
+
     @media #{$tablet-only} {
       top: 100px;
     }
+
     @media #{$laptop-up} {
       position: relative;
       visibility: visible;
@@ -130,6 +139,7 @@ strong {
   padding-top: 30px;
   padding-bottom: 10px;
   background-color: $blue;
+
   @media #{$laptop-up} {
     padding-top: 0;
     padding-bottom: 0;
@@ -138,10 +148,16 @@ strong {
 
   li {
     width: 100%;
-    margin-bottom:  20px;
+    margin-bottom: 20px;
+
     a {
       color: $white;
-      padding: 15px 0 15px 50px;
+      padding: 15px 0 15px 30px;
+
+      @media #{$tablet-only} {
+        padding-left: 50px;
+      }
+
       transition: color .3s, background-color .3s;
       background-color: $blue;
       display: block;
@@ -157,7 +173,7 @@ strong {
   .current-menu-item > a {
     background-color: $baby-blue;
   }
-  @media #{$laptop-up} { 
+  @media #{$laptop-up} {
     .current-menu-item > a {
       background-color: transparent;
       color: $gold;
@@ -178,28 +194,35 @@ ul.sub-menu {
     font-weight: 400;
     text-transform: uppercase;
     font-size: 17px;
-    text-indent: 40px;
+    text-indent: 20px;
+
+    @media #{$tablet-only} {
+      text-indent: 40px;
+    }
     padding: 6px 30px;
   }
 }
 
 //Lists
-ul.rhd-list li {
+.rhd-list li {
   margin-bottom: 15px;
   list-style-position: outside;
   line-height: 1.5;
   font-size: 14px;
+
   @media #{$tablet-up} {
     font-size: 20px;
   }
+
   @media #{$laptop-only} {
     font-size: 18px;
   }
 }
 
-ul.rhd-list.contact li {
+.rhd-list.contact li {
   margin-bottom: 16px;
   line-height: 1.1;
+
   &.email {
     margin-bottom: 30px;
   }
@@ -207,17 +230,20 @@ ul.rhd-list.contact li {
 
 .rhd-bullets {
   margin-left: 12px;
+  list-style-type: disc;
+
   @media #{$tablet-up} {
     margin-left: 45px;
   }
-  list-style-type: disc;
 }
 
 .rhd-contact-form {
   padding-bottom: 1px;
+
   @media #{$tablet-up} {
     padding-bottom: 20px;
   }
+
   h2 {
     margin: 15px 0 10px;
     color: $white;
@@ -226,11 +252,13 @@ ul.rhd-list.contact li {
   p {
     font-size: 14px;
     margin-bottom: 0;
+
     @media #{$tablet-up} {
       margin-bottom: 30px;
       font-size: 20px;
     }
   }
+
   .rhd-secondary-btn {
     padding-top: 18px;
     padding-bottom: 18px;
@@ -260,6 +288,7 @@ ul.rhd-list.contact li {
       font-size: 21px;
     }
   }
+
   ul.sub-menu {
     display: none;
   }
@@ -271,6 +300,7 @@ ul.rhd-list.contact li {
   overflow: hidden;
   font-size: 14px;
   width: 75%;
+
   @media #{$laptop-up} {
     width: 40%;
   }
@@ -300,6 +330,7 @@ ul.rhd-list.contact li {
       color: $dark-grey;
       transition: color .3s;
     }
+
     a:hover {
       color: $gold;
     }
@@ -312,12 +343,17 @@ ul.rhd-list.contact li {
 
 .rhd-social {
   margin-left: 10px;
+
+  @media #{$tablet-only} {
+    margin-left: 30px;
+  }
 }
 
 .rhd-social li {
   display: inline-block;
   font-size: 24px;
   margin-right: 32px;
+
   &:last-child {
     margin-right: 0;
   }
@@ -335,9 +371,11 @@ ul.rhd-list.contact li {
 .rdh-social-media-footer {
   margin: 50px 0 20px;
   width: auto;
+
   .fab {
     color: $gold;
     transition: color .3s;
+
     &:hover {
       color: $blue;
     }
@@ -345,8 +383,10 @@ ul.rhd-list.contact li {
 }
 
 .rhd-work-examples {
+
   @media #{$laptop-up} {
-    padding: 60px 0 60px;
+    padding: 60px 0;
+
     .rhd-row {
       justify-content: space-between;
     }
@@ -354,6 +394,7 @@ ul.rhd-list.contact li {
 
   @media #{$tablet-only} {
     padding-top: 45px;
+
     .rhd-row {
       justify-content: space-around;
     }
@@ -364,7 +405,8 @@ ul.rhd-list.contact li {
   position: relative;
   padding-top: 0;
   padding-bottom: 0;
-  @media #{$laptop-up} { 
+
+  @media #{$laptop-up} {
     padding-top: 40px;
   }
 }
@@ -390,16 +432,19 @@ ul.rhd-list.contact li {
 .rhd-meet-robin-content {
   background-color: $light-grey;
   width: 100%;
+
   div {
     margin: 0  auto;
     width: 90%;
     padding-bottom: 20px;
   }
+
   .rhd-main-btn {
     margin: 10px auto 25px;
     font-size: 18px;
     width: 60%;
   }
+
   h2 {
     padding: 40px 0 15px;
     text-align: center;
@@ -412,7 +457,7 @@ ul.rhd-list.contact li {
   }
 
   @media #{$laptop-up} {
-    h2{
+    h2 {
       padding: 45px 0 40px;
     }
     padding-bottom: 25px;
@@ -421,10 +466,12 @@ ul.rhd-list.contact li {
   @media #{$tablet-up} {
     background-color: rgba(255,255,255,.9);
     position: absolute;
+
     h2 {
       text-align: left;
       line-height: 1.5;
     }
+
     .rhd-main-btn {
       width: auto;
       margin-top: 0;
@@ -438,6 +485,11 @@ ul.rhd-list.contact li {
     top: 45%;
   }
 
+  @media #{$tablet-lnd-only} {
+    left: 8%;
+    top: 30%;
+  }
+
   @media #{$laptop-up} {
     width: 38%;
     left: 12%;
@@ -448,22 +500,23 @@ ul.rhd-list.contact li {
 .rhd-brand-naming-identity {
   padding-top: 1px;
   padding-bottom: 40px;
-  .rhd-row{
+  .rhd-row {
     margin-top: 30px;
-    //margin-bottom: 40px;
   }
 
   h1 {
-      margin-bottom: 10px;
+    margin-bottom: 10px;
   }
 
   @media #{$laptop-up} {
     padding-top: 30px;
     padding-bottom: 80px;
+
     h1 {
       margin-bottom: 20px;
     }
-    .rhd-row{
+
+    .rhd-row {
       margin-top: 0;
       margin-bottom: 0;
     }
@@ -473,9 +526,6 @@ ul.rhd-list.contact li {
 .rhd-overlay {
   position: fixed;
   display: none;
-  &.open {
-    display: block;
-  }
   width: 100%;
   height: 100%;
   top: 0;
@@ -485,10 +535,10 @@ ul.rhd-list.contact li {
   background-color: rgba(0,0,0,.5);
   z-index: 2;
   cursor: pointer;
-}
 
-.u-italic {
-  font-style: italic;
+  &.open {
+    display: block;
+  }
 }
 
 .rhd-no-padding-top {
@@ -505,6 +555,7 @@ ul.rhd-list.contact li {
   background-color: $blue;
   background-size: 350px;
   position: relative;
+
   h1,
   p {
     color: $white;
@@ -521,6 +572,17 @@ ul.rhd-list.contact li {
   @media #{$laptop-up} {
     margin-bottom: 10px;
   }
+
+  @media #{$laptop-only} {
+    .rhd-main-photo {
+      width: 35%;
+    }
+
+    .rhd-about-content {
+      width: 65%;
+    }
+  }
+
   .rhd-about-content {
     padding-bottom: 0;
   }
@@ -528,9 +590,11 @@ ul.rhd-list.contact li {
 
 .rhd-section-light-grey.about-info {
   padding-top: 0;
+
   @media #{$tablet-only} {
     padding-top: 40px;
   }
+
   @media #{$laptop-up} {
     padding-top: 70px;
     padding-bottom: 80px;
@@ -545,22 +609,26 @@ ul.rhd-list.contact li {
 .rhd-work-box {
   position: relative;
   width: 100%;
+
   img {
     width: 100%;
     filter: opacity(1);
     transition: filter 1s, background 1s;
   }
+
   &:hover {
     img {
       filter: opacity(.2);
     }
   }
+
   h4 {
     margin: 10px 0 50px;
   }
 
   @media #{$tablet-only} {
     width: 48%;
+
     h4 {
       font-size: 16px;
       margin-bottom: 30px;
@@ -569,6 +637,7 @@ ul.rhd-list.contact li {
 
   @media #{$laptop-up} {
     width: 28%;
+
     h4 {
       position: absolute;
       top: 105%;
@@ -577,6 +646,7 @@ ul.rhd-list.contact li {
       transition: top .5s ease;
       font-size: 23px;
     }
+
     &:hover {
       h4 {
         top: 40%;
@@ -586,6 +656,7 @@ ul.rhd-list.contact li {
 
   @media #{$laptop-only} {
     width: 30%;
+
     h4 {
       font-size: 16px;
       margin: 10px 0;
@@ -598,28 +669,34 @@ ul.rhd-list.contact li {
   min-height: 100px;
   border-right: 1px solid $dark-grey;
   border-bottom: 1px solid $dark-grey;
-  // filter: opacity(1);
-  // transition: filter 1s, background 1s;
-  // &:hover {
-  //   filter: opacity(.5);
-  // }
+
   @media #{$tablet-only} {
     min-height: 125px;
   }
+
+  @media #{$tablet-lnd-only} {
+    min-height: 200px;
+  }
+
   @media #{$laptop-up} {
     min-height: 200px;
   }
+
   background-color: $white;
   width: 33.333%;
+
   &:nth-child( 3n+1 ) {
     border-left: none;
   }
+
   &:nth-child( 3n+0 ) {
     border-right: none;
   }
+
   &:nth-last-child( -n+3 ) {
     border-bottom: none;
   }
+
   img {
     @include center('both');
     position: relative;
@@ -637,11 +714,12 @@ ul.rhd-list.contact li {
 .rhd-work-heading {
   width: 100%;
   text-align: center;
+
   h1 {
     margin: 0;
   }
 
-  @media #{$tablet-only} { 
+  @media #{$tablet-only} {
     h1 {
       margin: 40px 0;
     }
@@ -650,6 +728,7 @@ ul.rhd-list.contact li {
   @media #{$laptop-up} {
     width: 50%;
     text-align: left;
+
     h1 {
       margin: 40px 0 20px;
     }
@@ -661,11 +740,13 @@ ul.rhd-list.contact li {
   text-align: center;
   padding-top: 0;
   margin-bottom: 15px;
+
   .fas {
     position: relative;
     top: 3px;
     font-size: 25px;
     color: $gold;
+
     &:hover {
       color: $blue;
       transition: color .3s;
@@ -683,6 +764,7 @@ ul.rhd-list.contact li {
 
   @media #{$tablet-only} {
     margin-bottom: 30px;
+
     .fas {
       top: 6px;
       font-size: 35px;
@@ -697,6 +779,7 @@ ul.rhd-list.contact li {
     width: 50%;
     text-align: right;
     padding-top: 50px;
+
     .fas {
       top: 3px;
       font-size: 30px;
@@ -712,12 +795,15 @@ ul.rhd-list.contact li {
   @media #{$laptop-up} {
     padding-top: 1px;
     padding-bottom: 50px;
+
     .rhd-about-container {
       margin-top: 80px;
     }
+
     .rhd-bio {
       padding-top: 10px;
     }
+
     h1 {
       margin-bottom: 10px;
     }
@@ -727,7 +813,8 @@ ul.rhd-list.contact li {
 .rhd-main-photo {
   padding: 30px 30px 0;
   overflow: hidden;
-  height: 200px;
+  height: 220px;
+
   img {
     width: 100%;
   }
@@ -735,6 +822,10 @@ ul.rhd-list.contact li {
   @media #{$tablet-only} {
     padding: 40px 40px 0;
     height: 400px;
+  }
+
+  @media #{$tablet-lnd-only} {
+    height: 500px;
   }
 
   @media #{$laptop-up} {
@@ -747,8 +838,15 @@ ul.rhd-list.contact li {
 .rhd-about-content {
   padding: 0 30px 30px;
 
+  @media #{$phone-only} {
+    h1 {
+      margin: 25px 0 5px;
+    }
+  }
+
   @media #{$tablet-only} {
     padding: 0 40px 40px;
+
     .rhd-base-btn {
       margin: 10px 0 40px;
     }
@@ -760,7 +858,7 @@ ul.rhd-list.contact li {
   }
 
   @media #{$laptop-only} {
-    p{
+    p {
       font-size: 18px;
     }
   }
@@ -773,6 +871,11 @@ ul.rhd-list.contact li {
 
 .rhd-work-example-info {
   padding: 10px 0;
+
+  @media #{$tablet-only} {
+    padding-top: 30px;
+  }
+
   @media #{$laptop-up} {
     padding: 80px 0;
   }
@@ -780,6 +883,7 @@ ul.rhd-list.contact li {
 
 .rhd-aside.brand-description {
   border-bottom: 1px solid;
+
   h4,
   p {
     text-align: center;
@@ -791,19 +895,20 @@ ul.rhd-list.contact li {
       text-align: left;
     }
   }
-  @media #{$tablet-only} { 
+
+  @media #{$tablet-only} {
     h4 {
-      font-size: 24px;
       margin-bottom: 15px;
     }
     padding: 50px 0 20px;
   }
 
-  @media #{$phone-only} { 
+  @media #{$phone-only} {
     h4 {
       margin-bottom: 10px;
     }
-    p{
+
+    p {
       margin-bottom: 10px;
     }
     padding-bottom: 20px;
@@ -850,6 +955,7 @@ ul.rhd-list.contact li {
   .rhd-work-example-logo {
     width: 50%;
     position: relative;
+
     img {
       @include center('both');
       width: 70%;
@@ -868,6 +974,7 @@ ul.rhd-list.contact li {
 
 .rhd-testimonial {
   padding-top: 60px;
+
   @media #{$laptop-up} {
     p {
       width: 90%;
@@ -883,8 +990,9 @@ ul.rhd-list.contact li {
   font-weight: 400;
   font-size: 14px;
   line-height: 1.5;
+
   @media #{$tablet-up} {
-    font-size: 20px; 
+    font-size: 20px;
   }
 }
 
@@ -911,9 +1019,11 @@ div.wpcf7-mail-sent-ok:before {
   font-size: 22px;
   line-height: 1.5;
   text-transform: uppercase;
+
   @media #{$tablet-up} {
     font-size: 35px;
   }
+
   @media #{$laptop-up} {
     font-size: 40px;
   }
@@ -923,19 +1033,16 @@ div.wpcf7-mail-sent-ok:before {
   color: $white;
 }
 
-.wpcf7-response-output.wpcf7-mail-sent-ok:after, 
+.wpcf7-response-output.wpcf7-mail-sent-ok:after,
 .rhd-mail-icon {
-  // content: '\f0e0';
-  // font-family: Font Awesome\ 5 Free;
   display: block;
-  // font-size: 80px;
-  // color: $white;
   content: ' ';
   background: url('../img/envelope-icon.svg') no-repeat;
   margin-top: 20px;
   margin-bottom: 30px;
   width: 90px;
   height: 90px;
+
   @media #{$tablet-up} {
     width: 100px;
     height: 100px;
@@ -944,6 +1051,76 @@ div.wpcf7-mail-sent-ok:before {
 
 .wpcf7-not-valid-tip {
   margin-top: 1px;
+}
+
+//custom contact form styles 
+
+.rhd-form-container {
+  @media #{$phone-only} {
+    margin-top: 10px;
+  }
+}
+
+.invalid {
+  input,
+  textarea {
+    border-bottom: 3px solid red;
+  }
+
+  label {
+    color: red;
+  }
+}
+
+.errors {
+  border: 1px solid red;
+  color: #721c24;
+  background-color: #f8d7da;
+  list-style-type: none;
+  padding: 10px;
+  margin: 20px 0;
+}
+
+.rhd-ring {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+
+  div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 51px;
+    height: 51px;
+    margin: 6px;
+    border: 6px solid #fff;
+    border-radius: 50%;
+    animation: rhd-ring 1.2s cubic-bezier( .5, 0, .5, 1 ) infinite;
+    border-color: #fff transparent transparent transparent;
+
+    &:nth-child( 1 ) {
+      animation-delay: -.45s;
+    }
+
+    &:nth-child( 2 ) {
+      animation-delay: -.3s;
+    }
+
+    &:nth-child( 3 ) {
+      animation-delay: -.15s;
+    }
+  }
+}
+
+@keyframes rhd-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @media #{$tablet-up} {
@@ -957,7 +1134,6 @@ div.wpcf7-mail-sent-ok:before {
   .rhd-container,
   .rhd-header-container {
     width: 75%;
-    //min-height: 120px;
   }
 
   .rhd-brand {
@@ -966,7 +1142,6 @@ div.wpcf7-mail-sent-ok:before {
 
   .rhd-brand-area {
     width: 40%;
-    //padding-top: 38px;
     padding-top: 30px;
     padding-left: 0;
   }
@@ -976,7 +1151,6 @@ div.wpcf7-mail-sent-ok:before {
     margin-top: 0;
     display: block;
     background-color: transparent;
-    //padding-top: 55px;
     padding-top: 35px;
   }
 
@@ -992,6 +1166,7 @@ div.wpcf7-mail-sent-ok:before {
     width: auto;
     font-size: 21px;
     text-transform: uppercase;
+
     a {
       padding: 15px 20px;
       color: $dark-grey;
@@ -1007,7 +1182,7 @@ div.wpcf7-mail-sent-ok:before {
     &.rhd-contact-link a {
       border: solid 2px $gold;
       border-radius: 44px;
-      margin: 0px 13px;
+      margin: 0 13px;
       padding: 15px 36px;
 
       &:hover {
@@ -1022,6 +1197,7 @@ div.wpcf7-mail-sent-ok:before {
     border-right: 1px solid;
     padding-right: 5px;
     padding-top: 0;
+
     h1 {
       margin-top: 0;
     }
@@ -1036,6 +1212,7 @@ div.wpcf7-mail-sent-ok:before {
     padding-top: 10px;
     padding-bottom: 0;
     padding-left: 20px;
+
     img {
       max-width: 85%;
       margin: 0 auto;
@@ -1049,6 +1226,7 @@ div.wpcf7-mail-sent-ok:before {
   .rhd-content-right {
     width: 75%;
     padding-left: 60px;
+
     h1:first-child {
       margin-top: 0;
     }
@@ -1058,14 +1236,7 @@ div.wpcf7-mail-sent-ok:before {
     width: 57%;
     padding-left: 20px;
     padding-bottom: 0;
-    p {
-      //font-size: 25px;
-    }
   }
-
-  // .rhd-brand-box {
-  //   width: 33.333%;
-  // }
 }
 
 @media #{$laptop-only} {
@@ -1081,9 +1252,10 @@ div.wpcf7-mail-sent-ok:before {
   .rhd-aside.brand-description {
     width: 25%;
     padding-right: 10px;
-    h4 {
-      font-size: 26px;
-    }
+
+    // h4 {
+    //   font-size: 26px;
+    // }
   }
 
   .rhd-work-example-logo {
@@ -1092,6 +1264,7 @@ div.wpcf7-mail-sent-ok:before {
 
   .rhd-content-right.brand-description {
     width: 50%;
+
     p {
       margin-bottom: 0;
     }

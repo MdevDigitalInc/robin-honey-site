@@ -73,3 +73,5 @@ node_modules/*
 /theme/wp-content/plugins/akismet
 
 /plugins/akismet
+
+old_files/*
