@@ -7,7 +7,7 @@
     <div class="rhd-container rhd-about-container">
       <div class="rhd-row flex flex-row flex-wrap flex-hor-center rhd-section-light-grey about">
         <div class="rhd-main-photo">
-        <img src="<?php echo bloginfo('template_url'); ?>/img/robin-honey-portrait.png" alt="">
+        <img src="<?php echo bloginfo('template_url'); ?>/img/robin-honey-portrait.png" alt="Portrait of Robin Honey">
         </div>
         <div class="rhd-about-content">
           <h1>About Robin </h1>
@@ -29,7 +29,7 @@
         <aside class="rhd-aside about">
           <h2>Contact</h2>
            <ul class="rhd-list contact">
-            <li class="email"><a href="mailto:info@robinhoney.com" title="">info@robinhoney.com</a></li>
+            <li class="email"><a href="mailto:info@robinhoney.com" title="Contact Robin">info@robinhoney.com</a></li>
           </ul>
           <p class="small-margin small-width"><span class="text-light">Check out my social media channels: </span></p>
           <ul class="rhd-list contact">
