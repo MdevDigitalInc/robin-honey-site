@@ -11,7 +11,7 @@
     <div class="rhd-container rhd-work-examples">
        <div class="rhd-row flex flex-row flex-wrap">
         <div class="rhd-work-box">
-          <a href="<?php echo home_url('/'); ?>cowbell-brewing-co" title="View Cowbell Brewing">
+          <a href="<?php echo home_url('/'); ?>cowbell-brewing-co" title="View Cowbell Brewing Co">
             <img src="<?php echo bloginfo('template_url'); ?>/img/work-cowbell-thumbnail.png" alt="Cowbell Brewing Logo">
             <h4 class="u-text-center" >cowbell brewing co.<h4>
           </a>

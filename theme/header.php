@@ -14,8 +14,8 @@
     <!-- Twitter Card  -->
     <!-- TODO - Edit Twitter Card data and delete this comment -->
     <meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:site" content="@SAMPLE">
-    <meta name="twitter:creator" content="@SAMPLE">
+    <meta name="twitter:site" content="@honeylondon">
+    <meta name="twitter:creator" content="@honeylondon">
     <meta name="twitter:title" content="ROBIN HONEY: Brand Consultant"/>
     <meta name="twitter:description" content="<?php echo get_post_meta($post->ID, 'description', true); ?>"/>
     <meta name="twitter:image" content="<?php bloginfo('template_url'); ?>/robin-honey-tw-card.png"/>

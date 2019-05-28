@@ -32,6 +32,5 @@
 			</div>
 		</form>
 		<div id="result"></div>
-		<ul id="errors"></ul>
 	</div>
 </section>
