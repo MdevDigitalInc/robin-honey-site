@@ -3,36 +3,22 @@
 <?php 
 get_header(); 
 
-$condition = "";
-$ordberBy = ";";
+
 $slug = explode("/",$_SERVER[REQUEST_URI])[2];
 
-
-
-
-// if($_POST["dir"] == -1)
-// {
-//   $condition = $wpdb->prepare(" where ID < %d", $_POST["id"]);
-//   $ordberBy = " Order By ID Desc;";
-// }
-// else if($_POST["dir"] == 1)
-// {
-//   $condition = $wpdb->prepare(" where ID > %d", $_POST["id"]);
-// }
-
-
-
-$result = $wpdb->get_row("select * from tblCaseStudy where slug = '".$slug."';");//.$condition.$ordberBy);
-
+if(!$slug) {
+  $result = $wpdb->get_row("select * from tblCaseStudy;");
+} else {
+  $result = $wpdb->get_row("select * from tblCaseStudy where slug = '".$slug."';");
+}
 
 if(!$result)
 {
 echo " YOU NEED TO WRITE A REDIRECT TO A 404!";
 }
 
-$next
-
-
+$next = $wpdb->get_row("select * from tblCaseStudy where id > ".$result->ID.";") ?? $wpdb->get_row("select * from tblCaseStudy;");
+$prev = $wpdb->get_row("select * from tblCaseStudy where id < ".$result->ID." order by id desc;") ?? $wpdb->get_row("select * from tblCaseStudy order by id desc;");
 
 
 ?>
@@ -41,7 +27,7 @@ $next
   <div class="rhd-container">
      <div class="rhd-row flex flex-row flex-wrap flex-hor-center">
       <div class="rhd-work-heading"><h1><?php echo $result->title;?></h1></div>
-      <div class="rhd-view-more-work"><a onclick="return Navigate(-1);" title=""><i class="fas fa-chevron-left"></i></a> <span>view more work</span>  <a onclick="return Navigate(1);"  title=""><i class="fas fa-chevron-right"></i></a></div>
+      <div class="rhd-view-more-work"><a href="/work/<?php echo $prev->slug?>" title=""><i class="fas fa-chevron-left"></i></a> <span>view more work</span>  <a href="/work/<?php echo $next->slug?>"  title=""><i class="fas fa-chevron-right"></i></a></div>
      </div>
      <img src="<?php echo bloginfo('template_url'); ?><?php echo $result->heroImage; ?>" alt="">
   </div>
@@ -53,6 +39,7 @@ $next
       <p><?php echo $result->caseDescription;?></p>
       <h4>Client Website</h4>
       <p><a href="<?php echo $result->clientUrl;?>" title=""><?php echo $result->clientUrl;?></a></p>
+      <?php echo "fasdfasdf" . $slug[0];?>
     </aside>
     <div class="rhd-work-example-logo">
       <img src="<?php echo bloginfo('template_url'); ?><?php echo $result->clientLogo;?>" alt="">

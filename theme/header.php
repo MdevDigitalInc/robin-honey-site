@@ -1,4 +1,22 @@
 <!DOCTYPE html>
+<?php 
+$slug = explode("/",$_SERVER[REQUEST_URI]);
+$result;
+if($slug[1] == "work")
+{
+  if(!$slug[2]) {
+    $result = $wpdb->get_row("select * from tblCaseStudy;");
+  } else {
+    $result = $wpdb->get_row("select * from tblCaseStudy where slug = '".$slug[2]."';");
+  }
+
+  if(!$result)
+  {
+  echo " YOU NEED TO WRITE A REDIRECT TO A 404!";
+  }
+}
+
+?>
 <html <?php language_attributes(); ?>>
 	<head>
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
@@ -8,8 +26,18 @@
     <meta property="fb:app_id" content="APP_ID_HERE" />
     <meta property="og:type" content="website" />
     <meta property="og:url"  content="http://SITE_URL_HERE" />
+    <?php 
+    if($result) { 
+      echo "<meta property=\"og:title\" content=\"".$result->seoTitle."\" />";
+      echo "<meta property=\"og:description\" content=\"".$result->seoDescription."\" />";
+      echo "<meta property=\"og:image\" content=\"".bloginfo('template_url'). "/robin-honey-fb-card.png\" />";
+    } else {
+    ?>
     <meta property="og:title" content="ROBIN HONEY: Brand Consultant" />
     <meta property="og:image" content="<?php bloginfo('template_url'); ?>/robin-honey-fb-card.png" />
+    <?php
+    }
+    ?>
     <!-- Twitter Card  -->
     <!-- TODO - Edit Twitter Card data and delete this comment -->
     <meta name="twitter:card" content="summary_large_image"/>

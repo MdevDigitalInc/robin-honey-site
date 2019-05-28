@@ -11,17 +11,17 @@
     <div class="rhd-container rhd-work-examples">
        <div class="rhd-row flex flex-row flex-wrap">
         <div class="rhd-work-box">
-          <a href="<?php echo home_url('/'); ?>cowbell-brewing-co" title=""><img src="<?php echo bloginfo('template_url'); ?>/img/work-cowbell-thumbnail.png" alt="">
+          <a href="<?php echo home_url('/'); ?>work/cowbell-brewing-co" title=""><img src="<?php echo bloginfo('template_url'); ?>/img/work-cowbell-thumbnail.png" alt="">
           <h4 class="u-text-center" >cowbell brewing co.<h4>
           </a>
         </div>
         <div class="rhd-work-box">
-          <a href="<?php echo home_url('/'); ?>maxliving/" title=""><img src="<?php echo bloginfo('template_url'); ?>/img/work-maxliving-thumbnail.png" alt="">
+          <a href="<?php echo home_url('/'); ?>work/maxliving/" title=""><img src="<?php echo bloginfo('template_url'); ?>/img/work-maxliving-thumbnail.png" alt="">
             <h4 class="u-text-center">maxliving</h4>
           </a>
         </div>
         <div class="rhd-work-box">
-          <a href="<?php echo home_url('/'); ?>navigreat-fine-foods/" title=""><img src="<?php echo bloginfo('template_url'); ?>/img/work-navigreat-thumbnail.png" alt="">
+          <a href="<?php echo home_url('/'); ?>work/navigreat-fine-foods/" title=""><img src="<?php echo bloginfo('template_url'); ?>/img/work-navigreat-thumbnail.png" alt="">
             <h4 class="u-text-center">navigreat</h4>
           </a>
         </div>

@@ -52,7 +52,7 @@ function about_page_options() {
       $post_title = $_POST["post_title"];
       $post_name = strtolower(str_replace(" ", "-", $post_title));
       $post_content = $_POST['post_content'];
-      $post_status = "publish";
+      $post_status = $_POST['visibility'];
       $comment_status = "closed";
       $ping_status = "closed";
       $post_modified = date('Y-m-d H:i:s');
@@ -68,7 +68,7 @@ function about_page_options() {
       $wpdb->get_results( $wpdb->prepare( "update wp_posts set guid = %s where ID = %d);", $post_url, $post_id) );
 
     } else if ($_POST["subType"] == "Update") {
-      $wpdb->get_results( $wpdb->prepare( "update wp_posts set post_title = %s, post_content = %s, menu_order = %d where ID = %d;",  $_POST["post_title"], $_POST["post_content"], $_POST["section"],$_POST["id"]) );
+      $wpdb->get_results( $wpdb->prepare( "update wp_posts set post_title = %s, post_content = %s, menu_order = %d, post_status = %s where ID = %d;",  $_POST["post_title"], $_POST["post_content"], $_POST["section"], $_POST['visibility'], $_POST["id"]) );
     }
 
   }
@@ -187,17 +187,64 @@ function clearErrors(){
 
   if($_GET['id'] == null)
   {
+  
+echo count($_POST['chkBulk']);
+
+    if(count($_POST['chkBulk']) > 0){
+      $condition = "";
+      if(count($_POST['chkBulk']) == 1){
+        $condition = " = ".$_POST["chkBulk"][0].";";  
+      }
+      else{
+        $condition = "in (".implode(",",$_POST['chkBulk']).");";
+      }
+
+      if($_POST['blkAction'] == 3)
+      {
+        $result = $wpdb->get_results ("Delete FROM wp_posts where id ". $condition);//where post_type = \"about\"
+      }
+      else if($_POST['blkAction'] == 2){
+        $result = $wpdb->get_results ("update wp_posts set post_status = \"private\" where id ". $condition);
+      }
+      else if($_POST['blkAction'] == 1){
+        $result = $wpdb->get_results ("update wp_posts set post_status = \"publish\" where id ".$condition);
+      }
+    }
+
+
     ?>
       <a href='?page=about-page-data&id=new-post'>Add New</a>
-      <button onclick="">Delete</button>
+      <form name="frmBulk" method="post">
+      <select name="blkAction" >
+      <option >Choose and Action</option>
+      <option value = "1">Show</option>
+      <option value = "2">Hide</option>
+      <option value = "3">Delete</option>
+      </select>
+      
       <br />
+      <button onclick="">Submit</button>
     <?php
-    
+    echo "<table>";
+    echo "<tr>";
+    echo "<th> </th>";
+    echo "<th>Post</th>";
+    echo "<th>Is Visible</th>";
+    echo "</tr>";
     $result = $wpdb->get_results ("SELECT * FROM wp_posts where post_type = \"about\";");//where post_type = \"about\"
     foreach ( $result as $page ) { 
-      echo "<input type=\"checkbox\" value=\"".$page->ID."\"><a href='?page=about-page-data&id=".$page->ID."'>".$page->post_title."</a> <br />"; 
+      echo "<tr>";
+      echo "<th><input type=\"checkbox\" name=\"chkBulk[]\" value=\"".$page->ID."\"></th><th><a href='?page=about-page-data&id=".$page->ID."'>".$page->post_title."</a></th><th><p>". ($page->post_status == "publish" ? "Showing" : "Not Showing")  ."</p></th> <br />"; 
+      echo "</tr>";
     }
-    
+    echo "</table>";
+    ?>
+
+    </form> <!-- end frmBulk-->
+
+
+
+    <?php
   }
   else
   {
@@ -212,6 +259,11 @@ function clearErrors(){
     <option value="0" <?php echo $result->menu_order == 0 ? "selected" : "";?> >About</option>
     <option value="1" <?php echo $result->menu_order == 1 ? "selected" : "";?> >Bio</option>
     <option value="2" <?php echo $result->menu_order == 2 ? "selected" : "";?> >Bottom</option>
+    </select>
+    
+    <select name="visibility">
+    <option value="publish" <?php  echo $result->post_status == "publish" ? "selected" : ""; ?>>Showing</option>
+    <option value="private" <?php  echo $result->post_status == "private" ? "selected" : ""; ?>>Not Showing</option>
     </select>
     </div>
   </form>
