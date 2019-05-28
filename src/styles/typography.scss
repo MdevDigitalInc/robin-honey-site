@@ -59,7 +59,7 @@ $p-font-sizes: (
 );
 
 $h1-font-sizes: (
-  null  : 22px,
+  null  : 30px,
   $tablet-up : 35px,
   $desktop-up: 40px
 );
@@ -78,8 +78,8 @@ $h3-font-sizes: (
 
 $h4-font-sizes: (
   null  : 20px,
-  $tablet-up : 30px,
-  $desktop-up: 30px
+  $tablet-up : 23px,
+  $desktop-up: 23px
 );
 
 $h5-font-sizes: (
@@ -118,28 +118,35 @@ $link-font-sizes: (
 p {
   line-height: 1.5;
   margin: 0 0 20px;
+
   span.text-light {
     color: #333231;
   }
+
   &.small-margin {
     margin-bottom: 15px;
   }
+
   &.small-width {
     @media #{$laptop-up} {
-    max-width: 200px;
+      max-width: 200px;
     }
   }
+
   &.small-note {
     @media #{$tablet-up} {
-    max-width: 180px;
+      max-width: 180px;
     }
   }
-  &.small-line-height{
-    line-height: 1.3
+
+  &.small-line-height {
+    line-height: 1.3;
   }
+
   &.small {
     font-size: 14px;
   }
+
   @include font-size($p-font-sizes);
 }
 
@@ -154,11 +161,6 @@ h1,
 
 h2,
 .h2 {
-  // font-family: $main-font;
-  // font-weight: 400;
-  // color: $dark-grey;
-  // text-transform: capitalize;
-  // line-height: 1.5;
   font-weight: 700;
   color: $dark-grey;
   line-height: 1.5;

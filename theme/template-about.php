@@ -15,24 +15,20 @@ $other = $wpdb->get_results ("SELECT * FROM wp_posts where post_type = \"about\"
     <div class="rhd-container rhd-about-container">
       <div class="rhd-row flex flex-row flex-wrap flex-hor-center rhd-section-light-grey about">
       <div class="rhd-main-photo">
-      <img src="<?php echo bloginfo('template_url'); ?>/img/robin-honey-portrait.png" alt="">
+      <img src="<?php echo bloginfo('template_url'); ?>/img/robin-honey-portrait.png" alt="Portrait of Robin Honey">
       </div>
       <div class="rhd-about-content">
       <?php 
-      echo "<h1>".stripslashes($about[0]->post_title)."</h1>";
-      echo stripslashes($about[0]->post_content);
+        echo "<h1>".stripslashes($about[0]->post_title)."</h1>";
+        echo stripslashes($about[0]->post_content);
       ?>
-      <!-- <h1>About Robin </h1>
-      <p>Robin is skilled at finding the client’s core purpose through her investigative process and interpreting that into new visual and verbal expressions. Called the ‘Brand Queen’ she has worked with and invented hundreds of brands over her 30-year career,  including for national corporations like Labatt Brewing and Chrysler, international consumer brands like Jolly Jumper and 3M, and entrepreneurial start-ups. She has amassed a specialist expertise in craft beer having branded Forked River, Cowbell Brewing, Equals Brewing and rebranded Big Rock Brewery.</p> -->
-      <a href="" class="rhd-base-btn rhd-main-btn" title="">View Work</a>
+      <a href="<?php echo home_url('/'); ?>cowbell-brewing-co/" class="rhd-base-btn rhd-main-btn" title="View Work Examples">View Work</a>
       </div>
       </div>
       <div class="rhd-bio">
-      
-      
       <?php 
-      echo "<h1>".stripslashes($bio[0]->post_title)."</h1>";
-      echo stripslashes($bio[0]->post_content);
+        echo "<h1>".stripslashes($bio[0]->post_title)."</h1>";
+        echo stripslashes($bio[0]->post_content);
       ?>
       </div>
     </div>
@@ -41,17 +37,16 @@ $other = $wpdb->get_results ("SELECT * FROM wp_posts where post_type = \"about\"
     <div class="rhd-container">
       <div class="rhd-row flex flex-row flex-wrap">
         <aside class="rhd-aside about">
-        <h2>Contact</h2>
-         <ul class="rhd-list contact">
-          <li class="email"><a href="mailto:info@robinhoney.com" title="">info@robinhoney.com</a></li>
-        </ul>
-        <p class="small-margin small-width"><span class="text-light">Check out my social media channels: </span></p>
-        <ul class="rhd-list contact">
-          <li><strong>LinkedIn – </strong><a href="https://ca.linkedin.com/in/robinhoney/" title="">Robin Honey</a></li>
-          <li><strong>Twitter –  </strong><a href="https://twitter.com/honeylondon?lang=en" title="">@honeylondon </a></li>
-          <li><strong>Instagram – </strong><a href="https://www.instagram.com/robin.honey/" title="">Robin Honey </a></li>
-          <li><strong>Pinterest – </strong><a href="https://www.pinterest.ca/honeydesign/" title="">Robin Honey</a></li>
-        </ul>
+          <h2>Contact</h2>
+           <ul class="rhd-list contact">
+            <li class="email"><a href="mailto:info@robinhoney.com" title="Contact Robin">info@robinhoney.com</a></li>
+          </ul>
+          <p class="small-margin small-width"><span class="text-light">Check out my social media channels: </span></p>
+          <ul class="rhd-list contact">
+            <li><strong>LinkedIn – </strong><a href="https://ca.linkedin.com/in/robinhoney/" title="follow us on linkedin">Robin Honey</a></li>
+            <li><strong>Twitter –  </strong><a href="https://twitter.com/honeylondon?lang=en" title="follow us on twitter">@honeylondon </a></li>
+            <li><strong>Instagram – </strong><a href="https://www.instagram.com/robin.honey/" title="follow us on instagram">Robin Honey </a></li>
+          </ul>
         </aside>
         <div class="rhd-content-right about">
         <?php
@@ -65,7 +60,7 @@ $other = $wpdb->get_results ("SELECT * FROM wp_posts where post_type = \"about\"
       </div>
     </div>
   </section>
-<?php include 'contact.php'; ?>
+<?php include 'custom-contact-form.php'; ?>
 </main>
 <?php get_footer(); ?>
 

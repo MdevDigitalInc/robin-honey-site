@@ -1,26 +1,15 @@
 <?php /* Template Name: Work */?>
 
 <?php 
-get_header(); 
-
-
+get_header();
 $slug = explode("/",$_SERVER[REQUEST_URI])[2];
-
 if(!$slug) {
   $result = $wpdb->get_row("select * from tblCaseStudy;");
 } else {
   $result = $wpdb->get_row("select * from tblCaseStudy where slug = '".$slug."';");
 }
-
-if(!$result)
-{
-echo " YOU NEED TO WRITE A REDIRECT TO A 404!";
-}
-
-$next = $wpdb->get_row("select * from tblCaseStudy where id > ".$result->ID.";") ?? $wpdb->get_row("select * from tblCaseStudy;");
-$prev = $wpdb->get_row("select * from tblCaseStudy where id < ".$result->ID." order by id desc;") ?? $wpdb->get_row("select * from tblCaseStudy order by id desc;");
-
-
+  $next = $wpdb->get_row("select * from tblCaseStudy where id > ".$result->ID.";") ?? $wpdb->get_row("select * from tblCaseStudy;");
+  $prev = $wpdb->get_row("select * from tblCaseStudy where id < ".$result->ID." order by id desc;") ?? $wpdb->get_row("select * from tblCaseStudy order by id desc;");
 ?>
 <main class="rhd-main">
   <section class="rhd-work-example-banner">
@@ -39,7 +28,6 @@ $prev = $wpdb->get_row("select * from tblCaseStudy where id < ".$result->ID." or
       <p><?php echo $result->caseDescription;?></p>
       <h4>Client Website</h4>
       <p><a href="<?php echo $result->clientUrl;?>" title=""><?php echo $result->clientUrl;?></a></p>
-      <?php echo "fasdfasdf" . $slug[0];?>
     </aside>
     <div class="rhd-work-example-logo">
       <img src="<?php echo bloginfo('template_url'); ?><?php echo $result->clientLogo;?>" alt="">
@@ -49,9 +37,6 @@ $prev = $wpdb->get_row("select * from tblCaseStudy where id < ".$result->ID." or
     </div>
    </div>
   </section>
-  <?php
-  
-  ?>
   <section class="rhd-section-light-grey rhd-testimonial">
     <div class="rhd-container">
       <p class="u-italic u-text-center"><?php echo $result->testimonial;?></p><!--“”-->

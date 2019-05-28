@@ -12,9 +12,14 @@ if($slug[1] == "work")
 
   if(!$result)
   {
-  echo " YOU NEED TO WRITE A REDIRECT TO A 404!";
+    //wp_redirect("/404.php");
+    
   }
 }
+
+
+$nav = $wpdb->get_row("select * from tblCaseStudy order by title;");
+
 
 ?>
 <html <?php language_attributes(); ?>>
@@ -25,25 +30,29 @@ if($slug[1] == "work")
     <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
     <meta property="fb:app_id" content="APP_ID_HERE" />
     <meta property="og:type" content="website" />
-    <meta property="og:url"  content="http://SITE_URL_HERE" />
+    <meta property="og:url"  content="https://robinhoney.com" />
     <?php 
     if($result) { 
       echo "<meta property=\"og:title\" content=\"".$result->seoTitle."\" />";
       echo "<meta property=\"og:description\" content=\"".$result->seoDescription."\" />";
-      echo "<meta property=\"og:image\" content=\"".bloginfo('template_url'). "/robin-honey-fb-card.png\" />";
+      echo "<meta property=\"og:image\" content=\"".get_bloginfo('template_url'). "/robin-honey-fb-card.png\" />";
     } else {
     ?>
     <meta property="og:title" content="ROBIN HONEY: Brand Consultant" />
-    <meta property="og:image" content="<?php bloginfo('template_url'); ?>/robin-honey-fb-card.png" />
+    <meta property="og:description" content="<?php echo get_post_meta($post->ID, 'description', true); ?>" />
+    <meta property="og:image" content="<?php get_bloginfo('template_url'); ?>/robin-honey-fb-card.png" />
     <?php
     }
     ?>
     <!-- Twitter Card  -->
     <!-- TODO - Edit Twitter Card data and delete this comment -->
     <meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:site" content="@SAMPLE"><meta name="twitter:creator" content="@SAMPLE"><meta name="twitter:title" content="[ MOREIRA DEVELOPMENT PROJECT ] CLIENT | PROJECT "/>
-    <meta name="twitter:description" content="ROBIN HONEY: Brand Consultant"/>
+    <meta name="twitter:site" content="@honeylondon">
+    <meta name="twitter:creator" content="@honeylondon">
+    <meta name="twitter:title" content="ROBIN HONEY: Brand Consultant"/>
+    <meta name="twitter:description" content="<?php echo get_post_meta($post->ID, 'description', true); ?>"/>
     <meta name="twitter:image" content="<?php bloginfo('template_url'); ?>/robin-honey-tw-card.png"/>
+    <meta name="Keywords" content="<?php echo get_post_meta($post->ID, 'keywords', true); ?>">
     <!-- Viewport Settings -->
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="mobile-web-app-capable" content="yes">
@@ -113,13 +122,13 @@ if($slug[1] == "work")
    <?php wp_head(); ?>
 	</head>
 	<body>
-	<button class="rhd-toggle-nav">
+	<button class="rhd-toggle-nav" data-toggle="nav">
     <span></span>
 		<span></span>
 		<span></span>
 		<span></span>
   </button>
-	<div class="rhd-overlay"></div>
+	<div class="rhd-overlay" data-toggle="nav"></div>
   <header class="rhd-main-header">
     <div class="rhd-header-container">
       <div class="rhd-row flex flex-row flex-wrap flex-hor-center">
@@ -130,15 +139,34 @@ if($slug[1] == "work")
         </div>
           <div class="rhd-nav-area">
             <nav>
-						<?php include 'main-nav.php'; ?>
-						<div class="rhd-social-nav">
-							<ul class="rhd-social">
-                <li><a href="https://ca.linkedin.com/in/robinhoney/" title="" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-                <li><a href="https://twitter.com/honeylondon?lang=en" title="" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="https://www.instagram.com/robin.honey/" title="" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                <li><a href="https://www.pinterest.ca/honeydesign/" title="" target="_blank"><i class="fab fa-pinterest"></i></a></li>
+              <ul id="menu-main-navigation" class="rhd-main-menu flex flex-row flex-wrap flex-hor-end">
+                <li id="menu-item-24" class="work menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-24">
+                  <a href="//localhost:4000/work/<?php echo $nav->slug; ?>">Work</a>
+                </li>
+                <li id="menu-item-20" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20">
+                  <a href="//localhost:4000/about/">About</a>
+                </li>
+                <li id="menu-item-25" class="rhd-contact-link menu-item menu-item-type-custom menu-item-object-custom menu-item-25"><a href="#contact">Contact</a></li>
               </ul>
-						</div>
+              <div class="rhd-social-nav">
+                <ul class="rhd-social">
+                  <li>
+                    <a href="https://ca.linkedin.com/in/robinhoney/" title="follow us on linkedin" target="_blank">
+                      <i class="fab fa-linkedin"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://twitter.com/honeylondon?lang=en" title="follow us on twitter" target="_blank">
+                      <i class="fab fa-twitter"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.instagram.com/robin.honey/" title="follow us on instagram" target="_blank">
+                      <i class="fab fa-instagram"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </nav>
           </div>
         </div>
