@@ -26,9 +26,9 @@ function my_plugin_menus() {
   add_options_page( 'Case Studies Options', 'Update Case Studies', 'manage_options', 'case-study-data', 'case_study_options' );
 }
 
-function imageUpload($uploader) {
+function imageUpload($uploader, $folder="") {
  
-    $target_dir = MENU_ROOT."/themes/robin-honey/img/uploads/";//mdev-theme
+    $target_dir = MENU_ROOT."/themes/robin-honey/img/uploads/".$folder;//mdev-theme
     $target_file = $target_dir . basename($_FILES[$uploader]["name"]);//$submitted .
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -73,8 +73,7 @@ function imageUpload($uploader) {
       if (move_uploaded_file($_FILES[$uploader]["tmp_name"], $target_file)) {
         
           //echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-          $target_file = "/img/uploads/".basename($_FILES[$uploader]["name"]);
-
+          $target_file = "/img/uploads/".$folder.basename($_FILES[$uploader]["name"]);
       } else {
           $_SESSION["error"] =  "Sorry, there was an error uploading your file.";
           die($_SESSION["error"]);    
@@ -97,7 +96,10 @@ function case_study_options() {
   
   global $wpdb;
 
-  if($_POST["subType"] == "Create" || $_POST["subType"] == "Update")
+
+  $count = $wpdb->get_var("Select count(ID) from tblCaseStudy;");
+  $sysMsg = "";
+  if(($_POST["subType"] == "Create" && $count < 6)|| $_POST["subType"] == "Update")
   {
     $hero_image = "";
     $client_image = "";
@@ -107,18 +109,25 @@ function case_study_options() {
       $hero_image = imageUpload("heroUpload");
       $imagesSection = $wpdb->prepare(", heroImage = %s", $hero_image);
     }
-    echo $imagesSection . strlen($imagesSection) ."<br/>";
+    //echo $imagesSection . strlen($imagesSection) ."<br/>";
    
     if($_FILES["clientUpload"]["name"]) {
-      $client_image = imageUpload("clientUpload");
+      $client_image = imageUpload("clientUpload", "logos/");
       $imagesSection = strlen($imagesSection) > 0 ? $wpdb->prepare( $imagesSection. ", clientLogo = %s", $client_image) : $wpdb->prepare(", clientLogo = %s", $client_image);
     }
-    echo $imagesSection . strlen($imagesSection) ."<br/>";
+    //echo $imagesSection . strlen($imagesSection) ."<br/>";
+
+
+    if($_FILES["thumbUpload"]["name"]) {
+      $thumbnail = imageUpload("thumbUpload", "thumbnails/");
+      $imagesSection = strlen($imagesSection) > 0 ? $wpdb->prepare( $imagesSection. ", thumbnail = %s", $thumbnail) : $wpdb->prepare(", thumbnail = %s", $thumbnail);
+    }
+    //echo $imagesSection . strlen($imagesSection) ."<br/>";
 
 
     if($_POST["subType"] == "Create") { 
       $wpdb->get_results( 
-        $wpdb->prepare("insert into tblCaseStudy (title,heroImage,caseDescription,clientUrl,clientLogo,projSummary,testimonial,tAuthor,tTitle,seoTitle,seoDescription) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);",
+        $wpdb->prepare("insert into tblCaseStudy (title,heroImage,caseDescription,clientUrl,clientLogo,projSummary,testimonial,tAuthor,tTitle,seoTitle,seoDescription,thumbnail,heroAlt,clientAlt,thumbAlt) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);",
           $_POST["txt_title"],
           $hero_image,
           $_POST["txt_desc"],
@@ -129,13 +138,17 @@ function case_study_options() {
           $_POST["txt_tTitle"],
           $_POST["txt_tName"],
           $_POST["seo_title"],
-          $_POST["seo_desc"]
+          $_POST["seo_desc"],
+          $thumbnail,
+          $_POST["heroAlt"],
+          $_POST["clientAlt"],
+          $_POST["thumbAlt"]
         )
       );
     } else if ($_POST["subType"] == "Update") {
       
       $query = $wpdb->prepare(
-        "update tblCaseStudy set title = %s, caseDescription = %s, clientUrl = %s, projSummary = %s, testimonial = %s, tAuthor = %s, tTitle = %s, seoTitle = %s, seoDescription = %s, slug = %s". $imagesSection ." where ID = %d;",
+        "update tblCaseStudy set title = %s, caseDescription = %s, clientUrl = %s, projSummary = %s, testimonial = %s, tAuthor = %s, tTitle = %s, seoTitle = %s, seoDescription = %s, slug = %s, heroAlt = %s, clientAlt = %s, thumbAlt = %s". $imagesSection ." where ID = %d;",
         $_POST["txt_title"],
         $_POST["txt_desc"],
         $_POST["txt_url"],
@@ -146,6 +159,9 @@ function case_study_options() {
         $_POST["seo_title"],
         $_POST["seo_desc"],
         $_POST['slug'],
+        $_POST["heroAlt"],
+        $_POST["clientAlt"],
+        $_POST["thumbAlt"],
         $_POST["id"]
       );
       
@@ -153,7 +169,19 @@ function case_study_options() {
         $query
       );
   }
+} else if($_POST["subType"] == "Delete" && $count > 3) {
+  
+    $query = $wpdb->prepare("delete from tblCaseStudy where ID = %d;",$_POST["id"]);
+    echo $query;
+    echo $_POST["subType"];
+    // $wpdb->get_results( 
+    //   $query
+    // );
+} else if ($_POST["subType"] && ($count <= 3 || $count >= 6)) {
+  
+  $sysMsg = "Your selected action could not be done, you cannot have less than 3, and no more than 6 case studies.";
 }
+
 
 
   ?>
@@ -223,7 +251,7 @@ function clearErrors(){
 
     <?php
     if($_GET['id'] != null && $_GET['id'] != "new-post"){
-      
+      echo "alert(\"asdfasdfasdf\");";
       echo "$('<input />').attr('type', 'hidden')";
       echo ".attr('name', \"id\")";
       echo ".attr('value',".$_GET['id'].")";
@@ -251,7 +279,7 @@ function clearErrors(){
   {
     ?>
       <a href='?page=case-study-data&id=new-post'>Add New</a>
-      <button onclick="">Delete</button>
+      <!-- <button onclick="">Delete</button> -->
       <br />
     <?php
     
@@ -266,14 +294,20 @@ function clearErrors(){
     $result = $wpdb->get_row("SELECT * FROM tblCaseStudy where ID = ". $_GET['id']);
     $hero_image = $result->heroImage;
     $client_image = $result->clientLogo;
-  ?>
-   <form id="caseForm" method="post" enctype="multipart/form-data">
+    $thumb_image = $result->thumbnail;
 
+    
+     
+    
+  ?>
+
+   <form id="caseForm" method="post" enctype="multipart/form-data">
+  
+    
     <div>
       <label for="txt_tidtle">Title: </label><br/>
       <input type="text" name="txt_title" value="<?php echo $result->title;?>"/>
     </div>
-
     <div>
       <br/>
       <label for="heroUpload">Hero Image: </label><br/>
@@ -281,6 +315,10 @@ function clearErrors(){
     </div>
     <div>
       <img id="heroPreview" height="20%" width="20%" src="/wp-content/themes/robin-honey/<?php echo $hero_image ?>" />
+    </div>
+    <div>
+      <label for="heroAlt">Hero Image Alt Text:</label>
+      <input name="heroAlt" value="<?php echo $result->heroAlt?>" />
     </div>
 
     <div>
@@ -302,17 +340,34 @@ function clearErrors(){
     <div>
       <img id="clientPreview" height="20%" width="20%" src="/wp-content/themes/robin-honey/<?php echo $client_image ?>" />
     </div>
+    <div>
+      <label for="clientAlt">client Logo Alt Text:</label>
+      <input name="clientAlt" value="<?php echo $result->clientAlt?>" />
+    </div>
+
+    <div>
+      <br/>
+      <label for="thumbUpload">Thumbnail Image: </label><br/>
+      <input type="file" id="thumbUpload" name="thumbUpload">
+    </div>
+    <div>
+      <img id="thumbPreview" height="20%" width="20%" src="/wp-content/themes/robin-honey/<?php echo $thumb_image ?>" />
+    </div>
+    <div>
+      <label for="thumbAlt">Thumbnail Alt Text:</label>
+      <input name="thumbAlt" value="<?php echo $result->thumbAlt?>" />
+    </div>
 
     <div>
       <br/>
       <label for="ta_summary">Project Summary</label><br/>
-      <textarea id="ta_summary" name="ta_summary" ><?php echo $result->projSummary;?></textarea>
+      <textarea id="ta_summary" name="ta_summary" rows="4" cols="50"><?php echo $result->projSummary;?></textarea>
     </div>
 
     <div>
       <br/>
       <label for="ta_testimonial">Testimonial: </label><br/>
-      <textarea id="ta_testimonial" name="ta_testimonial" ><?php echo $result->testimonial;?></textarea>
+      <textarea id="ta_testimonial" name="ta_testimonial" rows="4" cols="50" ><?php echo $result->testimonial;?></textarea>
     </div>
 
     <div>
@@ -333,21 +388,29 @@ function clearErrors(){
 
     <div>
       <label for="seo_title">Seo Title: </label><br/>
-      <input type="text" id="seo_title" name="seo_title" ><?php echo $result->seoTitle;?></textarea>
+      <input type="text" id="seo_title" name="seo_title" value="<?php echo $result->seoTitle;?>"/>
     </div>
 
     <div>
       <br/>
       <label for="seo_desc">Seo Description</label><br/>
-      <textarea id="seo_desc" name="seo_desc" ><?php echo $result->seoDescription;?></textarea>
+      <textarea id="seo_desc" name="seo_desc" rows="4" cols="50"><?php echo $result->seoDescription;?></textarea>
     </div>
     
   </form> 
   <?php
 
-   echo "<button type=\"button\" onclick='submitForm(\"Update\")' Name='btnFUpdate'>Update</button>";
-   echo "<button type=\"button\" onclick='submitForm(\"Create\")' name='btnFCreate'>Create</button>";
-   echo "<input type='button' id='btnDelete' value='Delete' />";
+  //  echo "<button type=\"button\" onclick='submitForm(\"Update\")' Name='btnFUpdate'>Update</button>";
+  //  echo "<button type=\"button\" onclick='submitForm(\"Create\")' name='btnFCreate'>Create</button>";
+  //  echo "<input type='button' id='btnDelete' value='Delete' />";
+
+   if($_GET['id'] != null && $_GET['id'] != "new-post") {
+    echo "<button type=\"button\" onclick='submitForm(\"Update\")' Name='btnFUpdate'>Update</button>";
+    echo "<input type='button' id='btnDelete' value='Delete' onclick='submitForm(\"Delete\")' />";
+   } else{
+     echo "<button type=\"button\" onclick='submitForm(\"Create\")' name='btnFCreate'>Create</button>";
+   }
+
   echo "</div>";
   echo "</div>";
   }

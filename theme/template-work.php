@@ -4,7 +4,7 @@
 get_header();
 $slug = explode("/",$_SERVER[REQUEST_URI])[2];
 if(!$slug) {
-  $result = $wpdb->get_row("select * from tblCaseStudy;");
+  $result = $wpdb->get_row("select * from tblCaseStudy order by title;");
 } else {
   $result = $wpdb->get_row("select * from tblCaseStudy where slug = '".$slug."';");
 }
@@ -18,7 +18,7 @@ if(!$slug) {
       <div class="rhd-work-heading"><h1><?php echo $result->title;?></h1></div>
       <div class="rhd-view-more-work"><a href="/work/<?php echo $prev->slug?>" title=""><i class="fas fa-chevron-left"></i></a> <span>view more work</span>  <a href="/work/<?php echo $next->slug?>"  title=""><i class="fas fa-chevron-right"></i></a></div>
      </div>
-     <img src="<?php echo bloginfo('template_url'); ?><?php echo $result->heroImage; ?>" alt="">
+     <img src="<?php echo bloginfo('template_url'); ?><?php echo $result->heroImage; ?>" alt="<?php echo $result->heroAlt ?>">
   </div>
   </section>
   <section class="rhd-container rhd-work-example-info">

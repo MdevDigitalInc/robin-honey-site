@@ -5,7 +5,7 @@ $result;
 if($slug[1] == "work")
 {
   if(!$slug[2]) {
-    $result = $wpdb->get_row("select * from tblCaseStudy;");
+    $result = $wpdb->get_row("select * from tblCaseStudy order by title;");
   } else {
     $result = $wpdb->get_row("select * from tblCaseStudy where slug = '".$slug[2]."';");
   }
@@ -141,10 +141,10 @@ $nav = $wpdb->get_row("select * from tblCaseStudy order by title;");
             <nav>
               <ul id="menu-main-navigation" class="rhd-main-menu flex flex-row flex-wrap flex-hor-end">
                 <li id="menu-item-24" class="work menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-24">
-                  <a href="//localhost:4000/work/<?php echo $nav->slug; ?>">Work</a>
+                  <a href="/work/<?php echo $nav->slug; ?>">Work</a>
                 </li>
                 <li id="menu-item-20" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20">
-                  <a href="//localhost:4000/about/">About</a>
+                  <a href="/about/">About</a>
                 </li>
                 <li id="menu-item-25" class="rhd-contact-link menu-item menu-item-type-custom menu-item-object-custom menu-item-25"><a href="#contact">Contact</a></li>
               </ul>

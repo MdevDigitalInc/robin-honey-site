@@ -187,10 +187,7 @@ function clearErrors(){
 
   if($_GET['id'] == null)
   {
-  
-echo count($_POST['chkBulk']);
-
-    if(count($_POST['chkBulk']) > 0){
+      if(count($_POST['chkBulk']) > 0){
       $condition = "";
       if(count($_POST['chkBulk']) == 1){
         $condition = " = ".$_POST["chkBulk"][0].";";  
@@ -215,7 +212,8 @@ echo count($_POST['chkBulk']);
     ?>
       <a href='?page=about-page-data&id=new-post'>Add New</a>
       <form name="frmBulk" method="post">
-      <select name="blkAction" >
+      <label for="blkAction">Bulk Action</label>
+      <select id="blkAction" name="blkAction" >
       <option >Choose and Action</option>
       <option value = "1">Show</option>
       <option value = "2">Hide</option>
@@ -229,7 +227,7 @@ echo count($_POST['chkBulk']);
     echo "<tr>";
     echo "<th> </th>";
     echo "<th>Post</th>";
-    echo "<th>Is Visible</th>";
+    echo "<th>Action</th>";
     echo "</tr>";
     $result = $wpdb->get_results ("SELECT * FROM wp_posts where post_type = \"about\";");//where post_type = \"about\"
     foreach ( $result as $page ) { 
@@ -255,16 +253,19 @@ echo count($_POST['chkBulk']);
       <input type="text" name="post_title" value="<?php echo $result->post_title;?>"/>
     </div>
     <div>
-    <select name="section">
+    <label for="ddSelection">Section: </label>
+    <select id="ddSelection" name="section">
     <option value="0" <?php echo $result->menu_order == 0 ? "selected" : "";?> >About</option>
     <option value="1" <?php echo $result->menu_order == 1 ? "selected" : "";?> >Bio</option>
     <option value="2" <?php echo $result->menu_order == 2 ? "selected" : "";?> >Bottom</option>
-    </select>
+    </select><br/>
+
     
-    <select name="visibility">
+    <label for="ddVisibility">Visibility: </label>
+    <select id="ddVisibility" name="visibility">
     <option value="publish" <?php  echo $result->post_status == "publish" ? "selected" : ""; ?>>Showing</option>
     <option value="private" <?php  echo $result->post_status == "private" ? "selected" : ""; ?>>Not Showing</option>
-    </select>
+    </select><br/>
     </div>
   </form>
     <div>
@@ -280,7 +281,7 @@ echo count($_POST['chkBulk']);
       <button onclick="execCmd('insertOrderedList');">ordered</button>
       <button onclick="execCmd('insertHorizontalRule');">line</button>
       <button onclick="execCmd('createLink', prompt('Enter a URL', 'http\:\/\/'));">Hyperlink</button>
-      <button onclick="execCmd('unlink');">Hyperlink</button>
+      <button onclick="execCmd('unlink');">unlink</button>
       <button onclick="showSource();">source</button>
     </div>
     <?php
@@ -306,11 +307,9 @@ echo count($_POST['chkBulk']);
         richTextField.document.execCommand(command, false, args);
 
         if(command == "insertUnorderedList") {
-
           var newList = Array.prototype.reverse.call(richTextField.document.getElementsByTagName("UL"))[0];
           newList.classList.add("rhd-list");
           newList.classList.add("rhd-bullets");
-        
         }
       }
       function showSource() {
@@ -322,20 +321,17 @@ echo count($_POST['chkBulk']);
           console.log(showSourceCode);
           richTextField.document.getElementsByTagName('body')[0].textContent = richTextField.document.getElementsByTagName('body')[0].innerHTML;
         }
-        showSourceCode = !showSourceCode;
-        
+        showSourceCode = !showSourceCode; 
       }
-
-      
-
-  
     </script>
-  
   <?php
 
+if($_GET['id'] != null && $_GET['id'] != "new-post") {
    echo "<button type=\"button\" onclick='submitForm(\"Update\")' Name='btnFUpdate'>Update</button>";
-   echo "<button type=\"button\" onclick='submitForm(\"Create\")' name='btnFCreate'>Create</button>";
    echo "<input type='button' id='btnDelete' value='Delete' />";
+  } else{
+    echo "<button type=\"button\" onclick='submitForm(\"Create\")' name='btnFCreate'>Create</button>";
+   }
 
   
   echo "</div>";

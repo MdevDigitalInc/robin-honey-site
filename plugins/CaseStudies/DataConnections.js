@@ -22,6 +22,10 @@ $("#heroUpload").change(function() {
   readURL(this, "heroPreview");
 });
 
+$("#thumbUpload").change(function() {
+  readURL(this, "thumbPreview");
+});
+
 //delete all below
 
 
