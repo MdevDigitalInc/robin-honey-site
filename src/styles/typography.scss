@@ -2,11 +2,34 @@
  *	TYPOGRAPHY
 /-------------------------------------*/
 
+
+// Load Fonts
+@font-face {
+  font-family: 'Gotham';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Gotham'), local('Gotham-Book'), url('../fonts/GothamBook.woff') format('woff'), url('../fonts/GothamBook.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Gotham';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Gotham Medium'), local('Gotham-Medium'), url('../fonts/GothamMedium.woff') format('woff'), url('../fonts/GothamMedium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Gotham';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Gotham Bold'), local('Gotham-Bold'), url('../fonts/GothamBold.woff') format('woff'), url('../fonts/GothamBold.ttf') format('truetype');
+}
+
 /* Main */
 body {
   font-family: $main-font;
   font-size: 16px;
-  color: $black;
+  color: $dark-grey;
 }
 
 /* Headings & Body Copy */
@@ -21,40 +44,42 @@ h3,.h3,
 h4,.h4,
 h5,.h5,
 h6,.h6, {
-  font-family: $main-font;
-  font-weight: 700;
+	font-family: $main-font;
+  font-weight: normal;
   color: inherit;
+  text-transform: uppercase;
 }
 
 // Responsive Font Size Maps
 $p-font-sizes: (
   null  : 14px,
-  $tablet-up : 16px,
-  $desktop-up: 19px
+	$tablet-up : 20px,
+  $desktop-up: 20px,
+  $laptop-only: 18px
 );
 
 $h1-font-sizes: (
-  null  : 25px,
-  $tablet-up : 28px,
-  $desktop-up: 70px
+  null  : 30px,
+  $tablet-up : 35px,
+  $desktop-up: 40px
 );
 
 $h2-font-sizes: (
-  null  : 30px,
-  $tablet-up : 32px,
-  $desktop-up: 35px
+  null  : 25px,
+  $tablet-up : 25px,
+  $desktop-up: 38px
 );
 
 $h3-font-sizes: (
-  null  : 20px,
-  $tablet-up : 22px,
-  $desktop-up: 25px
+  null  : 25px,
+  $tablet-up : 38px,
+  $desktop-up: 46px
 );
 
 $h4-font-sizes: (
-  null  : 60%,
-  $tablet-up : 90%,
-  $desktop-up: 18px
+  null  : 20px,
+  $tablet-up : 23px,
+  $desktop-up: 23px
 );
 
 $h5-font-sizes: (
@@ -67,9 +92,9 @@ $h6-font-sizes: (
 
 // Links
 $link-font-sizes: (
-  null  : 16px,
-  $tablet-up : 17px,
-  $desktop-up: 18px
+  null  : 12px,
+  $tablet-up : 20px,
+  $desktop-up: 20px
 );
 
 // Responsive Font-Size Mixing (Function Only)
@@ -91,27 +116,73 @@ $link-font-sizes: (
 /* Generate Responsive Sizing */
 
 p {
-  line-height: 24px;
+  line-height: 1.5;
+  margin: 0 0 20px;
+
+  span.text-light {
+    color: #333231;
+  }
+
+  &.small-margin {
+    margin-bottom: 15px;
+  }
+
+  &.small-width {
+    @media #{$laptop-up} {
+      max-width: 200px;
+    }
+  }
+
+  &.small-note {
+    @media #{$tablet-up} {
+      max-width: 180px;
+    }
+  }
+
+  &.small-line-height {
+    line-height: 1.3;
+  }
+
+  &.small {
+    font-size: 14px;
+  }
+
   @include font-size($p-font-sizes);
 }
 
 h1,
 .h1 {
+  font-weight: 700;
+  color: $dark-grey;
+  line-height: 1.5;
+  margin: 40px 0 20px;
   @include font-size($h1-font-sizes);
 }
 
 h2,
 .h2 {
+  font-weight: 700;
+  color: $dark-grey;
+  line-height: 1.5;
+  margin: 40px 0 5px;
   @include font-size($h2-font-sizes);
 }
 
 h3,
 .h3 {
+  font-weight: 700;
+  color: $white;
+  line-height: 1.5;
+  text-transform: none;
   @include font-size($h3-font-sizes);
 }
 
 h4,
 .h4 {
+  font-weight: 700;
+  color: $dark-grey;
+  line-height: 1;
+  margin-bottom: 20px;
   @include font-size($h4-font-sizes);
 }
 
@@ -132,14 +203,13 @@ h6,
 /* Link Reset / Base Inherit */
 a {
   font-family: $main-font;
-  color: inherit;
+  color: $blue;
   font-size: inherit;
   font-weight: inherit;
   text-decoration: inherit;
 
   &:hover {
     text-decoration: none;
-    color: inherit;
+    color: $gold;
   }
 }
-

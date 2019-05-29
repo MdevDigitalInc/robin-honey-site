@@ -71,3 +71,7 @@ node_modules/*
 /theme/dist
 
 /theme/wp-content/plugins/akismet
+
+/plugins/akismet
+
+old_files/*
