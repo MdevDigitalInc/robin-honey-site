@@ -31,6 +31,8 @@
 				</div>
 			</div>
 		</form>
-		<div id="result"></div>
+	<div id="result"></div>
 	</div>
 </section>
+
+
