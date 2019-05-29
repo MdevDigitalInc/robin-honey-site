@@ -39,8 +39,7 @@ function about_page_options() {
   
   global $wpdb;
 
-  if($_POST["subType"] == "Create" || $_POST["subType"] == "Update")
-  {
+  if($_POST["subType"] == "Create" || $_POST["subType"] == "Update") {
     
 
     if($_POST["subType"] == "Create") { 
@@ -71,6 +70,9 @@ function about_page_options() {
       $wpdb->get_results( $wpdb->prepare( "update wp_posts set post_title = %s, post_content = %s, menu_order = %d, post_status = %s where ID = %d;",  $_POST["post_title"], $_POST["post_content"], $_POST["section"], $_POST['visibility'], $_POST["id"]) );
     }
 
+  } else  if ($_POST["subType"] == "Delete") {
+    echo $wpdb->prepare( "delete from wp_posts where ID = %d);", $_POST['id']);
+    //$wpdb->get_results( $wpdb->prepare( "delete from wp_posts where ID = %d);", $_POST['id']) );
   }
 
 
@@ -328,10 +330,10 @@ function clearErrors(){
 
 if($_GET['id'] != null && $_GET['id'] != "new-post") {
    echo "<button type=\"button\" onclick='submitForm(\"Update\")' Name='btnFUpdate'>Update</button>";
-   echo "<input type='button' id='btnDelete' value='Delete' />";
+   echo "<input type='button' id='btnDelete' value='Delete' onclick='submitForm(\"Delete\")'/>";
   } else{
     echo "<button type=\"button\" onclick='submitForm(\"Create\")' name='btnFCreate'>Create</button>";
-   }
+  }
 
   
   echo "</div>";

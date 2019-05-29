@@ -27,7 +27,17 @@ if(!$slug) {
       <h4>Description</h4>
       <p><?php echo $result->caseDescription;?></p>
       <h4>Client Website</h4>
-      <p><a href="<?php echo $result->clientUrl;?>" title=""><?php echo $result->clientUrl;?></a></p>
+      <p><a href="<?php echo $result->clientUrl;?>" title=""><?php 
+      
+      
+      $visual = str_replace("http://", "", $result->clientUrl);
+      $visual = str_replace("https://", "", $visual);
+      $visual = str_replace("www.", "", $visual);
+      $visual = str_replace("/", "", $visual);
+
+      echo $visual;
+      
+      ?></a></p>
     </aside>
     <div class="rhd-work-example-logo">
       <img src="<?php echo bloginfo('template_url'); ?><?php echo $result->clientLogo;?>" alt="">

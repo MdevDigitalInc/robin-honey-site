@@ -174,12 +174,12 @@ function case_study_options() {
     $query = $wpdb->prepare("delete from tblCaseStudy where ID = %d;",$_POST["id"]);
     echo $query;
     echo $_POST["subType"];
-    // $wpdb->get_results( 
-    //   $query
-    // );
+    $wpdb->get_results( 
+      $query
+    );
 } else if ($_POST["subType"] && ($count <= 3 || $count >= 6)) {
   
-  $sysMsg = "Your selected action could not be done, you cannot have less than 3, and no more than 6 case studies.";
+  $sysMsg = "Your selected action could not be completed, you cannot have less than 3, and no more than 6 case studies.";
 }
 
 
@@ -251,7 +251,6 @@ function clearErrors(){
 
     <?php
     if($_GET['id'] != null && $_GET['id'] != "new-post"){
-      echo "alert(\"asdfasdfasdf\");";
       echo "$('<input />').attr('type', 'hidden')";
       echo ".attr('name', \"id\")";
       echo ".attr('value',".$_GET['id'].")";
@@ -271,6 +270,7 @@ function clearErrors(){
   }
   </script>
   <?php
+  echo $sysMsg;
   echo "<div class='admin-container' style='width: 100%; position: relative; display: flex; flex-wrap: wrap; box-sizing: border-box;'>";
   echo "<div class='admin-group' style='width:40%; border: 1px #d0d0d0 solid; padding: 10px; margin: 5px;'>";
   // Team Member Admin Forms
@@ -295,10 +295,6 @@ function clearErrors(){
     $hero_image = $result->heroImage;
     $client_image = $result->clientLogo;
     $thumb_image = $result->thumbnail;
-
-    
-     
-    
   ?>
 
    <form id="caseForm" method="post" enctype="multipart/form-data">
