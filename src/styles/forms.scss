@@ -7,8 +7,8 @@ form {
 /* stylelint-disable */
 /* Disabled because it is valid and I need this level of control*/
 .mdev-error {
-  border: 1px solid red!important;
-  color: red!important;
+  border: 1px solid red !important;
+  color: red !important;
 }
 
 input {
@@ -39,6 +39,7 @@ input {
     &:hover,
     &:active {
       background-color: transparent;
+      //background-color: green;
       color: $white;
     }
 
@@ -130,10 +131,11 @@ textarea {
     width: 100%;
     transition: all .3s;
     font-size: 17px;
-    padding: 10px 10px 10px;
-    line-height: 2;
+    padding: 10px;
+    line-height: 1.5;
     margin-bottom: 20px;
     color: $white;
+    font-weight: 300;
 
     @media #{$tablet-up} {
       font-size: 20px;
@@ -147,6 +149,7 @@ textarea {
   &.is-active > label {
     font-size: 15px;
     transform: translateY( -60% );
+    color: $white;
 
     @media #{$phone-only} {
       transform: translateY( -35% );
@@ -156,6 +159,7 @@ textarea {
   &.message.is-active > label {
     font-size: 15px;
     transform: translateY( -55% );
+    color: $white;
 
     @media #{$phone-only} {
       font-size: 14px;

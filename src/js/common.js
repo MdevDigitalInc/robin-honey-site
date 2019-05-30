@@ -14,6 +14,11 @@ export default {
         $( ".rhd-overlay" ).toggleClass('open');
         $("html, body").toggleClass('no-scroll');
       });
+      //close nav if contact link is clicked
+      $( ".rhd-contact-link a" ).click(function() {
+        $( ".rhd-nav-area").removeClass('open');
+        $( ".rhd-overlay" ).removeClass('open');
+      });
 
       // Add smooth scrolling
       $("a").on('click', function(event) {
