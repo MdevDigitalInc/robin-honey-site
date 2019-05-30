@@ -131,7 +131,15 @@ function my_reverse_nav_menu($menu, $args) {
 add_filter('wp_nav_menu_objects', 'my_reverse_nav_menu', 10, 2);
 
 
+function custom_rewrite_rule() {
+  add_rewrite_rule('^work/?([^/]*)','index.php?page_id=15','top');
+}
+add_action('init', 'custom_rewrite_rule', 10, 0);
+
+
 include 'custom-page-titles.php';
+
+
 
 
 

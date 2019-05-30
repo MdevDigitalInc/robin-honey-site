@@ -27,17 +27,21 @@ if(!$slug) {
       <h4>Description</h4>
       <p><?php echo $result->caseDescription;?></p>
       <h4>Client Website</h4>
-      <p><a href="<?php echo $result->clientUrl;?>" title=""><?php 
-      
+
+      <?php 
       
       $visual = str_replace("http://", "", $result->clientUrl);
       $visual = str_replace("https://", "", $visual);
       $visual = str_replace("www.", "", $visual);
       $visual = str_replace("/", "", $visual);
 
-      echo $visual;
+      echo "<p><a href=\"". $result->clientUrl."\" title=\"\" target=\"_blank\">".$visual."</a></p>";
       
-      ?></a></p>
+      if($result->note) {
+        echo "<p class=\"u-italic small small-note\">NOTE: ". $result->note."<a href=\"https://thearcane.com/\" title=\"Arcane Website\" target=\"_blank\">Arcane.</a></p>";
+      }
+      
+      ?>
     </aside>
     <div class="rhd-work-example-logo">
       <img src="<?php echo bloginfo('template_url'); ?><?php echo $result->clientLogo;?>" alt="">

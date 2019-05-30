@@ -109,11 +109,22 @@ function logo_wall_options() {
 
   if ($_POST["subType"] == "Update") {
       
-      $query = $wpdb->prepare(
-        "update tblLogowall set url = %s where ID = %d;",
-        $client_image,
-        $_POST["id"]
-      );
+      if($client_image)
+      {
+        $query = $wpdb->prepare(
+          "update tblLogowall set url = %s, alt = %s where ID = %d;",
+          $client_image,
+          $_POST["txt_alt"],
+          $_POST["id"]
+        );
+      } else {
+        $query = $wpdb->prepare(
+          "update tblLogowall set alt = %s where ID = %d;",
+          $_POST["txt_alt"],
+          $_POST["id"]
+        );
+      }
+      
       
       $wpdb->get_results( 
         $query
@@ -224,7 +235,7 @@ function clearErrors(){
     <?php
       foreach($results as $row)
       {
-        echo "<option value=\"" . get_bloginfo( 'template_url', 'display' ) . $row->url . "\">$row->ID</option>";
+        echo "<option value=\"$row->ID\">$row->alt</option>";//" . get_bloginfo( 'template_url', 'display' ) . $row->url . "
       }
     ?>
     </select>
@@ -240,8 +251,37 @@ function clearErrors(){
       <img id="clientCurrent" height="20%" width="20%" src="<?php echo bloginfo('template_url') .  $results[0]->url; ?>" />
       <img id="clientPreview" height="20%" width="20%"  />
     </div>
+
+    <br/>
+    <br/>
+    <div>
+      <label for="txt_alt">Logo Alt Text: </label><br/>
+      <input type="text" name="txt_alt" id="txt_alt" value="<?php echo $results[0]->alt?>"/>
+    </div>
     
     <script>
+
+  jQuery( document ).on( "change", "#ddLogos", function() {
+    
+    var id = document.getElementById("ddLogos").value;
+    var query = "Select * from tblLogowall where ID = " + id;
+  
+    var data = {
+      'action': 'logo_action',
+      'query': query
+    };
+    var msTM = document.getElementById('msTeamMemebers');
+    // since 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php
+    jQuery.post(ajaxurl, data, function(response) {
+      //alert('Got this from the server: ' + JSON.stringify(response));
+      if( response.length > 0)
+      {
+        document.getElementById("txt_alt").value =  response[0].alt;
+        document.getElementById("clientCurrent").src = "<?php echo get_bloginfo( 'template_url', 'display' ) ?>" + response[0].url; 
+      }
+    });
+  
+  });
 
 
     function readURL(input, preview) {
@@ -265,10 +305,10 @@ function clearErrors(){
 
 
 
-    jQuery( document ).on( "change", "#ddLogos", function() {
-      var url = document.getElementById("ddLogos").value;
-      $('#clientCurrent').attr('src', url);
-    });
+    // jQuery( document ).on( "change", "#ddLogos", function() {
+    //   var url = document.getElementById("ddLogos").value;
+    //   $('#clientCurrent').attr('src', url);
+    // });
 
 
     </script>

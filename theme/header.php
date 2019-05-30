@@ -26,9 +26,7 @@ $nav = $wpdb->get_row("select * from tblCaseStudy order by title;");
 	<head>
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
     <!-- [ FACEBOOK OG ] -->
-    <!-- TODO - Edit FB  Open Graph data and delete this comment -->
     <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
-    <meta property="fb:app_id" content="APP_ID_HERE" />
     <meta property="og:type" content="website" />
     <meta property="og:url"  content="https://robinhoney.com" />
     <?php 
@@ -45,7 +43,6 @@ $nav = $wpdb->get_row("select * from tblCaseStudy order by title;");
     }
     ?>
     <!-- Twitter Card  -->
-    <!-- TODO - Edit Twitter Card data and delete this comment -->
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:site" content="@honeylondon">
     <meta name="twitter:creator" content="@honeylondon">
@@ -57,7 +54,6 @@ $nav = $wpdb->get_row("select * from tblCaseStudy order by title;");
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="mobile-web-app-capable" content="yes">
     <!-- Chrome Browser Bar Color -->
-    <!-- TODO - Change theme color and delete this comment -->
     <meta name="theme-color" content="#8ccecf">
     <!-- Icons -->
     <link rel="apple-touch-icon" sizes="57x57"

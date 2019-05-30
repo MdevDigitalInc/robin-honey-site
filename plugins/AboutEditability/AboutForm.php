@@ -57,22 +57,22 @@ function about_page_options() {
       $post_modified = date('Y-m-d H:i:s');
       
       
-      //$wpdb->prepare( "SELECT id FROM wp_posts WHERE id > %d AND `post_status` = %s", $min_id, $status );
-      $wpdb->get_results( $wpdb->prepare( "insert into wp_posts (post_author, post_date, post_title, post_name, post_content, post_status, comment_status, ping_status, post_modified, post_parent, menu_order, post_type, comment_count) 
+      //$wpdb->prepare( "SELECT id FROM wp_70uo8oqigo_posts WHERE id > %d AND `post_status` = %s", $min_id, $status );
+      $wpdb->get_results( $wpdb->prepare( "insert into wp_70uo8oqigo_posts (post_author, post_date, post_title, post_name, post_content, post_status, comment_status, ping_status, post_modified, post_parent, menu_order, post_type, comment_count) 
       values(%d,%s,%s,%s,%s,%s,%s,%s,%s,0,%d,'about',0);",$author_id,$curDate,$post_title, $post_name, $post_content,$post_status,$comment_status,$ping_status,$post_modified, $_POST["section"]) );
 
       $post_id = $wpdb->insert_id;
       $post_url = "http://localhost:9009/?page_id=". $post_id;
 
-      $wpdb->get_results( $wpdb->prepare( "update wp_posts set guid = %s where ID = %d);", $post_url, $post_id) );
+      $wpdb->get_results( $wpdb->prepare( "update wp_70uo8oqigo_posts set guid = %s where ID = %d);", $post_url, $post_id) );
 
     } else if ($_POST["subType"] == "Update") {
-      $wpdb->get_results( $wpdb->prepare( "update wp_posts set post_title = %s, post_content = %s, menu_order = %d, post_status = %s where ID = %d;",  $_POST["post_title"], $_POST["post_content"], $_POST["section"], $_POST['visibility'], $_POST["id"]) );
+      $wpdb->get_results( $wpdb->prepare( "update wp_70uo8oqigo_posts set post_title = %s, post_content = %s, menu_order = %d, post_status = %s where ID = %d;",  $_POST["post_title"], $_POST["post_content"], $_POST["section"], $_POST['visibility'], $_POST["id"]) );
     }
 
   } else  if ($_POST["subType"] == "Delete") {
-    echo $wpdb->prepare( "delete from wp_posts where ID = %d);", $_POST['id']);
-    //$wpdb->get_results( $wpdb->prepare( "delete from wp_posts where ID = %d);", $_POST['id']) );
+    echo $wpdb->prepare( "delete from wp_70uo8oqigo_posts where ID = %d);", $_POST['id']);
+    //$wpdb->get_results( $wpdb->prepare( "delete from wp_70uo8oqigo_posts where ID = %d);", $_POST['id']) );
   }
 
 
@@ -200,13 +200,13 @@ function clearErrors(){
 
       if($_POST['blkAction'] == 3)
       {
-        $result = $wpdb->get_results ("Delete FROM wp_posts where id ". $condition);//where post_type = \"about\"
+        $result = $wpdb->get_results ("Delete FROM wp_70uo8oqigo_posts where id ". $condition);//where post_type = \"about\"
       }
       else if($_POST['blkAction'] == 2){
-        $result = $wpdb->get_results ("update wp_posts set post_status = \"private\" where id ". $condition);
+        $result = $wpdb->get_results ("update wp_70uo8oqigo_posts set post_status = \"private\" where id ". $condition);
       }
       else if($_POST['blkAction'] == 1){
-        $result = $wpdb->get_results ("update wp_posts set post_status = \"publish\" where id ".$condition);
+        $result = $wpdb->get_results ("update wp_70uo8oqigo_posts set post_status = \"publish\" where id ".$condition);
       }
     }
 
@@ -231,7 +231,7 @@ function clearErrors(){
     echo "<th>Post</th>";
     echo "<th>Action</th>";
     echo "</tr>";
-    $result = $wpdb->get_results ("SELECT * FROM wp_posts where post_type = \"about\";");//where post_type = \"about\"
+    $result = $wpdb->get_results ("SELECT * FROM wp_70uo8oqigo_posts where post_type = \"about\";");//where post_type = \"about\"
     foreach ( $result as $page ) { 
       echo "<tr>";
       echo "<th><input type=\"checkbox\" name=\"chkBulk[]\" value=\"".$page->ID."\"></th><th><a href='?page=about-page-data&id=".$page->ID."'>".$page->post_title."</a></th><th><p>". ($page->post_status == "publish" ? "Showing" : "Not Showing")  ."</p></th> <br />"; 
@@ -248,7 +248,7 @@ function clearErrors(){
   }
   else
   {
-    $result = $wpdb->get_row ("SELECT * FROM wp_posts where ID = ". $_GET['id']);
+    $result = $wpdb->get_row ("SELECT * FROM wp_70uo8oqigo_posts where ID = ". $_GET['id']);
   ?>
   <form id="empForm" method="post" enctype="multipart/form-data">
     <div>

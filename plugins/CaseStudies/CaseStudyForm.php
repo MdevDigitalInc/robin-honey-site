@@ -127,7 +127,7 @@ function case_study_options() {
 
     if($_POST["subType"] == "Create") { 
       $wpdb->get_results( 
-        $wpdb->prepare("insert into tblCaseStudy (title,heroImage,caseDescription,clientUrl,clientLogo,projSummary,testimonial,tAuthor,tTitle,seoTitle,seoDescription,thumbnail,heroAlt,clientAlt,thumbAlt) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);",
+        $wpdb->prepare("insert into tblCaseStudy (title,heroImage,caseDescription,clientUrl,clientLogo,projSummary,testimonial,tAuthor,tTitle,seoTitle,seoDescription,thumbnail,heroAlt,clientAlt,thumbAlt,note) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,s%);",
           $_POST["txt_title"],
           $hero_image,
           $_POST["txt_desc"],
@@ -135,33 +135,35 @@ function case_study_options() {
           $client_image,
           $_POST["ta_summary"],
           $_POST["ta_testimonial"],
-          $_POST["txt_tTitle"],
           $_POST["txt_tName"],
+          $_POST["txt_tTitle"],
           $_POST["seo_title"],
           $_POST["seo_desc"],
           $thumbnail,
           $_POST["heroAlt"],
           $_POST["clientAlt"],
-          $_POST["thumbAlt"]
+          $_POST["thumbAlt"],
+          $_POST["note"]
         )
       );
     } else if ($_POST["subType"] == "Update") {
       
       $query = $wpdb->prepare(
-        "update tblCaseStudy set title = %s, caseDescription = %s, clientUrl = %s, projSummary = %s, testimonial = %s, tAuthor = %s, tTitle = %s, seoTitle = %s, seoDescription = %s, slug = %s, heroAlt = %s, clientAlt = %s, thumbAlt = %s". $imagesSection ." where ID = %d;",
+        "update tblCaseStudy set title = %s, caseDescription = %s, clientUrl = %s, projSummary = %s, testimonial = %s, tAuthor = %s, tTitle = %s, seoTitle = %s, seoDescription = %s, slug = %s, heroAlt = %s, clientAlt = %s, thumbAlt = %s, note = %s". $imagesSection ." where ID = %d;",
         $_POST["txt_title"],
         $_POST["txt_desc"],
         $_POST["txt_url"],
         $_POST["ta_summary"],
         $_POST["ta_testimonial"],
-        $_POST["txt_tTitle"],
         $_POST["txt_tName"],
+        $_POST["txt_tTitle"],
         $_POST["seo_title"],
         $_POST["seo_desc"],
         $_POST['slug'],
         $_POST["heroAlt"],
         $_POST["clientAlt"],
         $_POST["thumbAlt"],
+        $_POST["note"],
         $_POST["id"]
       );
       
@@ -244,11 +246,6 @@ function clearErrors(){
       .attr('value', subType)
       .appendTo('#caseForm');
 
-      // $('<input />').attr('type', 'hidden')
-      // .attr('name', "post_content")
-      // .attr('value', richTextField.document.getElementsByTagName('body')[0].innerHTML) //textContent
-      // .appendTo('#caseForm');
-
     <?php
     if($_GET['id'] != null && $_GET['id'] != "new-post"){
       echo "$('<input />').attr('type', 'hidden')";
@@ -262,9 +259,8 @@ function clearErrors(){
 
       myForm.submit();
     }
-    // Else, likely SPAM
+
     else {
-      // $(".mdev-error-group").addClass('active');
       console.log('Submission flagged as spam');
     }
   }
@@ -273,17 +269,15 @@ function clearErrors(){
   echo $sysMsg;
   echo "<div class='admin-container' style='width: 100%; position: relative; display: flex; flex-wrap: wrap; box-sizing: border-box;'>";
   echo "<div class='admin-group' style='width:40%; border: 1px #d0d0d0 solid; padding: 10px; margin: 5px;'>";
-  // Team Member Admin Forms
 
   if($_GET['id'] == null)
   {
     ?>
       <a href='?page=case-study-data&id=new-post'>Add New</a>
-      <!-- <button onclick="">Delete</button> -->
       <br />
     <?php
     
-    $result = $wpdb->get_results ("SELECT * FROM tblCaseStudy;");//where post_type = \"about\"
+    $result = $wpdb->get_results ("SELECT * FROM tblCaseStudy;");
     foreach ( $result as $page ) { 
       echo "<input type=\"checkbox\" value=\"".$page->ID."\"><a href='?page=case-study-data&id=".$page->ID."'>".$page->title."</a> <br />"; 
     }
@@ -339,6 +333,12 @@ function clearErrors(){
     <div>
       <label for="clientAlt">client Logo Alt Text:</label>
       <input name="clientAlt" value="<?php echo $result->clientAlt?>" />
+    </div>
+
+    <div>
+      <br/>
+      <label for="txt_note">Note (Optional):</label><br/>
+      <input id="txt_note" name="note" value="<?php echo $result->note;?>"/>
     </div>
 
     <div>

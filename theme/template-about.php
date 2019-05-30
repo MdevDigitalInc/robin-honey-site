@@ -3,9 +3,9 @@
 <?php 
 get_header(); 
 
-$about = $wpdb->get_results ("SELECT * FROM wp_posts where post_type = \"about\" and post_status =\"publish\" and menu_order = 0 and post_status = \"publish\";");
-$bio = $wpdb->get_results ("SELECT * FROM wp_posts where post_type = \"about\" and post_status =\"publish\" and menu_order = 1 and post_status = \"publish\";");
-$other = $wpdb->get_results ("SELECT * FROM wp_posts where post_type = \"about\" and post_status =\"publish\" and menu_order = 2 and post_status = \"publish\";");
+$about = $wpdb->get_results ("SELECT * FROM wp_70uo8oqigo_posts where post_type = \"about\" and post_status =\"publish\" and menu_order = 0 and post_status = \"publish\";");
+$bio = $wpdb->get_results ("SELECT * FROM wp_70uo8oqigo_posts where post_type = \"about\" and post_status =\"publish\" and menu_order = 1 and post_status = \"publish\";");
+$other = $wpdb->get_results ("SELECT * FROM wp_70uo8oqigo_posts where post_type = \"about\" and post_status =\"publish\" and menu_order = 2 and post_status = \"publish\";");
 
 
 ?>
