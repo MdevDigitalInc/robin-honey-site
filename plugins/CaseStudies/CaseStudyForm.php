@@ -98,9 +98,14 @@ function case_study_options() {
 
 
   $count = $wpdb->get_var("Select count(ID) from tblCaseStudy;");
-  $sysMsg = "";
-  if(($_POST["subType"] == "Create" && $count < 6)|| $_POST["subType"] == "Update")
-  {
+  $sysMsg;
+
+
+  if (($_POST["subType"] && $count <= 3) || (  $_GET['id'] == "new-post" && $count >= 6)) {
+
+    $sysMsg = "Your selected action could not be completed, you cannot have less than 3, and no more than 6 case studies.";
+
+  } else if(($_POST["subType"] == "Create" && $count < 6)|| $_POST["subType"] == "Update") {
     $hero_image = "";
     $client_image = "";
     $imagesSection = "";
@@ -124,10 +129,14 @@ function case_study_options() {
     }
     //echo $imagesSection . strlen($imagesSection) ."<br/>";
 
+    $slug = $_POST["slug"] ? $_POST["slug"] : str_replace(".", "",str_replace(" ","-", strtolower($_POST["txt_title"])));
 
     if($_POST["subType"] == "Create") { 
+
+      
+
       $wpdb->get_results( 
-        $wpdb->prepare("insert into tblCaseStudy (title,heroImage,caseDescription,clientUrl,clientLogo,projSummary,testimonial,tAuthor,tTitle,seoTitle,seoDescription,thumbnail,heroAlt,clientAlt,thumbAlt,note) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,s%);",
+        $wpdb->prepare("insert into tblCaseStudy (title,heroImage,caseDescription,clientUrl,clientLogo,projSummary,testimonial,tAuthor,tTitle,seoTitle,seoDescription,thumbnail,heroAlt,clientAlt,thumbAlt,note,urlTitle,slug) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);",
           $_POST["txt_title"],
           $hero_image,
           $_POST["txt_desc"],
@@ -143,13 +152,15 @@ function case_study_options() {
           $_POST["heroAlt"],
           $_POST["clientAlt"],
           $_POST["thumbAlt"],
-          $_POST["note"]
+          $_POST["note"],
+          $_POST["txt_url_title"],
+          $slug
         )
       );
     } else if ($_POST["subType"] == "Update") {
       
       $query = $wpdb->prepare(
-        "update tblCaseStudy set title = %s, caseDescription = %s, clientUrl = %s, projSummary = %s, testimonial = %s, tAuthor = %s, tTitle = %s, seoTitle = %s, seoDescription = %s, slug = %s, heroAlt = %s, clientAlt = %s, thumbAlt = %s, note = %s". $imagesSection ." where ID = %d;",
+        "update tblCaseStudy set title = %s, caseDescription = %s, clientUrl = %s, projSummary = %s, testimonial = %s, tAuthor = %s, tTitle = %s, seoTitle = %s, seoDescription = %s, slug = %s, heroAlt = %s, clientAlt = %s, thumbAlt = %s, note = %s, urlTitle = %s". $imagesSection ." where ID = %d;",
         $_POST["txt_title"],
         $_POST["txt_desc"],
         $_POST["txt_url"],
@@ -159,11 +170,12 @@ function case_study_options() {
         $_POST["txt_tTitle"],
         $_POST["seo_title"],
         $_POST["seo_desc"],
-        $_POST['slug'],
+        $slug,
         $_POST["heroAlt"],
         $_POST["clientAlt"],
         $_POST["thumbAlt"],
         $_POST["note"],
+        $_POST["txt_url_title"],
         $_POST["id"]
       );
       
@@ -179,10 +191,7 @@ function case_study_options() {
     $wpdb->get_results( 
       $query
     );
-} else if ($_POST["subType"] && ($count <= 3 || $count >= 6)) {
-  
-  $sysMsg = "Your selected action could not be completed, you cannot have less than 3, and no more than 6 case studies.";
-}
+} 
 
 
 
@@ -270,7 +279,7 @@ function clearErrors(){
   echo "<div class='admin-container' style='width: 100%; position: relative; display: flex; flex-wrap: wrap; box-sizing: border-box;'>";
   echo "<div class='admin-group' style='width:40%; border: 1px #d0d0d0 solid; padding: 10px; margin: 5px;'>";
 
-  if($_GET['id'] == null)
+  if($_GET['id'] == null || $sysMsg)
   {
     ?>
       <a href='?page=case-study-data&id=new-post'>Add New</a>
@@ -320,6 +329,9 @@ function clearErrors(){
       <br/>
       <label for="txt_url">Client Url: </label><br/>
       <input type="text" name="txt_url" id="txt_url" value="<?php echo $result->clientUrl;?>"/>
+      <br/>
+      <label for="txt_url_title">Client Url Title: </label><br/>
+      <input type="text" name="txt_url_title" id="txt_url_title" value="<?php echo $result->clientUrlTitle;?>"/>
     </div>
 
     <div>

@@ -8,15 +8,15 @@ if(!$slug) {
 } else {
   $result = $wpdb->get_row("select * from tblCaseStudy where slug = '".$slug."';");
 }
-  $next = $wpdb->get_row("select * from tblCaseStudy where id > ".$result->ID.";") ?? $wpdb->get_row("select * from tblCaseStudy;");
-  $prev = $wpdb->get_row("select * from tblCaseStudy where id < ".$result->ID." order by id desc;") ?? $wpdb->get_row("select * from tblCaseStudy order by id desc;");
+  $next = $wpdb->get_row("select * from tblCaseStudy where title > \"".$result->title."\";") ?? $wpdb->get_row("select * from tblCaseStudy order by title;");
+  $prev = $wpdb->get_row("select * from tblCaseStudy where title < \"".$result->title."\" order by id desc;") ?? $wpdb->get_row("select * from tblCaseStudy order by title desc;");
 ?>
 <main class="rhd-main">
   <section class="rhd-work-example-banner">
   <div class="rhd-container">
      <div class="rhd-row flex flex-row flex-wrap flex-hor-center">
       <div class="rhd-work-heading"><h1><?php echo $result->title;?></h1></div>
-      <div class="rhd-view-more-work"><a href="/work/<?php echo $prev->slug?>" title=""><i class="fas fa-chevron-left"></i></a> <span>view more work</span>  <a href="/work/<?php echo $next->slug?>"  title=""><i class="fas fa-chevron-right"></i></a></div>
+      <div class="rhd-view-more-work"><a href="/work/<?php echo $prev->slug?>" title="View <?php echo ucwords($prev->title);?>"><i class="fas fa-chevron-left"></i></a> <span>view more work</span>  <a href="/work/<?php echo $next->slug?>"  title="View <?php echo ucwords($next->title);?>"><i class="fas fa-chevron-right"></i></a></div>
      </div>
      <img src="<?php echo bloginfo('template_url'); ?><?php echo $result->heroImage; ?>" alt="<?php echo $result->heroAlt ?>">
   </div>
@@ -35,7 +35,7 @@ if(!$slug) {
       $visual = str_replace("www.", "", $visual);
       $visual = str_replace("/", "", $visual);
 
-      echo "<p><a href=\"". $result->clientUrl."\" title=\"\" target=\"_blank\">".$visual."</a></p>";
+      echo "<p><a href=\"". $result->clientUrl."\" title=\"$result->urlTitle\" target=\"_blank\">".$visual."</a></p>";
       
       if($result->note) {
         echo "<p class=\"u-italic small small-note\">NOTE: ". $result->note."<a href=\"https://thearcane.com/\" title=\"Arcane Website\" target=\"_blank\">Arcane.</a></p>";
@@ -44,7 +44,7 @@ if(!$slug) {
       ?>
     </aside>
     <div class="rhd-work-example-logo">
-      <img src="<?php echo bloginfo('template_url'); ?><?php echo $result->clientLogo;?>" alt="">
+      <img src="<?php echo bloginfo('template_url'); ?><?php echo $result->clientLogo;?>" alt="<?php echo $result->clientAlt;?>">
     </div>
     <div class="rhd-content-right brand-description">
       <p><?php echo $result->projSummary;?></p>
@@ -57,6 +57,6 @@ if(!$slug) {
       <p class="u-text-center"><strong ><?php echo $result->tAuthor;?></strong><br><?php echo $result->tTitle;?></p>
     </div>
   </section>
-  <?php include 'contact.php'; ?>
+  <?php include 'custom-contact-form.php'; ?>
 </main>
 <?php get_footer(); ?>

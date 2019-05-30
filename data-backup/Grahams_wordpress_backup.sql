@@ -3,8 +3,8 @@
 docker exec 6c5 /usr/bin/mysqldump -u root --password=Mdevdb101! wordpress > data-backup/wordpress_backup.sql
 
 
-docker exec fc1 /usr/bin/mysqldump -u root --password=Mdevdb101! wordpress tblCaseStudy tblLogowall > data-backup/about_backup.sql
-docker exec fc1 /usr/bin/mysqldump -u root --password=Mdevdb101! wordpress wp_posts --where=" post_type ='about' " > data-backup/editability_backup.sql
+docker exec 1fd /usr/bin/mysqldump -u root --password=Mdevdb101! wordpress tblCaseStudy tblLogowall > data-backup/editability_backup.sql
+docker exec 1fd /usr/bin/mysqldump -u root --password=Mdevdb101! wordpress wp_posts --where=" post_type ='about' " > data-backup/about_backup.sql
 
 
 

@@ -78,11 +78,12 @@ body {
     }
   }
 }
-
+/* stylelint-disable */
 .rhd-row > * {
   box-sizing: border-box;
   width: 100%;
 }
+/* stylelint-enable */
 
 .rhd-brand {
   max-width: 210px;
@@ -1097,7 +1098,7 @@ div.wpcf7-mail-sent-ok:before {
     border: 6px solid #fff;
     border-radius: 50%;
     animation: rhd-ring 1.2s cubic-bezier( .5, 0, .5, 1 ) infinite;
-    border-color: #fff transparent transparent transparent;
+    border-color: #fff transparent;
 
     &:nth-child( 1 ) {
       animation-delay: -.45s;

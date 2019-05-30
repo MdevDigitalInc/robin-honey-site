@@ -1,3 +1,6 @@
+<?php 
+  $nav = $wpdb->get_row("select * from tblCaseStudy order by title;");
+?>
 <footer class="rhd-main-footer ">
 	<div class="rhd-container">
 		<div class="rhd-row flex flex-row flex-wrap flex-hor-center">
@@ -8,62 +11,39 @@
 							<i class="fab fa-linkedin"></i>
 						</a>
 					</li>
-	                <li>
-	                	<a href="https://twitter.com/honeylondon?lang=en" title="follow us on twitter" target="_blank">
-	                		<i class="fab fa-twitter"></i>
-	                	</a>
-	                </li>
-	                <li>
-	                	<a href="https://www.instagram.com/robin.honey/" title="follow us on instagram" target="_blank">
-	                		<i class="fab fa-instagram"></i>
-	                	</a>
-	                </li>
-				</ul>
+            <li>
+              <a href="https://twitter.com/honeylondon?lang=en" title="follow us on twitter" target="_blank">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/robin.honey/" title="follow us on instagram" target="_blank">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </li>
+        </ul>
 			</div>
-			<div>
-				<?php $defaults = array(
-				'theme_location'  => 'primary_navigation_footer',
-				'menu'            => '',
-				'container'       => 'ul',
-				'container_class' => '',
-				'container_id'    => '',
-				'menu_class'      => 'rhd-footer-menu flex flex-row flex-wrap flex-hor-center',
-				'menu_id'         => '',
-				'echo'            => true,
-				'fallback_cb'     => 'wp_page_menu',
-				'before'          => '',
-				'after'           => '',
-				'link_before'     => '',
-				'link_after'      => '',
-				'depth'           => 0,
-				'walker'          => '',
-				//'reverse' => true
-				);
-				?>
-
-				<?php wp_nav_menu( $defaults ); ?>
-				</div>
+		  <div>			
+        <ul id="menu-main-navigation-footer" class="rhd-footer-menu flex flex-row flex-wrap flex-hor-center">
+          <li id="menu-item-67" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-67">
+            <a href="/work/<?php echo $nav->slug; ?>" title="View <?php echo ucwords($nav->title);?>" >Work</a>
+          </li>
+          <li id="menu-item-65" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-65">
+            <a href="/about/" title="View About Page">About</a>
+          </li>
+        </ul>			
+      </div>
 				<div class="rhd-flex-list">
-				<?php $defaults = array(
-				'theme_location'  => 'footer_navigation',
-				'menu'            => '',
-				'container'       => 'ul',
-				'container_class' => '',
-				'container_id'    => '',
-				'menu_class'      => 'flex flex-row flex-wrap flex-hor-between',
-				'menu_id'         => '',
-				'echo'            => true,
-				'fallback_cb'     => 'wp_page_menu',
-				'before'          => '',
-				'after'           => '',
-				'link_before'     => '',
-				'link_after'      => '',
-				'depth'           => 0,
-				'walker'          => '',
-				//'reverse' => true
-				);
-				?>
-				<?php wp_nav_menu( $defaults ); ?>
+          <ul id="menu-sub-links" class="flex flex-row flex-wrap flex-hor-between">
+          <?php
+            $results = $wpdb->get_results("select * from tblCaseStudy order by title;");
+            foreach($results as $row) {
+              echo "<li >";
+              echo "<a href=\"/work/".$row->slug."\" title=\"View ".ucwords($row->title)."\">".ucwords($row->title)."</a>";
+              echo "</li>";
+            }
+          ?>  
+        </ul>
 			</div>
 		</div>
 	</div>
