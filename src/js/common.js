@@ -114,12 +114,12 @@ export default {
 
           }
 
-        },'json'); // response data format
+        },'json');
 
-      //}, 3000);
+      //}, 5000);
 
       });
-      //End Custom Cantact Form
+      //End Custom Contact Form
     });
   },
 };
