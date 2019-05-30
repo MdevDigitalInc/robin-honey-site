@@ -609,11 +609,21 @@ ul.sub-menu {
 .rhd-work-box {
   position: relative;
   width: 100%;
+  margin-bottom: 90px;
+
+  &:nth-child(n+4) {
+    margin-bottom: 0;
+  }
 
   img {
     width: 100%;
     filter: opacity(1);
     transition: filter 1s, background 1s;
+  }
+
+  a {
+    //min-height: 350px;
+    //display: block;
   }
 
   &:hover {
