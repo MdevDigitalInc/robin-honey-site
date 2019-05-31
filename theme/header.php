@@ -106,13 +106,13 @@ $nav = $wpdb->get_row("select * from tblCaseStudy order by title;");
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140210722-1"></script>
     <script>
-    // window.dataLayer = window.dataLayer || [];
-    // function gtag()
+      window.dataLayer = window.dataLayer || [];
+      function gtag()
 
-    // {dataLayer.push(arguments);}
-    // gtag('js', new Date());
+      {dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-    // gtag('config', 'UA-140210722-1');
+      gtag('config', 'UA-140210722-1');
     </script>
 
    <?php wp_head(); ?>

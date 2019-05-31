@@ -48,11 +48,11 @@ if(!$slug) {
       $visual = str_replace("/", "", $visual);
 
       echo "<p><a href=\"". $current->clientUrl."\" title=\"$current->urlTitle\" target=\"_blank\">".$visual."</a></p>";
-      
+
       if($current->note) {
         echo "<p class=\"u-italic small small-note\">NOTE: ". $current->note."<a href=\"https://thearcane.com/\" title=\"Arcane Website\" target=\"_blank\">Arcane.</a></p>";
       }
-      
+
       ?>
     </aside>
     <div class="rhd-work-example-logo">
@@ -65,8 +65,11 @@ if(!$slug) {
   </section>
   <section class="rhd-section-light-grey rhd-testimonial">
     <div class="rhd-container">
+      <br>
+      <br>
       <p class="u-italic u-text-center"><?php echo $current->testimonial;?></p><!--“”-->
-      <p class="u-text-center"><strong ><?php echo $current->tAuthor;?></strong><br><?php echo $current->tTitle;?></p>
+      <br>
+      <p class="u-text-center"><strong><?php echo $current->tAuthor;?></strong><br><?php echo $current->tTitle;?></p>
     </div>
   </section>
   <?php include 'custom-contact-form.php'; ?>

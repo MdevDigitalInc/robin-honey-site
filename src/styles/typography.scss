@@ -78,8 +78,8 @@ $h3-font-sizes: (
 
 $h4-font-sizes: (
   null  : 20px,
-  $tablet-up : 23px,
-  $desktop-up: 23px
+  $tablet-up : 22px,
+  $desktop-up: 22px
 );
 
 $h5-font-sizes: (
@@ -182,7 +182,7 @@ h4,
   font-weight: 700;
   color: $dark-grey;
   line-height: 1;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   @include font-size($h4-font-sizes);
 }
 
