@@ -34,6 +34,36 @@
             <h4 class="u-text-center">navigreat</h4>
           </a>
         </div>
+        <div class="rhd-work-box">
+          <a href="<?php echo home_url('/'); ?>navigreat-fine-foods/" title="View Navigreat Fine Foods">
+            <img src="<?php echo bloginfo('template_url'); ?>/img/work-navigreat-thumbnail.png" alt="Navigreat Logo">
+            <h4 class="u-text-center">navigreat</h4>
+          </a>
+        </div>
+        <div class="rhd-work-box">
+          <a href="<?php echo home_url('/'); ?>navigreat-fine-foods/" title="View Navigreat Fine Foods">
+            <img src="<?php echo bloginfo('template_url'); ?>/img/work-navigreat-thumbnail.png" alt="Navigreat Logo">
+            <h4 class="u-text-center">navigreat</h4>
+          </a>
+        </div>
+        <div class="rhd-work-box">
+          <a href="<?php echo home_url('/'); ?>navigreat-fine-foods/" title="View Navigreat Fine Foods">
+            <img src="<?php echo bloginfo('template_url'); ?>/img/work-navigreat-thumbnail.png" alt="Navigreat Logo">
+            <h4 class="u-text-center">navigreat</h4>
+          </a>
+        </div>
+        <div class="rhd-work-box">
+          <a href="<?php echo home_url('/'); ?>navigreat-fine-foods/" title="View Navigreat Fine Foods">
+            <img src="<?php echo bloginfo('template_url'); ?>/img/work-navigreat-thumbnail.png" alt="Navigreat Logo">
+            <h4 class="u-text-center">navigreat</h4>
+          </a>
+        </div>
+        <div class="rhd-work-box">
+          <a href="<?php echo home_url('/'); ?>navigreat-fine-foods/" title="View Navigreat Fine Foods">
+            <img src="<?php echo bloginfo('template_url'); ?>/img/work-navigreat-thumbnail.png" alt="Navigreat Logo">
+            <h4 class="u-text-center">navigreat</h4>
+          </a>
+        </div>
        </div>
     </div>
   </section>
