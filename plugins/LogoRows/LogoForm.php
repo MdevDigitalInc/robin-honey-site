@@ -199,7 +199,7 @@ function clearErrors(){
 
       $('<input />').attr('type', 'hidden')
       .attr('name', "id")
-      .attr('value',dropDown.options[dropDown.selectedIndex].innerHTML)
+      .attr('value',dropDown.options[dropDown.selectedIndex].value)
       .appendTo('#logoForm');
     
     

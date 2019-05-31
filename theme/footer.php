@@ -26,7 +26,7 @@
 		  <div>			
         <ul id="menu-main-navigation-footer" class="rhd-footer-menu flex flex-row flex-wrap flex-hor-center">
           <li id="menu-item-67" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-67">
-            <a href="/work/<?php echo $nav->slug; ?>" title="View <?php echo ucwords($nav->title);?>" >Work</a>
+            <a href="/work/<?php echo $nav->slug; ?>" title="View <?php echo ucwords($nav->title);?> Case Study" >Work</a>
           </li>
           <li id="menu-item-65" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-65">
             <a href="/about/" title="View About Page">About</a>
@@ -39,7 +39,7 @@
             $results = $wpdb->get_results("select * from tblCaseStudy order by title;");
             foreach($results as $row) {
               echo "<li >";
-              echo "<a href=\"/work/".$row->slug."\" title=\"View ".ucwords($row->title)."\">".ucwords($row->title)."</a>";
+              echo "<a href=\"/work/".$row->slug."\" title=\"View ".ucwords($row->title)." Case Study\">".ucwords($row->title)."</a>";
               echo "</li>";
             }
           ?>  
