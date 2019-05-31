@@ -14,7 +14,7 @@
         $results = $wpdb->get_results("select * from tblCaseStudy order by title;");
         foreach($results as $row) {
           echo "<div class=\"rhd-work-box\">";
-          echo "<a href=\"/work/".$row->slug."\" title=\"View ".ucwords($row->title)."\">";
+          echo "<a href=\"/work/".$row->slug."\" title=\"View ".ucwords($row->title)." Case Study\">";
           echo "<img src=\"".get_bloginfo('template_url'). $row->thumbnail."\" alt=\"".$row->thumbAlt."\">";
           echo "<h4 class=\"u-text-center\" >".$row->title."<h4>";
           echo "</a>";

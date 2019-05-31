@@ -137,12 +137,12 @@ $nav = $wpdb->get_row("select * from tblCaseStudy order by title;");
             <nav>
               <ul id="menu-main-navigation" class="rhd-main-menu flex flex-row flex-wrap flex-hor-end">
                 <li id="menu-item-24" class="work menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-24">
-                  <a href="/work/<?php echo $nav->slug; ?>" title="View <?php echo ucwords($nav->title);?>" >Work</a>
+                  <a href="/work/<?php echo $nav->slug; ?>" title="View <?php echo ucwords($nav->title);?> Case Study" >Work</a>
                 </li>
                 <li id="menu-item-20" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20">
                   <a href="/about/" title="View About Page">About</a>
                 </li>
-                <li id="menu-item-25" class="rhd-contact-link menu-item menu-item-type-custom menu-item-object-custom menu-item-25"><a href="#contact">Contact</a></li>
+                <li id="menu-item-25" class="rhd-contact-link menu-item menu-item-type-custom menu-item-object-custom menu-item-25"><a href="#contact" title="View Contact From">Contact</a></li>
               </ul>
               <div class="rhd-social-nav">
                 <ul class="rhd-social">

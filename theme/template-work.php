@@ -29,7 +29,7 @@ if(!$slug) {
   <div class="rhd-container">
      <div class="rhd-row flex flex-row flex-wrap flex-hor-center">
       <div class="rhd-work-heading"><h1><?php echo $current->title;?></h1></div>
-      <div class="rhd-view-more-work"><a href="/work/<?php echo $prev->slug?>" title="View <?php echo ucwords($prev->title);?> Case Study"><i class="fas fa-chevron-left"></i></a> <span>view more work</span>  <a href="/work/<?php echo $next->slug?>"  title="View <?php echo ucwords($next->title);?>"><i class="fas fa-chevron-right"></i></a></div>
+      <div class="rhd-view-more-work"><a href="/work/<?php echo $prev->slug?>" title="View <?php echo ucwords($prev->title);?> Case Study"><i class="fas fa-chevron-left"></i></a> <span>view more work</span>  <a href="/work/<?php echo $next->slug?>"  title="View <?php echo ucwords($next->title);?> Case Study"><i class="fas fa-chevron-right"></i></a></div>
      </div>
      <img src="<?php echo bloginfo('template_url'); ?><?php echo $current->heroImage; ?>" alt="<?php echo $current->heroAlt ?>">
   </div>

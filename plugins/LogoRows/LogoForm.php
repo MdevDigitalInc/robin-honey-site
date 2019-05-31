@@ -99,7 +99,7 @@ function logo_wall_options() {
 
   if($_POST["subType"] == "Create" || $_POST["subType"] == "Update")
   {
-        $client_image = "";
+        $client_image;
     
    
     if($_FILES["clientUpload"]["name"]) {

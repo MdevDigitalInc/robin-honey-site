@@ -317,7 +317,7 @@ function clearErrors(){
     </div>
     <div>
       <label for="heroAlt">Hero Image Alt Text:</label>
-      <input name="heroAlt" value="<?php echo $result->heroAlt?>" />
+      <input name="heroAlt" value="<?php echo stripslashes($result->heroAlt)?>" />
     </div>
 
     <div>
@@ -331,7 +331,7 @@ function clearErrors(){
       <input type="text" name="txt_url" id="txt_url" value="<?php echo $result->clientUrl;?>"/>
       <br/>
       <label for="txt_url_title">Client Url Title: </label><br/>
-      <input type="text" name="txt_url_title" id="txt_url_title" value="<?php echo $result->clientUrlTitle;?>"/>
+      <input type="text" name="txt_url_title" id="txt_url_title" value="<?php echo $result->urlTitle;?>"/>
     </div>
 
     <div>
