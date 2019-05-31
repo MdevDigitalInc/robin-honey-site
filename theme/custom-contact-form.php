@@ -26,7 +26,7 @@
 						<label for="message">What is your brand opportunity or problem?*</label>
 					</div>
 					<div class="rhd-form-group">
-						<input class="rhd-secondary-btn" type="submit" value="Send Message">
+						<input class="rhd-secondary-btn" title="Send Message" type="submit" value="Send Message">
 					</div>
 				</div>
 			</div>

@@ -7,13 +7,7 @@ $company_name = $_POST['company_name'];
 $email = $_POST['email'];
 $phone = $_POST['phone'];
 $message = $_POST['message'];
-//$human = $_POST['message_human'];
 
-// $name = "";
-// $company_name = "";
-// $email = "";
-// $phone = "";
-// $message = "";
 
 $errors = [];
 
@@ -36,7 +30,8 @@ if( $message ===""){
 }
 
 //php mailer variables
-$to = get_option('admin_email');
+//$to = get_option('admin_email');
+$to = "dorian@mdev.digital";
 $subject = "Someone sent a message from ".get_bloginfo('name');
 $headers = 'From: '. $email . "\r\n" .
 'Reply-To: ' . $email . "\r\n";
@@ -61,13 +56,5 @@ if (empty($errors)) {
 	"status": 0
 	}';
 }
-
-	// echo'{"response":"there was an error.",
-	// "errors": {
-	// 	"name": "'.$name.'name is invalid '.$json.'",
-	// 	"email": "email is invalid"
-	// },
-	// "status": 0
-	// }';
 
 ?>
