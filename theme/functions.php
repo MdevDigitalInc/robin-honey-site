@@ -21,6 +21,7 @@ add_action('wp_enqueue_scripts', function () {
     $manifest = json_decode(file_get_contents('dist/assets.json', true));
     $main = $manifest->main;
     wp_enqueue_style('theme-css', get_template_directory_uri() . "/dist/" . $main->css,  false, null);
+    wp_enqueue_style('font-awsome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.css',  false, null);
     wp_enqueue_script('theme-js', get_template_directory_uri() . "/dist/" . $main->js, ['jquery'], null, true);
 }, 100);
 
@@ -48,7 +49,9 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
      */
     register_nav_menus([
-        'primary_navigation' => __('Primary Navigation', 'mini')
+        'primary_navigation' => __('Primary Navigation', 'mini'),
+        'primary_navigation_footer' => __('Primary Navigation Footer', 'mini'),
+        'footer_navigation' => __('Footer Navigation', 'mini')
     ]);
     /**
      * Enable post thumbnails
@@ -111,3 +114,40 @@ function add_slug_to_body_class($classes) {
     }
     return $classes;
 }
+
+/**
+* Enables a 'reverse' option for wp_nav_menu to reverse the order of menu
+* items. Usage:
+*
+* wp_nav_menu(array('reverse' => TRUE, ...));
+*/
+function my_reverse_nav_menu($menu, $args) {
+    if (isset($args->reverse) && $args->reverse) {
+        return array_reverse($menu);
+    }
+    return $menu;
+}
+
+add_filter('wp_nav_menu_objects', 'my_reverse_nav_menu', 10, 2);
+
+
+function custom_rewrite_rule() {
+  add_rewrite_rule('^work/?([^/]*)','index.php?page_id=15','top');
+}
+add_action('init', 'custom_rewrite_rule', 10, 0);
+
+
+include 'custom-page-titles.php';
+
+
+
+
+
+
+
+
+
+
+
+
+

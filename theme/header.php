@@ -1,27 +1,60 @@
 <!DOCTYPE html>
+<?php 
+$slug = explode("/",$_SERVER[REQUEST_URI]);
+$result;
+if($slug[1] == "work")
+{
+  if(!$slug[2]) {
+    $result = $wpdb->get_row("select * from tblCaseStudy order by title;");
+  } else {
+    $result = $wpdb->get_row("select * from tblCaseStudy where slug = '".$slug[2]."';");
+  }
+
+  if(!$result)
+  {
+    //wp_redirect("/404.php");
+    
+  }
+}
+
+
+$nav = $wpdb->get_row("select * from tblCaseStudy order by title;");
+
+
+?>
 <html <?php language_attributes(); ?>>
 	<head>
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
     <!-- [ FACEBOOK OG ] -->
-    <!-- TODO - Edit FB  Open Graph data and delete this comment -->
     <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
-    <meta property="fb:app_id" content="APP_ID_HERE" />
     <meta property="og:type" content="website" />
-    <meta property="og:url"  content="http://SITE_URL_HERE" />
-    <meta property="og:title" content="SITE_TITLE_HERE" />
-    <meta property="og:image" content="http://moreiradevelopment.io/social/moreira-development-twitcard.png" />
+    <meta property="og:url"  content="https://robinhoney.com" />
+    <?php 
+    if($result) { 
+      echo "<meta property=\"og:title\" content=\"".$result->seoTitle."\" />";
+      echo "<meta property=\"og:description\" content=\"".$result->seoDescription."\" />";
+      echo "<meta property=\"og:image\" content=\"".get_bloginfo('template_url'). "/robin-honey-fb-card.png\" />";
+    } else {
+    ?>
+    <meta property="og:title" content="ROBIN HONEY: Brand Consultant" />
+    <meta property="og:description" content="<?php echo get_post_meta($post->ID, 'description', true); ?>" />
+    <meta property="og:image" content="<?php get_bloginfo('template_url'); ?>/robin-honey-fb-card.png" />
+    <?php
+    }
+    ?>
     <!-- Twitter Card  -->
-    <!-- TODO - Edit Twitter Card data and delete this comment -->
     <meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:site" content="@SAMPLE"><meta name="twitter:creator" content="@SAMPLE"><meta name="twitter:title" content="[ MOREIRA DEVELOPMENT PROJECT ] CLIENT | PROJECT "/>
-    <meta name="twitter:description" content="Base Project Install"/>
-    <meta name="twitter:image" content="http://moreiradevelopment.io/social/moreira-development-twitcard.png"/>
+    <meta name="twitter:site" content="@honeylondon">
+    <meta name="twitter:creator" content="@honeylondon">
+    <meta name="twitter:title" content="ROBIN HONEY: Brand Consultant"/>
+    <meta name="twitter:description" content="<?php echo get_post_meta($post->ID, 'description', true); ?>"/>
+    <meta name="twitter:image" content="<?php bloginfo('template_url'); ?>/robin-honey-tw-card.png"/>
+    <meta name="Keywords" content="<?php echo get_post_meta($post->ID, 'keywords', true); ?>">
     <!-- Viewport Settings -->
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="mobile-web-app-capable" content="yes">
     <!-- Chrome Browser Bar Color -->
-    <!-- TODO - Change theme color and delete this comment -->
-    <meta name="theme-color" content="#fff">
+    <meta name="theme-color" content="#8ccecf">
     <!-- Icons -->
     <link rel="apple-touch-icon" sizes="57x57"
       href="<?php bloginfo('template_url'); ?>/dist/icons/apple-touch-icon-57x57.png">
@@ -69,6 +102,69 @@
     <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)"
       href="<?php bloginfo('template_url'); ?>/dist/icons/apple-touch-startup-image-1536x2008.png">
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-		<?php wp_head(); ?>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140210722-1"></script>
+    <script>
+    // window.dataLayer = window.dataLayer || [];
+    // function gtag()
+
+    // {dataLayer.push(arguments);}
+    // gtag('js', new Date());
+
+    // gtag('config', 'UA-140210722-1');
+    </script>
+
+   <?php wp_head(); ?>
 	</head>
 	<body>
+	<button class="rhd-toggle-nav" data-toggle="nav">
+    <span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+  </button>
+	<div class="rhd-overlay" data-toggle="nav"></div>
+  <header class="rhd-main-header">
+    <div class="rhd-header-container">
+      <div class="rhd-row flex flex-row flex-wrap flex-hor-center">
+        <div class="rhd-brand-area">
+          <a href="<?php echo home_url('/'); ?>" class="rhd-brand">
+              <img src="<?php echo bloginfo('template_url'); ?>/img/robin-honey-logo.svg" alt="<?php echo bloginfo('name'); ?>">
+          </a>
+        </div>
+          <div class="rhd-nav-area">
+            <nav>
+              <ul id="menu-main-navigation" class="rhd-main-menu flex flex-row flex-wrap flex-hor-end">
+                <li id="menu-item-24" class="work menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-24">
+                  <a href="/work/<?php echo $nav->slug; ?>" title="View <?php echo ucwords($nav->title);?>" >Work</a>
+                </li>
+                <li id="menu-item-20" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20">
+                  <a href="/about/" title="View About Page">About</a>
+                </li>
+                <li id="menu-item-25" class="rhd-contact-link menu-item menu-item-type-custom menu-item-object-custom menu-item-25"><a href="#contact">Contact</a></li>
+              </ul>
+              <div class="rhd-social-nav">
+                <ul class="rhd-social">
+                  <li>
+                    <a href="https://ca.linkedin.com/in/robinhoney/" title="follow us on linkedin" target="_blank">
+                      <i class="fab fa-linkedin"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://twitter.com/honeylondon?lang=en" title="follow us on twitter" target="_blank">
+                      <i class="fab fa-twitter"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.instagram.com/robin.honey/" title="follow us on instagram" target="_blank">
+                      <i class="fab fa-instagram"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+	</header>

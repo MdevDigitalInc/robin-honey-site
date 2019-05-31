@@ -4,36 +4,103 @@ form {
   position: relative;
 }
 
-
 /* stylelint-disable */
 /* Disabled because it is valid and I need this level of control*/
 .mdev-error {
-  border: 1px solid red!important;
-  color: red!important;
+  border: 1px solid red !important;
+  color: red !important;
 }
+
 input {
   &[type="text"],
   &[type="email"],
   &[type="password"],
   &[type="search"],
-  &[type="url"] {
+  &[type="url"],
+  &[type="tel"],
+   {
     width: 100%;
-    border-radius: $standard-radius;
-    padding: 10px;
-    margin-top: 20px;
-    border: 1px solid rgba( 122, 193, 66, 0 );
-    background: $bkg-light-grey;
+    padding: 10px 10px 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 3px solid $white;
+    background-color: transparent;
     outline: 0;
     transition: border, .3s;
+    color: $white;
+    font-family: $main-font;
+    font-size: 17px;
+    line-height: 2;
 
-    &:hover, &:focus, &:active {
-      border: 1px solid rgba( 122, 193, 66, 1 );
+    @media #{$tablet-up} {
+      font-size: 20px;
+    }
+
+    &:hover,
+    &:active {
+      background-color: transparent;
+      //background-color: green;
+      color: $white;
+    }
+
+    &:focus {
+      border-bottom: 3px solid rgba(255, 255, 255, .5);
+    }
+
+    &:focus + label {
+      font-size: 15px;
+      transform: translateY( -53% );
+
+      @media #{$phone-only} {
+        transform: translateY( -35% );
+      }
     }
   }
 
   &[type="button"],
   &[type="submit"] {
-    @extend .mdev-base-btn;
+  @extend .rhd-base-btn;
+  }
+}
+
+textarea {
+  width: 100%;
+  padding: 10px 0;
+  border: 0;
+  border-bottom: 3px solid $white;
+  background-color: transparent;
+  outline: 0;
+  margin-top: 10px;
+  transition: border, .3s;
+  color: $white;
+  font-size: 17px;
+  margin-bottom: 20px;
+  min-height: 100px;
+  font-family: $main-font;
+  font-weight: normal;
+  overflow: hidden;
+
+  @media #{$tablet-up} {
+    font-size: 20px;
+  }
+
+  &:hover,
+  &:active {
+    background-color: transparent;
+    color: $white;
+  }
+
+  &:focus {
+    border-bottom: 3px solid rgba(255, 255, 255, .5); 
+  }
+
+  &:focus + label {
+      font-size: 15px;
+      transform: translateY( -55% );
+      @media #{$phone-only} {
+        font-size: 14px;
+        transform: translateY( -35% );
+      }
   }
 }
 
@@ -50,6 +117,82 @@ input {
 .mdev-action-group {
   width: 100%;
   position: relative;
+}
+
+.rhd-form-group {
+  width: 100%;
+  position: relative;
+  text-align: left;
+
+  label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: all .3s;
+    font-size: 17px;
+    padding: 10px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: $white;
+    font-weight: 300;
+
+    @media #{$tablet-up} {
+      font-size: 20px;
+    }
+  }
+
+  span {
+    display: block;
+  }
+
+  &.is-active > label {
+    font-size: 15px;
+    transform: translateY( -60% );
+    color: $white;
+
+    @media #{$phone-only} {
+      transform: translateY( -35% );
+    }
+  }
+
+  &.message.is-active > label {
+    font-size: 15px;
+    transform: translateY( -55% );
+    color: $white;
+
+    @media #{$phone-only} {
+      font-size: 14px;
+      transform: translateY( -35% );
+    }
+  }
+}
+
+.rhd-form-group.name,
+.rhd-form-group.company-name,
+.rhd-form-group.phone,
+.rhd-form-group.email {
+  @media #{$laptop-up} {
+    width: 22%;
+    padding: 0;
+
+    input {
+      &[ type = 'text' ],
+      &[ type = 'email' ],
+      &[ type = 'password' ],
+      &[ type = 'search' ],
+      &[ type = 'url' ] ,
+      &[ type = 'tel' ] {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.rhd-form-group.message {
+  @media #{$laptop-up} {
+    padding: 0;
+  }
 }
 
 

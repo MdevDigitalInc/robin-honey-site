@@ -1,13 +1,14 @@
 /*-------------------------------------
- *	BUTTONS MASTER STYLES
+ *  BUTTONS MASTER STYLES
  *-------------------------------------
  *
- *	Stylesheet dedicated to all button
- *	styles including colour and typography
+ *  Stylesheet dedicated to all button
+ *  styles including colour and typography
  *
 /-------------------------------------*/
 
 /* Base Button */
+
 .mdev-base-btn {
   width: auto;
   padding: 20px;
@@ -29,5 +30,156 @@
     color: $color-brand-primary;
     background: $color-brand-accent;
     border: 1px solid rgba(242,170,0,1);
+  }
+}
+
+
+.rhd-base-btn {
+  padding: 20px 30px;
+  display: block;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 40px 0;
+  text-align: center;
+  text-transform: uppercase;
+  transition: .3s;
+  border-radius: 44px;
+  cursor: pointer;
+
+  @media #{$tablet-up} {
+    display: inline-block;
+    padding: 20px 60px;
+  }
+
+  @media #{$phone-only} {
+    padding: 20px 40px;
+    width: 85%;
+  }
+}
+
+.rhd-main-btn {
+  color: $white;
+  background-color: $blue;
+
+  &:hover {
+    color: $white;
+    background-color: $gold;
+  }
+
+  &:focus {
+    color: $white;
+    background-color: $gold;
+  }
+
+  &:active {
+    color: $white;
+    background-color: $gold;
+  }
+}
+
+.rhd-secondary-btn {
+  color: $gold;
+  background-color: $white;
+  border: solid 2px $white;
+
+  &:hover {
+    color: $white;
+    background-color: $blue;
+  }
+
+  &:focus {
+    color: $white;
+    background-color: $blue;
+  }
+
+  &:active {
+    color: $white;
+    background-color: $blue;
+  }
+}
+
+//Mobile Nav Toggle
+.rhd-toggle-nav {
+  width: 24px;
+  height: 24px;
+  position: fixed;
+  background: transparent;
+  top: 28px;
+
+  @media #{$laptop-up} {
+    display: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
+
+  @media #{$tablet-only} {
+    top: 40px;
+  }
+
+  right: 20px;
+  z-index: 9999;
+  transform: rotate(0deg);
+  transition: .5s ease-in-out;
+  border: none;
+  cursor: pointer;
+  display: block;
+
+  span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: $gold;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+
+    &:nth-child( 1 ) {
+      top: 0;
+    }
+
+    &:nth-child( 2 ) {
+      top: 8px;
+    }
+  }
+}
+
+.rhd-toggle-nav {
+  span:nth-child( 3 ) {
+  top: 8px;
+  }
+
+  span:nth-child( 4 ) {
+    top: 16px;
+  }
+
+  &.open span {
+    &:nth-child( 1 ) {
+      top: 15px;
+      width: 0%;
+      left: 50%;
+    }
+
+    &:nth-child( 2 ) {
+      transform: rotate(45deg);
+    }
+
+    &:nth-child( 3 ) {
+      transform: rotate(-45deg);
+    }
+
+    &:nth-child( 4 ) {
+      top: 10px;
+      width: 0%;
+      left: 50%;
+    }
   }
 }
