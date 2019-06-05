@@ -23,7 +23,7 @@ function logo_action() {
 /** Step 1. basics for plugin */
 function logo_wall_menus() {
   //add_options_page( 'My Plugin Options', 'Updates For', 'manage_options', 'glen-data-form', 'my_bulk_options' );
-  add_options_page( 'Logos Options', 'Update Logos Wall', 'manage_options', 'logo-wall-data', 'logo_wall_options' );
+  add_options_page( 'Logos Options', 'Update Logo Wall', 'manage_options', 'logo-wall-data', 'logo_wall_options' );
 }
 
 function logoUpload($uploader) {

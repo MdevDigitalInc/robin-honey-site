@@ -211,7 +211,6 @@ function clearErrors(){
 
 
     ?>
-      <button onclick="window.location.href='?page=about-page-data&id=new-post'">Add New</button>
       <br/><br/>
       <form name="frmBulk" method="post">
       <label for="blkAction">Bulk Action: </label>
@@ -219,7 +218,6 @@ function clearErrors(){
       <option >Choose and Action</option>
       <option value = "1">Show</option>
       <option value = "2">Hide</option>
-      <option value = "3">Delete</option>
       </select>
     <?php
     echo "<table>";
