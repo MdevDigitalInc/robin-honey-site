@@ -71,8 +71,7 @@ function about_page_options() {
     }
 
   } else  if ($_POST["subType"] == "Delete") {
-    echo $wpdb->prepare( "delete from wp_70uo8oqigo_posts where ID = %d);", $_POST['id']);
-    //$wpdb->get_results( $wpdb->prepare( "delete from wp_70uo8oqigo_posts where ID = %d);", $_POST['id']) );
+    $wpdb->get_results( $wpdb->prepare( "delete from wp_70uo8oqigo_posts where ID = %d);", $_POST['id']) );
   }
 
 
@@ -184,7 +183,7 @@ function clearErrors(){
   </script>
   <?php
   echo "<div class='admin-container' style='width: 100%; position: relative; display: flex; flex-wrap: wrap; box-sizing: border-box;'>";
-  echo "<div class='admin-group' style='width:40%; border: 1px #d0d0d0 solid; padding: 10px; margin: 5px;'>";
+  echo "<div class='admin-group' style='width:60%; border: 1px #d0d0d0 solid; padding: 10px; margin: 5px;'>";
   // Team Member Admin Forms
 
   if($_GET['id'] == null)
@@ -212,18 +211,16 @@ function clearErrors(){
 
 
     ?>
-      <a href='?page=about-page-data&id=new-post'>Add New</a>
+      <button onclick="window.location.href='?page=about-page-data&id=new-post'">Add New</button>
+      <br/><br/>
       <form name="frmBulk" method="post">
-      <label for="blkAction">Bulk Action</label>
+      <label for="blkAction">Bulk Action: </label>
       <select id="blkAction" name="blkAction" >
       <option >Choose and Action</option>
       <option value = "1">Show</option>
       <option value = "2">Hide</option>
       <option value = "3">Delete</option>
       </select>
-      
-      <br />
-      <button onclick="">Submit</button>
     <?php
     echo "<table>";
     echo "<tr>";
@@ -239,7 +236,7 @@ function clearErrors(){
     }
     echo "</table>";
     ?>
-
+    <button onclick="">Submit</button>
     </form> <!-- end frmBulk-->
 
 
@@ -275,7 +272,7 @@ function clearErrors(){
       <button onclick="execCmd('italic');">Italics</button>
       <!-- <button onclick="execCmd('formatBlock', 'p');">Paragraph</button> -->
       <select onchange="execCmd('formatBlock', this.value)">
-        <option value=""></option>
+        <option>Headings</option>
         <option value="H2">H2</option>
         <option value="H3">H3</option>
       </select>
@@ -284,12 +281,13 @@ function clearErrors(){
       <button onclick="execCmd('insertHorizontalRule');">line</button>
       <button onclick="execCmd('createLink', prompt('Enter a URL', 'http\:\/\/'));">Hyperlink</button>
       <button onclick="execCmd('unlink');">unlink</button>
-      <button onclick="showSource();">source</button>
-    </div>
-    <?php
-
+      <?php
+      //echo "<button onclick=\"showSource();\">source</button>"; // DO NOT DELETE THIS LINE
     ?>
-    <iframe name="richTextField" id="richTextField" style="width: 1000px; height: 500px;"></iframe>
+      
+    </div>
+    
+    <iframe name="richTextField" id="richTextField" style="width: 500px; height: 500px;"></iframe>
     <script type="text/javascript">
     var showSourceCode = false;
   
@@ -330,7 +328,6 @@ function clearErrors(){
 
 if($_GET['id'] != null && $_GET['id'] != "new-post") {
    echo "<button type=\"button\" onclick='submitForm(\"Update\")' Name='btnFUpdate'>Update</button>";
-   echo "<input type='button' id='btnDelete' value='Delete' onclick='submitForm(\"Delete\")'/>";
   } else{
     echo "<button type=\"button\" onclick='submitForm(\"Create\")' name='btnFCreate'>Create</button>";
   }

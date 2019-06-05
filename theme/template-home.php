@@ -44,7 +44,7 @@
        foreach($results as $row)
        {
         echo"<div class=\"rhd-brand-box\">";
-        echo"  <img src=\"" . get_bloginfo( 'template_url', 'display' ) . $row->url . "\" alt=\"$row->alt\">";
+        echo"  <img src=\"" . get_bloginfo( 'template_url', 'display' ) . $row->url . "\" alt=\"".$row->alt."\">";
         echo"</div>";
        }
        ?>

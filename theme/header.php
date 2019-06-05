@@ -115,7 +115,15 @@ $nav = $wpdb->get_row("select * from tblCaseStudy order by title;");
       gtag('config', 'UA-140210722-1');
     </script>
 
-   <?php wp_head(); ?>
+   <?php 
+   wp_head(); 
+   
+   if($result) { 
+     echo "<title>".$result->seoTitle."</title>";
+     echo "<meta name=\"description\" content=\"".$result->seoDesc."\">";
+   }
+   ?>
+
 	</head>
 	<body>
 	<button class="rhd-toggle-nav" data-toggle="nav">
@@ -138,6 +146,16 @@ $nav = $wpdb->get_row("select * from tblCaseStudy order by title;");
               <ul id="menu-main-navigation" class="rhd-main-menu flex flex-row flex-wrap flex-hor-end">
                 <li id="menu-item-24" class="work menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-24">
                   <a href="/work/<?php echo $nav->slug; ?>" title="View <?php echo ucwords($nav->title);?> Case Study" >Work</a>
+                  <ul class="sub-menu">
+                  <?php
+                      $results = $wpdb->get_results("select * from tblCaseStudy order by title;");
+                      foreach($results as $row) {
+                        
+                        echo "<li  class=\"menu-item menu-item-type-custom menu-item-object-custom menu-item-32\"><a href=\"/work/".$row->slug."\" title=\"View ".ucwords($row->title)."\">".ucwords($row->title)."</a></li>";
+                        
+                      }
+                    ?>
+                  </ul>
                 </li>
                 <li id="menu-item-20" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20">
                   <a href="/about/" title="View About Page">About</a>

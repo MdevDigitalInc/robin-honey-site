@@ -101,7 +101,7 @@ function case_study_options() {
   $sysMsg;
 
 
-  if (($_POST["subType"] && $count <= 3) || (  $_GET['id'] == "new-post" && $count >= 6)) {
+  if (($_POST["subType"] == "Delete" && $count <= 3) || (  $_GET['id'] == "new-post" && $count >= 6)) {
 
     $sysMsg = "Your selected action could not be completed, you cannot have less than 3, and no more than 6 case studies.";
 
@@ -177,8 +177,7 @@ function case_study_options() {
         $_POST["note"],
         $_POST["txt_url_title"],
         $_POST["id"]
-      );
-      
+      );      
       $wpdb->get_results( 
         $query
       );
@@ -282,13 +281,13 @@ function clearErrors(){
   if($_GET['id'] == null || $sysMsg)
   {
     ?>
-      <a href='?page=case-study-data&id=new-post'>Add New</a>
+      <button onclick="window.location.href='?page=case-study-data&id=new-post'">Add New</button>
       <br />
     <?php
     
     $result = $wpdb->get_results ("SELECT * FROM tblCaseStudy;");
     foreach ( $result as $page ) { 
-      echo "<input type=\"checkbox\" value=\"".$page->ID."\"><a href='?page=case-study-data&id=".$page->ID."'>".$page->title."</a> <br />"; 
+      echo "<a href='?page=case-study-data&id=".$page->ID."'>".$page->title."</a> <br />"; 
     }
     
   }
@@ -305,7 +304,7 @@ function clearErrors(){
     
     <div>
       <label for="txt_tidtle">Title: </label><br/>
-      <input type="text" name="txt_title" value="<?php echo $result->title;?>"/>
+      <input type="text" name="txt_title" value="<?php echo stripslashes($result->title);?>"/>
     </div>
     <div>
       <br/>
@@ -317,12 +316,12 @@ function clearErrors(){
     </div>
     <div>
       <label for="heroAlt">Hero Image Alt Text:</label>
-      <input name="heroAlt" value="<?php echo stripslashes($result->heroAlt)?>" />
+      <input name="heroAlt" value="<?php echo stripslashes($result->heroAlt);?>" />
     </div>
 
     <div>
       <label for="txt_desc">Description: </label><br/>
-      <input type="text" id="txt_desc" name="txt_desc" value="<?php echo $result->caseDescription;?>"/>
+      <input type="text" id="txt_desc" name="txt_desc" value="<?php echo stripslashes($result->caseDescription);?>"/>
     </div>
 
     <div>
@@ -331,7 +330,7 @@ function clearErrors(){
       <input type="text" name="txt_url" id="txt_url" value="<?php echo $result->clientUrl;?>"/>
       <br/>
       <label for="txt_url_title">Client Url Title: </label><br/>
-      <input type="text" name="txt_url_title" id="txt_url_title" value="<?php echo $result->urlTitle;?>"/>
+      <input type="text" name="txt_url_title" id="txt_url_title" value="<?php echo stripslashes($result->urlTitle);?>"/>
     </div>
 
     <div>
@@ -344,7 +343,7 @@ function clearErrors(){
     </div>
     <div>
       <label for="clientAlt">client Logo Alt Text:</label>
-      <input name="clientAlt" value="<?php echo $result->clientAlt?>" />
+      <input name="clientAlt" value="<?php echo stripslashes($result->clientAlt);?>" />
     </div>
 
     <div>
@@ -359,58 +358,54 @@ function clearErrors(){
       <input type="file" id="thumbUpload" name="thumbUpload">
     </div>
     <div>
-      <img id="thumbPreview" height="20%" width="20%" src="/wp-content/themes/robin-honey/<?php echo $thumb_image ?>" />
+      <img id="thumbPreview" height="20%" width="20%" src="/wp-content/themes/robin-honey/<?php echo $thumb_image; ?>" />
     </div>
     <div>
       <label for="thumbAlt">Thumbnail Alt Text:</label>
-      <input name="thumbAlt" value="<?php echo $result->thumbAlt?>" />
+      <input name="thumbAlt" value="<?php echo stripslashes($result->thumbAlt);?>" />
     </div>
 
     <div>
       <br/>
       <label for="ta_summary">Project Summary</label><br/>
-      <textarea id="ta_summary" name="ta_summary" rows="4" cols="50"><?php echo $result->projSummary;?></textarea>
+      <textarea id="ta_summary" name="ta_summary" rows="4" cols="50"><?php echo stripslashes($result->projSummary);?></textarea>
     </div>
 
     <div>
       <br/>
       <label for="ta_testimonial">Testimonial: </label><br/>
-      <textarea id="ta_testimonial" name="ta_testimonial" rows="4" cols="50" ><?php echo $result->testimonial;?></textarea>
+      <textarea id="ta_testimonial" name="ta_testimonial" rows="4" cols="50" ><?php echo stripslashes($result->testimonial);?></textarea>
     </div>
 
     <div>
       <label for="txt_tTitle">Testimonial by title: </label><br/>
-      <input type="text" id="txt_tTitle" name="txt_tTitle" value="<?php echo $result->tTitle;?>"/>
+      <input  id="txt_tTitle" name="txt_tTitle" value="<?php echo stripslashes($result->tTitle);?>"/>
     </div>
 
     <div>
       <label for="txt_tName">Testimonial by name: </label><br/>
-      <input type="text" id="txt_tName" name="txt_tName" value="<?php echo $result->tAuthor;?>"/>
+      <input  id="txt_tName" name="txt_tName" value="<?php echo stripslashes($result->tAuthor);?>"/>
     </div>
 
     <div>
       <br/>
-      <label for="seo_desc">Page Slug</label><br/>
-      <input id="txt_slug" name="slug" value="<?php echo $result->slug;?>"/>
+      <label for="slug">Page Slug</label><br/>
+      <input id="txt_slug" name="slug" value="<?php echo stripslashes($result->slug);?>"/>
     </div>
 
     <div>
       <label for="seo_title">Seo Title: </label><br/>
-      <input type="text" id="seo_title" name="seo_title" value="<?php echo $result->seoTitle;?>"/>
+      <input id="seo_title" name="seo_title" value="<?php echo stripslashes($result->seoTitle);?>"/>
     </div>
 
     <div>
       <br/>
       <label for="seo_desc">Seo Description</label><br/>
-      <textarea id="seo_desc" name="seo_desc" rows="4" cols="50"><?php echo $result->seoDescription;?></textarea>
+      <textarea id="seo_desc" name="seo_desc" rows="4" cols="50"><?php echo stripslashes($result->seoDescription);?></textarea>
     </div>
     
   </form> 
   <?php
-
-  //  echo "<button type=\"button\" onclick='submitForm(\"Update\")' Name='btnFUpdate'>Update</button>";
-  //  echo "<button type=\"button\" onclick='submitForm(\"Create\")' name='btnFCreate'>Create</button>";
-  //  echo "<input type='button' id='btnDelete' value='Delete' />";
 
    if($_GET['id'] != null && $_GET['id'] != "new-post") {
     echo "<button type=\"button\" onclick='submitForm(\"Update\")' Name='btnFUpdate'>Update</button>";
