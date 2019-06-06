@@ -359,7 +359,7 @@ function clearErrors(){
     </div>
 
     <div>
-    <label for="txt_noteText">Note Link:</label><br/>
+    <label for="txt_noteText">Note Link Text:</label><br/>
       <textarea id="txt_noteText" name="noteText" rows="4" cols="50"><?php echo $result->noteText;?></textarea>
       <br/>
       <label for="txt_noteLink">Note Link:</label><br/>
