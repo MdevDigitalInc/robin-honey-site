@@ -136,7 +136,7 @@ function case_study_options() {
       
 
       $wpdb->get_results( 
-        $wpdb->prepare("insert into tblCaseStudy (title,heroImage,caseDescription,clientUrl,clientLogo,projSummary,testimonial,tAuthor,tTitle,seoTitle,seoDescription,thumbnail,heroAlt,clientAlt,thumbAlt,note,urlTitle,slug) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);",
+        $wpdb->prepare("insert into tblCaseStudy (title,heroImage,caseDescription,clientUrl,clientLogo,projSummary,testimonial,tAuthor,tTitle,seoTitle,seoDescription,thumbnail,heroAlt,clientAlt,thumbAlt,note,urlTitle,slug,noteLink,noteTitle,noteText) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);",
           $_POST["txt_title"],
           $hero_image,
           $_POST["txt_desc"],
@@ -154,13 +154,16 @@ function case_study_options() {
           $_POST["thumbAlt"],
           $_POST["note"],
           $_POST["txt_url_title"],
+          $_POST["noteLink"],
+          $_POST["noteTitle"],
+          $_POST["noteText"],
           $slug
         )
       );
     } else if ($_POST["subType"] == "Update") {
       
       $query = $wpdb->prepare(
-        "update tblCaseStudy set title = %s, caseDescription = %s, clientUrl = %s, projSummary = %s, testimonial = %s, tAuthor = %s, tTitle = %s, seoTitle = %s, seoDescription = %s, slug = %s, heroAlt = %s, clientAlt = %s, thumbAlt = %s, note = %s, urlTitle = %s". $imagesSection ." where ID = %d;",
+        "update tblCaseStudy set title = %s, caseDescription = %s, clientUrl = %s, projSummary = %s, testimonial = %s, tAuthor = %s, tTitle = %s, seoTitle = %s, seoDescription = %s, slug = %s, heroAlt = %s, clientAlt = %s, thumbAlt = %s, note = %s, urlTitle = %s, noteLink = %s, noteTitle = %s, noteText = %s". $imagesSection ." where ID = %d;",
         $_POST["txt_title"],
         $_POST["txt_desc"],
         $_POST["txt_url"],
@@ -176,6 +179,9 @@ function case_study_options() {
         $_POST["thumbAlt"],
         $_POST["note"],
         $_POST["txt_url_title"],
+        $_POST["noteLink"],
+        $_POST["noteTitle"],
+        $_POST["noteText"],
         $_POST["id"]
       );      
       $wpdb->get_results( 
@@ -304,7 +310,7 @@ function clearErrors(){
     
     <div>
       <label for="txt_tidtle">Title: </label><br/>
-      <input type="text" name="txt_title" value="<?php echo stripslashes($result->title);?>"/>
+      <textarea name="txt_title" rows="4" cols="50"><?php echo stripslashes($result->title);?></textarea>
     </div>
     <div>
       <br/>
@@ -316,12 +322,12 @@ function clearErrors(){
     </div>
     <div>
       <label for="heroAlt">Hero Image Alt Text:</label>
-      <input name="heroAlt" value="<?php echo stripslashes($result->heroAlt);?>" />
+      <textarea name="heroAlt" rows="4" cols="50"><?php echo stripslashes($result->heroAlt);?></textarea>
     </div>
 
     <div>
       <label for="txt_desc">Description: </label><br/>
-      <input type="text" id="txt_desc" name="txt_desc" value="<?php echo stripslashes($result->caseDescription);?>"/>
+      <textarea id="txt_desc" name="txt_desc" rows="4" cols="50"><?php echo stripslashes($result->caseDescription);?></textarea>
     </div>
 
     <div>
@@ -330,7 +336,7 @@ function clearErrors(){
       <input type="text" name="txt_url" id="txt_url" value="<?php echo $result->clientUrl;?>"/>
       <br/>
       <label for="txt_url_title">Client Url Title: </label><br/>
-      <input type="text" name="txt_url_title" id="txt_url_title" value="<?php echo stripslashes($result->urlTitle);?>"/>
+      <textarea name="txt_url_title" id="txt_url_title" rows="4" cols="50"><?php echo stripslashes($result->urlTitle);?></textarea>
     </div>
 
     <div>
@@ -343,14 +349,28 @@ function clearErrors(){
     </div>
     <div>
       <label for="clientAlt">client Logo Alt Text:</label>
-      <input name="clientAlt" value="<?php echo stripslashes($result->clientAlt);?>" />
+      <textarea name="clientAlt" rows="4" cols="50"><?php echo stripslashes($result->clientAlt);?></textarea>
     </div>
 
     <div>
       <br/>
       <label for="txt_note">Note (Optional):</label><br/>
-      <input id="txt_note" name="note" value="<?php echo $result->note;?>"/>
+      <textarea id="txt_note" name="note" rows="4" cols="50"><?php echo $result->note;?></textarea>
     </div>
+
+    <div>
+    <label for="txt_noteText">Note Link:</label><br/>
+      <textarea id="txt_noteText" name="noteText" rows="4" cols="50"><?php echo $result->noteText;?></textarea>
+      <br/>
+      <label for="txt_noteLink">Note Link:</label><br/>
+      <textarea id="txt_noteLink" name="noteLink" rows="4" cols="50"><?php echo $result->noteLink;?></textarea>
+      <br/>
+      <label for="txt_noteTitle">Note Link Title Text:</label><br/>
+      <textarea id="txt_noteTitle" name="noteTitle" rows="4" cols="50"><?php echo $result->noteTitle;?></textarea>
+    </div>
+
+
+
 
     <div>
       <br/>
@@ -362,7 +382,7 @@ function clearErrors(){
     </div>
     <div>
       <label for="thumbAlt">Thumbnail Alt Text:</label>
-      <input name="thumbAlt" value="<?php echo stripslashes($result->thumbAlt);?>" />
+      <textarea name="thumbAlt" rows="4" cols="50"><?php echo stripslashes($result->thumbAlt);?></textarea>
     </div>
 
     <div>
@@ -379,12 +399,12 @@ function clearErrors(){
 
     <div>
       <label for="txt_tTitle">Testimonial by title: </label><br/>
-      <input  id="txt_tTitle" name="txt_tTitle" value="<?php echo stripslashes($result->tTitle);?>"/>
+      <textarea id="txt_tTitle" name="txt_tTitle" rows="4" cols="50"><?php echo stripslashes($result->tTitle);?></textarea>
     </div>
 
     <div>
       <label for="txt_tName">Testimonial by name: </label><br/>
-      <input  id="txt_tName" name="txt_tName" value="<?php echo stripslashes($result->tAuthor);?>"/>
+      <textarea id="txt_tName" name="txt_tName" rows="4" cols="50"><?php echo stripslashes($result->tAuthor);?></textarea>
     </div>
 
     <div>
@@ -395,7 +415,7 @@ function clearErrors(){
 
     <div>
       <label for="seo_title">Seo Title: </label><br/>
-      <input id="seo_title" name="seo_title" value="<?php echo stripslashes($result->seoTitle);?>"/>
+      <textarea id="seo_title" name="seo_title" rows="4" cols="50"><?php echo stripslashes($result->seoTitle);?></textarea>
     </div>
 
     <div>

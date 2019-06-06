@@ -52,7 +52,7 @@ if(!$slug) {
       echo "<p><a href=\"". $current->clientUrl."\" title=\"".stripslashes($current->urlTitle)."\" target=\"_blank\">".$visual."</a></p>";
 
       if($current->note) {
-        echo "<p class=\"u-italic small small-note\">NOTE: ". stripslashes($current->note)."<a href=\"https://thearcane.com/\" title=\"Arcane Website\" target=\"_blank\">Arcane.</a></p>";
+        echo "<p class=\"u-italic small small-note\">NOTE: ". stripslashes($current->note)."<a href=\"$current->noteLink\" title=\"$current->noteTitle\" target=\"_blank\">$current->noteText.</a></p>";
       }
 
       ?>
